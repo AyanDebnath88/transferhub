@@ -198,13 +198,47 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
           <a href="/clubs" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">Clubs</a>
         </nav>
 
-        <button class="md:hidden p-2 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all" aria-label="Open menu">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="menu-btn" class="md:hidden p-2 -mr-2 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
+
+      <!-- Mobile menu (toggled) -->
+      <div id="mobile-menu" class="md:hidden hidden border-t border-line bg-pitch-800">
+        <nav class="max-w-6xl mx-auto px-2 py-2 flex flex-col text-[15px] font-medium">
+          <a href="/" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Latest</a>
+          <a href="/confirmed" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-grass flex-shrink-0"></span>Confirmed
+          </a>
+          <a href="/rumours" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-rumor flex-shrink-0"></span>Rumours
+          </a>
+          <a href="/premier-league" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Premier League</a>
+          <a href="/clubs" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Clubs</a>
+        </nav>
+      </div>
     </header>
+
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById('menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        var io = document.getElementById('menu-icon-open');
+        var ic = document.getElementById('menu-icon-close');
+        if (!btn || !menu) return;
+        btn.addEventListener('click', function () {
+          var open = menu.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', String(open));
+          io.classList.toggle('hidden', open);
+          ic.classList.toggle('hidden', !open);
+        });
+      })();
+    </script>
 
     <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-6">
       <slot />
@@ -269,8 +303,12 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
 <style>
   /* Marquee ticker — duplicated content scrolls -50% for a seamless loop */
   .ticker-track {
-    animation: ticker-scroll 45s linear infinite;
+    animation: ticker-scroll 85s linear infinite;
     will-change: transform;
+  }
+  @media (max-width: 640px) {
+    /* slower still on mobile so it's readable */
+    .ticker-track { animation-duration: 70s; }
   }
   .ticker-mask:hover .ticker-track {
     animation-play-state: paused;
