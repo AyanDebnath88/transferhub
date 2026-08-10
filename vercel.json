@@ -2,11 +2,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": "astro",
-  "crons": [
-    {
-      "path": "/api/refresh",
-      "schedule": "*/30 * * * *"
-    }
-  ]
+  "framework": "astro"
 }
