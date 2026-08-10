@@ -1,0 +1,15 @@
+---
+interface Props {
+  score: number; // 1-10
+}
+const { score } = Astro.props;
+const pct = Math.round((score / 10) * 100);
+const color = score >= 8 ? 'bg-emerald-500' : score >= 5 ? 'bg-amber-400' : 'bg-red-400';
+---
+<div class="flex items-center gap-2 text-xs text-slate-500">
+  <span>Confidence</span>
+  <div class="flex-1 max-w-24 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+    <div class={`h-full rounded-full ${color}`} style={`width:${pct}%`}></div>
+  </div>
+  <span class="font-semibold">{score}/10</span>
+</div>

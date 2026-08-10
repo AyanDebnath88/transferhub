@@ -1,0 +1,70 @@
+---
+// Lightweight consent banner wired to Google Consent Mode v2.
+// Defaults all non-essential storage to "denied" until the user accepts.
+// NOTE: for EEA/UK traffic at scale, Google requires a *certified* CMP.
+// This is a compliant baseline; swap in a certified CMP before heavy EEA spend.
+---
+<div id="cookie-consent" class="fixed inset-x-0 bottom-0 z-[100] hidden">
+  <div class="max-w-3xl mx-auto m-3 bg-pitch-700 border border-line shadow-2xl shadow-black/50 rounded-2xl p-4 sm:p-5">
+    <p class="text-sm font-bold text-cream mb-1">We use cookies</p>
+    <p class="text-xs text-cream-muted leading-relaxed mb-3">
+      We use strictly necessary cookies to run the site, and — only with your consent — analytics and advertising cookies (including Google AdSense) to measure traffic and show ads. See our
+      <a href="/privacy" class="text-gold hover:underline">Privacy Policy</a>.
+    </p>
+    <div class="flex flex-wrap gap-2">
+      <button data-consent="accept" class="bg-gold hover:bg-gold-400 text-pitch-900 text-xs font-bold px-4 py-2 rounded-lg transition-colors">Accept all</button>
+      <button data-consent="reject" class="bg-pitch-600 hover:bg-pitch-800 text-cream text-xs font-bold px-4 py-2 rounded-lg transition-colors">Reject non-essential</button>
+      <a href="/privacy" class="text-xs text-cream-dim hover:text-cream px-2 py-2 self-center">More options</a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    // Google Consent Mode v2 — default everything denied before choice.
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = window.gtag || gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500,
+    });
+
+    var KEY = 'th_consent_v1';
+    var el = document.getElementById('cookie-consent');
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+
+    function apply(grant) {
+      var v = grant ? 'granted' : 'denied';
+      gtag('consent', 'update', {
+        ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v,
+      });
+    }
+
+    function choose(grant) {
+      try { localStorage.setItem(KEY, JSON.stringify({ grant: grant, ts: Date.now() })); } catch (e) {}
+      apply(grant);
+      if (el) el.classList.add('hidden');
+    }
+
+    if (stored) {
+      try { apply(JSON.parse(stored).grant === true); } catch (e) {}
+    } else if (el) {
+      el.classList.remove('hidden');
+    }
+
+    document.querySelectorAll('[data-consent]').forEach(function (b) {
+      b.addEventListener('click', function () { choose(b.getAttribute('data-consent') === 'accept'); });
+    });
+
+    // Footer "Cookie settings" re-opens the banner.
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-cookie-settings]');
+      if (t) { e.preventDefault(); if (el) el.classList.remove('hidden'); }
+    });
+  })();
+</script>

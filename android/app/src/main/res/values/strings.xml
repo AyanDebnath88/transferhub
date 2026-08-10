@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TransferHub</string>
+    <string name="title_activity_main">TransferHub</string>
+    <string name="package_name">app.transferhub</string>
+    <string name="custom_url_scheme">app.transferhub</string>
+</resources>

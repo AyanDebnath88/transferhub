@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact & DMCA" description="Contact TransferHub — questions, DMCA takedown requests, or error reports.">
+  <div class="max-w-xl">
+    <h1 class="font-display text-3xl font-bold text-cream mb-2">Contact Us</h1>
+    <p class="text-cream-muted mb-6">Have a question, spotted an error, or want to report a broken source? Reach out below.</p>
+
+    <div class="bg-pitch-700 border border-line rounded-xl p-6 space-y-5">
+      <div>
+        <p class="text-sm font-semibold text-cream mb-1">Email</p>
+        <a href="mailto:hello@transferhub.net" class="text-gold hover:underline text-sm">hello@transferhub.net</a>
+      </div>
+      <div class="border-t border-line-soft pt-4">
+        <p class="text-sm font-semibold text-cream mb-1">Response time</p>
+        <p class="text-sm text-cream-muted">Usually within 48 hours.</p>
+      </div>
+      <div class="border-t border-line-soft pt-4">
+        <p class="text-sm font-semibold text-cream mb-1">DMCA / Copyright takedown</p>
+        <p class="text-sm text-cream-muted leading-relaxed">If you are a publisher and wish to have your content removed from our aggregation, please email us with the article URL and we will action it within 24 hours. See our <a href="/attribution" class="text-gold hover:underline">attribution policy</a> for more details on how we handle content.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

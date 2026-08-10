@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TransferCard from '../../components/TransferCard.astro';
+import ClubBadge from '../../components/ClubBadge.astro';
+import { CLUB_META } from '../../lib/clubs';
+import { fetchAllTransfers } from '../../lib/fetchTransfers';
+
+function slugify(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+export function getStaticPaths() {
+  const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return Object.keys(CLUB_META).map((name) => ({
+    params: { slug: slug(name) },
+    props: { name },
+  }));
+}
+
+const { name } = Astro.props;
+const all = await fetchAllTransfers();
+const transfers = all.filter((t) => t.clubs.includes(name));
+const confirmed = transfers.filter((t) => t.type === 'confirmed').length;
+const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+const SITE = 'https://transferhub.club';
+const url = `${SITE}/club/${slugify(name)}`;
+
+const breadcrumbSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Clubs', item: `${SITE}/clubs` },
+    { '@type': 'ListItem', position: 3, name, item: url },
+  ],
+});
+
+const collectionSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${name} Transfer News`,
+  url,
+  about: { '@type': 'SportsTeam', name, sport: 'Association football' },
+});
+---
+
+<BaseLayout
+  title={`${name} Transfer News & Rumours 2026`}
+  description={`Latest ${name} transfer news, confirmed signings and rumours. ${transfers.length} stories, ${confirmed} confirmed. Who is ${name} signing and selling in the 2026 window? Updated ${updatedAt}.`}
+  keywords={`${name} transfer news, ${name} signings, ${name} transfers 2026, ${name} rumours, ${name} done deals, ${name} transfer window`}
+  canonicalUrl={url}
+>
+  <script type="application/ld+json" set:html={breadcrumbSchema} slot="head" />
+  <script type="application/ld+json" set:html={collectionSchema} slot="head" />
+
+  <!-- Breadcrumb -->
+  <nav class="text-xs text-cream-dim mb-4 flex items-center gap-1.5">
+    <a href="/" class="hover:text-gold transition-colors">Home</a>
+    <span>/</span>
+    <a href="/clubs" class="hover:text-gold transition-colors">Clubs</a>
+    <span>/</span>
+    <span class="text-cream-muted">{name}</span>
+  </nav>
+
+  <!-- Club hero -->
+  <div class="flex items-center gap-4 mb-8 pb-6 border-b border-line">
+    <ClubBadge name={name} size="lg" />
+    <div>
+      <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-none tracking-tight">
+        {name} <span class="text-gold">Transfers</span>
+      </h1>
+      <p class="text-sm text-cream-muted mt-1.5">
+        <span class="text-cream font-semibold">{transfers.length}</span> stories &nbsp;&middot;&nbsp;
+        <span class="text-grass font-semibold">{confirmed}</span> confirmed &nbsp;&middot;&nbsp;
+        Updated <time>{updatedAt}</time>
+      </p>
+    </div>
+  </div>
+
+  {transfers.length === 0 ? (
+    <div class="text-center py-20">
+      <p class="text-lg font-semibold text-cream-muted">No {name} transfer news right now</p>
+      <p class="text-sm text-cream-dim mt-2">We aggregate {name} moves the moment trusted publishers report them. Check back soon.</p>
+      <a href="/clubs" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">Browse all clubs</a>
+    </div>
+  ) : (
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {transfers.map((t) => <TransferCard transfer={t} />)}
+    </div>
+  )}
+
+  <!-- SEO copy -->
+  <section class="mt-12 pt-8 border-t border-line max-w-3xl">
+    <h2 class="font-display text-2xl font-bold text-cream mb-3">{name} Transfer News &amp; Rumours</h2>
+    <p class="text-sm text-cream-muted leading-relaxed">
+      Follow every {name} transfer story in one place — confirmed signings, outgoing deals and the latest rumours,
+      aggregated in real time from Sky Sports, BBC Sport, ESPN, Goal.com, The Guardian and Football365. Each story
+      carries a source reliability rating and links straight to the original article, so you can tell a done deal
+      from speculation at a glance. Updated every 30 minutes throughout the 2026 transfer window.
+    </p>
+  </section>
+</BaseLayout>

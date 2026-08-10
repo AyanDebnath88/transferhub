@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TransferCard from '../components/TransferCard.astro';
+import { fetchAllTransfers } from '../lib/fetchTransfers';
+
+const all = await fetchAllTransfers();
+const transfers = all.filter(t => t.type === 'confirmed');
+const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+---
+
+<BaseLayout
+  title="Confirmed Football Transfers 2026 | Done Deals"
+  description={`${transfers.length} confirmed football transfers and done deals today. Official signings confirmed by clubs, agents and reliable sources. Updated at ${updatedAt}.`}
+  keywords="confirmed transfers 2026, done deals football, confirmed signings, official transfer announcements, Premier League done deals, transfer confirmed today"
+>
+  <div class="mb-6">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+      <div>
+        <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-none tracking-tight">
+          Confirmed <span class="text-grass">Transfers</span>
+        </h1>
+        <p class="text-sm text-cream-muted mt-1.5">
+          <span class="text-grass font-semibold">{transfers.length}</span> confirmed signings &nbsp;&middot;&nbsp; Updated <time>{updatedAt}</time>
+        </p>
+      </div>
+      <div class="flex gap-2">
+        <a href="/" class="bg-pitch-700 border border-line hover:border-gold/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">&larr; All News</a>
+        <a href="/rumours" class="flex items-center gap-1.5 bg-pitch-700 border border-line hover:border-rumor/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">
+          <span class="w-1.5 h-1.5 rounded-full bg-rumor"></span> Rumours
+        </a>
+      </div>
+    </div>
+
+    <div class="flex gap-1 bg-pitch-700 border border-line rounded-xl p-1 overflow-x-auto">
+      {([
+        { href: '/',               label: 'All News',       active: false },
+        { href: '/confirmed',      label: 'Confirmed',      active: true  },
+        { href: '/rumours',        label: 'Rumours',        active: false },
+        { href: '/premier-league', label: 'Premier League', active: false },
+      ] as const).map(tab => (
+        <a href={tab.href}
+           class={`flex-shrink-0 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${tab.active ? 'bg-gold text-pitch-900' : 'text-cream-muted hover:text-cream hover:bg-pitch-600'}`}>
+          {tab.label}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  {transfers.length === 0 ? (
+    <div class="text-center py-24">
+      <p class="text-lg font-semibold text-cream-muted">No confirmed transfers at the moment</p>
+      <p class="text-sm text-cream-dim mt-2">Check back soon — signings are announced throughout the day.</p>
+      <a href="/" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View All News</a>
+    </div>
+  ) : (
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {transfers.map(t => <TransferCard transfer={t} />)}
+    </div>
+  )}
+</BaseLayout>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TransferCard from '../components/TransferCard.astro';
+import { fetchAllTransfers } from '../lib/fetchTransfers';
+
+const PL_CLUBS = [
+  'Arsenal','Chelsea','Liverpool','Manchester City','Manchester United',
+  'Tottenham','Newcastle','Aston Villa','West Ham','Brighton',
+  'Everton','Brentford','Fulham','Crystal Palace','Wolves',
+  'Bournemouth','Nottingham Forest','Leicester','Southampton','Ipswich',
+];
+
+const all = await fetchAllTransfers();
+const transfers = all.filter(t =>
+  t.clubs.some(c => PL_CLUBS.includes(c)) ||
+  t.tags.some(tag => PL_CLUBS.map(c => c.toLowerCase().replace(/\s+/g,'-')).includes(tag))
+);
+const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+---
+
+<BaseLayout
+  title="Premier League Transfer News 2026 | All 20 Clubs"
+  description={`Latest Premier League transfer news, signings and rumours. ${transfers.length} stories covering all 20 PL clubs including Arsenal, Chelsea, Liverpool, Man City and Man United. Updated at ${updatedAt}.`}
+  keywords="Premier League transfers 2026, Premier League signings, PL transfer news, Arsenal transfers, Chelsea transfers, Liverpool transfers, Man City transfers, Man United transfers, Tottenham transfers"
+>
+  <div class="mb-6">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+      <div>
+        <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-none tracking-tight">
+          Premier League <span class="text-info">Transfers</span>
+        </h1>
+        <p class="text-sm text-cream-muted mt-1.5">
+          <span class="text-cream font-semibold">{transfers.length}</span> stories &nbsp;&middot;&nbsp; All 20 clubs &nbsp;&middot;&nbsp; Updated <time>{updatedAt}</time>
+        </p>
+      </div>
+      <a href="/" class="bg-pitch-700 border border-line hover:border-gold/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">&larr; All News</a>
+    </div>
+
+    <div class="flex gap-1 bg-pitch-700 border border-line rounded-xl p-1 overflow-x-auto mb-5">
+      {([
+        { href: '/',               label: 'All News',       active: false },
+        { href: '/confirmed',      label: 'Confirmed',      active: false },
+        { href: '/rumours',        label: 'Rumours',        active: false },
+        { href: '/premier-league', label: 'Premier League', active: true  },
+      ] as const).map(tab => (
+        <a href={tab.href}
+           class={`flex-shrink-0 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${tab.active ? 'bg-gold text-pitch-900' : 'text-cream-muted hover:text-cream hover:bg-pitch-600'}`}>
+          {tab.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Club filter chips -->
+    <div class="flex flex-wrap gap-1.5" id="club-filter">
+      <button data-club="all" class="club-chip is-active text-xs px-2.5 py-1 rounded-lg font-medium border transition-colors">All clubs</button>
+      {([
+        ['Arsenal','Arsenal'], ['Chelsea','Chelsea'], ['Liverpool','Liverpool'],
+        ['Man City','Manchester City'], ['Man United','Manchester United'], ['Tottenham','Tottenham'],
+        ['Newcastle','Newcastle'], ['Aston Villa','Aston Villa'], ['West Ham','West Ham'], ['Brighton','Brighton'],
+      ] as const).map(([label, match]) => (
+        <button data-club={match.toLowerCase()} class="club-chip text-xs px-2.5 py-1 rounded-lg font-medium border transition-colors">{label}</button>
+      ))}
+    </div>
+  </div>
+
+  {transfers.length === 0 ? (
+    <div class="text-center py-24">
+      <p class="text-lg font-semibold text-cream-muted">No Premier League transfer news right now</p>
+      <p class="text-sm text-cream-dim mt-2">Check back soon — PL clubs are always active in the transfer market.</p>
+      <a href="/" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View All News</a>
+    </div>
+  ) : (
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="pl-grid">
+      {transfers.map(t => (
+        <div class="pl-card" data-clubs={t.clubs.join('|').toLowerCase()}>
+          <TransferCard transfer={t} />
+        </div>
+      ))}
+    </div>
+    <p id="pl-empty" class="hidden text-center text-sm text-cream-dim py-12">No stories for that club right now.</p>
+  )}
+</BaseLayout>
+
+<style>
+  .club-chip { background:#14301e; color:#aebfB2; border-color:#2a4a34; }
+  .club-chip:hover { border-color:#d4af37; color:#f4f1e8; }
+  .club-chip.is-active { background:#d4af37; border-color:#d4af37; color:#0c1f14; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll('.club-chip');
+  const cards = Array.from(document.querySelectorAll('.pl-card')) as HTMLElement[];
+  const empty = document.getElementById('pl-empty');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const club = chip.getAttribute('data-club') || 'all';
+
+      let shown = 0;
+      cards.forEach((card) => {
+        const clubs = card.getAttribute('data-clubs') || '';
+        const match = club === 'all' || clubs.split('|').includes(club);
+        card.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      empty?.classList.toggle('hidden', shown > 0);
+    });
+  });
+</script>

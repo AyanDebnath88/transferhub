@@ -1,0 +1,34 @@
+{
+  "name": "transferhub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "astro preview",
+    "app:add:ios": "cap add ios",
+    "app:add:android": "cap add android",
+    "app:sync": "astro build && cap sync",
+    "app:open:ios": "cap open ios",
+    "app:open:android": "cap open android"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^6.0.2",
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1",
+    "astro": "^4.16.19",
+    "axios": "^1.4.0",
+    "rss-parser": "^3.12.0",
+    "tailwindcss": "^3.4.19",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "canvas": "^3.2.3",
+    "typescript": "^5.4.0"
+  }
+}

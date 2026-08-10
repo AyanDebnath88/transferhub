@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TransferCard from '../components/TransferCard.astro';
+import { fetchAllTransfers, fetchTopStories } from '../lib/fetchTransfers';
+
+const transfers = await fetchAllTransfers();
+// No transfer news? Fall back to top football stories.
+const topStories = transfers.length === 0 ? await fetchTopStories(12) : [];
+const confirmed = transfers.filter(t => t.type === 'confirmed');
+const rumours   = transfers.filter(t => t.type === 'rumour');
+const featured  = transfers[0];
+const top       = transfers.slice(1, 4);
+const rest      = transfers.slice(4);
+const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+const itemListSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Latest Football Transfers',
+  itemListElement: transfers.slice(0, 10).map((t, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: t.title,
+    url: t.sourceUrl,
+  })),
+});
+
+const faqs = [
+  {
+    q: 'Where can I find the latest football transfer news today?',
+    a: 'TransferHub aggregates live football transfer news, confirmed signings and rumours from trusted publishers including Sky Sports, BBC Sport, ESPN, Goal.com and The Guardian, refreshed every 30 minutes.',
+  },
+  {
+    q: 'How do you know if a transfer is confirmed or just a rumour?',
+    a: 'Each story is automatically classified as Confirmed, Rumour or News from its wording, and given a reliability rating based on the source. Always check the linked original article for the full, verified report.',
+  },
+  {
+    q: 'How often is transfer news updated?',
+    a: 'The feed refreshes every 30 minutes during the transfer window, so confirmed deals and breaking rumours appear shortly after the original publishers report them.',
+  },
+  {
+    q: 'Is TransferHub free to use?',
+    a: 'Yes. TransferHub is completely free and ad-supported. We link to every original article so you can read the full story at the source.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+});
+---
+
+<BaseLayout
+  title="Live Football Transfer News, Rumours & Done Deals 2026"
+  description={`Today's latest football transfer news, confirmed signings and rumours. ${confirmed.length} confirmed deals, ${rumours.length} active rumours. Updated at ${updatedAt}.`}
+  keywords="football transfer news today, transfer rumours 2026, confirmed transfers, Premier League signings, done deals, transfer window 2026, football transfers live"
+>
+  <script type="application/ld+json" set:html={itemListSchema} slot="head" />
+  <script type="application/ld+json" set:html={faqSchema} slot="head" />
+
+  <!-- Page header -->
+  <div class="mb-6">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+      <div>
+        <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-none tracking-tight">
+          Football Transfer <span class="text-gold">News</span>
+        </h1>
+        <p class="text-sm text-cream-muted mt-1.5">
+          <span class="text-cream font-semibold">{transfers.length}</span> stories &nbsp;&middot;&nbsp;
+          <span class="text-grass font-semibold">{confirmed.length}</span> confirmed &nbsp;&middot;&nbsp;
+          Updated <time class="text-cream-muted">{updatedAt}</time>
+        </p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <a href="/confirmed" class="flex items-center gap-2 bg-pitch-700 border border-line hover:border-grass/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">
+          <span class="w-1.5 h-1.5 rounded-full bg-grass flex-shrink-0"></span>
+          {confirmed.length} Confirmed
+        </a>
+        <a href="/rumours" class="flex items-center gap-2 bg-pitch-700 border border-line hover:border-rumor/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">
+          <span class="w-1.5 h-1.5 rounded-full bg-rumor flex-shrink-0"></span>
+          {rumours.length} Rumours
+        </a>
+        <a href="/premier-league" class="bg-pitch-700 border border-line hover:border-info/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">
+          Premier League
+        </a>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="flex gap-1 bg-pitch-700 border border-line rounded-xl p-1 overflow-x-auto">
+      {([
+        { href: '/',               label: 'All News',       count: transfers.length, active: true  },
+        { href: '/confirmed',      label: 'Confirmed',      count: confirmed.length, active: false },
+        { href: '/rumours',        label: 'Rumours',        count: rumours.length,   active: false },
+        { href: '/premier-league', label: 'Premier League', count: null,             active: false },
+      ] as const).map(tab => (
+        <a
+          href={tab.href}
+          class={`flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
+            tab.active
+              ? 'bg-gold text-pitch-900'
+              : 'text-cream-muted hover:text-cream hover:bg-pitch-600'
+          }`}
+        >
+          {tab.label}
+          {tab.count !== null && (
+            <span class={`text-[11px] px-1.5 py-0.5 rounded font-bold ${tab.active ? 'bg-pitch-900/20 text-pitch-900' : 'bg-pitch-600 text-cream-muted'}`}>
+              {tab.count}
+            </span>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  {transfers.length === 0 ? (
+    topStories.length > 0 ? (
+      <section>
+        <div class="flex items-center gap-2 mb-1">
+          <div class="w-0.5 h-4 bg-info rounded-full"></div>
+          <h2 class="text-[11px] font-bold uppercase tracking-widest text-cream-dim">Top Football Stories</h2>
+        </div>
+        <p class="text-sm text-cream-muted mb-4">No transfer news right now — here's what's happening in football.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {topStories.map(t => <TransferCard transfer={t} />)}
+        </div>
+      </section>
+    ) : (
+      <div class="text-center py-24 text-cream-dim">
+        <div class="w-12 h-12 mx-auto mb-4 opacity-40">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#d4af37" opacity="0.3"/>
+            <path d="M7 16h18M17 9l8 7-8 7" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="text-lg font-semibold text-cream-muted">No football news right now</p>
+        <p class="text-sm mt-2">RSS feeds may be temporarily unavailable — check back shortly.</p>
+      </div>
+    )
+  ) : (
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+
+      <!-- Main feed -->
+      <div class="lg:col-span-2 space-y-6">
+
+        {featured && (
+          <section>
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-0.5 h-4 bg-gold rounded-full"></div>
+              <h2 class="text-[11px] font-bold uppercase tracking-widest text-cream-dim">Top Story</h2>
+            </div>
+            <TransferCard transfer={featured} featured={true} />
+          </section>
+        )}
+
+        {top.length > 0 && (
+          <section>
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-0.5 h-4 bg-gold rounded-full"></div>
+              <h2 class="text-[11px] font-bold uppercase tracking-widest text-gold">Breaking Now</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {top.map(t => <TransferCard transfer={t} />)}
+            </div>
+          </section>
+        )}
+
+        {rest.length > 0 && (
+          <section>
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-0.5 h-4 bg-line rounded-full"></div>
+              <h2 class="text-[11px] font-bold uppercase tracking-widest text-cream-dim">Latest</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {rest.map(t => <TransferCard transfer={t} />)}
+            </div>
+          </section>
+        )}
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="space-y-5">
+
+        {confirmed.length > 0 && (
+          <div class="bg-pitch-700 border border-line rounded-xl overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-line-soft bg-pitch-600">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-grass"></span>
+                <h3 class="text-[11px] font-bold uppercase tracking-widest text-cream-muted">Confirmed Today</h3>
+              </div>
+              <a href="/confirmed" class="text-[11px] text-cream-dim hover:text-gold transition-colors font-medium">View all</a>
+            </div>
+            <ul class="divide-y divide-line-soft">
+              {confirmed.slice(0, 5).map(t => (
+                <li class="px-4 py-3 hover:bg-pitch-600 transition-colors">
+                  <a href={t.sourceUrl} target="_blank" rel="noopener noreferrer"
+                     class="text-xs text-cream hover:text-gold leading-snug line-clamp-2 transition-colors block font-medium">
+                    {t.title}
+                  </a>
+                  <p class="text-[10px] text-cream-dim mt-1">{t.source}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {rumours.length > 0 && (
+          <div class="bg-pitch-700 border border-line rounded-xl overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-line-soft bg-pitch-600">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-rumor"></span>
+                <h3 class="text-[11px] font-bold uppercase tracking-widest text-cream-muted">Rumours</h3>
+              </div>
+              <a href="/rumours" class="text-[11px] text-cream-dim hover:text-gold transition-colors font-medium">View all</a>
+            </div>
+            <ul class="divide-y divide-line-soft">
+              {rumours.slice(0, 5).map(t => (
+                <li class="px-4 py-3 hover:bg-pitch-600 transition-colors">
+                  <a href={t.sourceUrl} target="_blank" rel="noopener noreferrer"
+                     class="text-xs text-cream hover:text-gold leading-snug line-clamp-2 transition-colors block font-medium">
+                    {t.title}
+                  </a>
+                  <p class="text-[10px] text-cream-dim mt-1">{t.source}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Install app -->
+        <div class="bg-pitch-700 border border-line rounded-xl p-4">
+          <p class="text-xs font-bold text-cream mb-1">Install TransferHub</p>
+          <p class="text-xs text-cream-muted mb-3 leading-relaxed">Get transfer alerts on your phone. Works on iOS and Android.</p>
+          <button id="pwa-install-btn" class="hidden w-full bg-gold hover:bg-gold-400 text-pitch-900 text-xs font-bold py-2 rounded-lg transition-colors">
+            Add to Home Screen
+          </button>
+          <p class="text-[11px] text-cream-dim leading-snug" id="pwa-fallback">
+            Browser menu &rarr; Share &rarr; Add to Home Screen
+          </p>
+        </div>
+
+      </aside>
+    </div>
+  )}
+
+  <!-- SEO content: crawlable intro + FAQ (also powers FAQ rich result) -->
+  <section class="mt-12 pt-8 border-t border-line max-w-3xl">
+    <h2 class="font-display text-2xl font-bold text-cream mb-3">Live Football Transfer News &amp; Rumours</h2>
+    <p class="text-sm text-cream-muted leading-relaxed mb-3">
+      TransferHub brings you the latest <strong class="text-cream">football transfer news</strong> in real time — confirmed signings,
+      done deals and the hottest transfer rumours from the <strong class="text-cream">Premier League</strong>, La Liga, Serie A,
+      Bundesliga, Ligue 1 and the Champions League. Every story is aggregated from trusted publishers and links
+      straight to the original article, with an at-a-glance reliability rating so you can tell a confirmed deal
+      from speculation.
+    </p>
+    <p class="text-sm text-cream-muted leading-relaxed">
+      Track your club's incomings and outgoings throughout the <strong class="text-cream">2026 transfer window</strong>, follow
+      breaking moves as they happen, and never miss a done deal. Updated every 30 minutes, all day.
+    </p>
+
+    <h2 class="font-display text-2xl font-bold text-cream mt-8 mb-4">Frequently Asked Questions</h2>
+    <div class="space-y-3">
+      {faqs.map(f => (
+        <details class="group bg-pitch-700 border border-line rounded-xl px-4 py-3">
+          <summary class="text-sm font-semibold text-cream cursor-pointer list-none flex items-center justify-between gap-2">
+            {f.q}
+            <span class="text-gold group-open:rotate-180 transition-transform">&#9662;</span>
+          </summary>
+          <p class="text-sm text-cream-muted leading-relaxed mt-2">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  let deferredPrompt: BeforeInstallPromptEvent | null = null;
+  const btn = document.getElementById('pwa-install-btn');
+  const fallback = document.getElementById('pwa-fallback');
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e as BeforeInstallPromptEvent;
+    btn?.classList.remove('hidden');
+    fallback?.classList.add('hidden');
+  });
+  btn?.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') btn.classList.add('hidden');
+    deferredPrompt = null;
+  });
+  interface BeforeInstallPromptEvent extends Event {
+    prompt(): Promise<void>;
+    userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+  }
+</script>

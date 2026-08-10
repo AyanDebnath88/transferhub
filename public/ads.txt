@@ -1,0 +1,4 @@
+# ads.txt — authorized digital sellers (IAB)
+# REPLACE pub-0000000000000000 with your real Google AdSense publisher ID
+# after approval (Console > Sites). Required for ads to serve & to avoid spoofing.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
