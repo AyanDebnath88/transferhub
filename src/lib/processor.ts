@@ -1,5 +1,29 @@
-import { CONFIRMED_KEYWORDS, KNOWN_CLUBS, RUMOUR_KEYWORDS, TRANSFER_KEYWORDS } from './feeds';
+import { CLUB_ALIASES, CONFIRMED_KEYWORDS, KNOWN_CLUBS, RUMOUR_KEYWORDS, TRANSFER_KEYWORDS } from './feeds';
 import type { Transfer } from './types';
+
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Canonical clubs found in text, with the position of first appearance.
+// Canonical names match as substrings (they're distinctive); aliases match on
+// WORD BOUNDARIES so short nicknames don't false-match ("Barça", "Man Utd").
+function findClubs(text: string): { name: string; at: number }[] {
+  const found: { name: string; at: number }[] = [];
+  const push = (name: string, at: number) => {
+    if (at < 0) return;
+    const ex = found.find((f) => f.name === name);
+    if (ex) { if (at < ex.at) ex.at = at; return; }
+    found.push({ name, at });
+  };
+  for (const club of KNOWN_CLUBS) push(club, text.indexOf(club));
+  for (const alias in CLUB_ALIASES) {
+    const re = new RegExp(`(?:^|[^\\p{L}])(${escapeRegex(alias)})(?=[^\\p{L}]|$)`, 'iu');
+    const m = re.exec(text);
+    if (m) push(CLUB_ALIASES[alias], m.index + (m[0].length - m[1].length));
+  }
+  return found;
+}
 
 function slugify(text: string): string {
   return text
@@ -77,19 +101,19 @@ export function classifyType(title: string, description: string): Transfer['type
   return 'news';
 }
 
-// Every known club mentioned anywhere (title or body) — for club-page membership.
+// Every known club mentioned anywhere (title or body, incl. nicknames) — for
+// club-page membership.
 export function extractClubs(text: string): string[] {
-  return KNOWN_CLUBS.filter((club) => text.includes(club));
+  return findClubs(text).map((f) => f.name);
 }
 
-// Clubs named in the TITLE, ordered by where they appear — for the from->to
-// badges so a card reflects its actual headline, not a club mentioned in passing.
+// Clubs named in the TITLE, ordered by where they appear (nicknames resolved) —
+// for the from->to badges so a card reflects its actual headline, not a club
+// mentioned in passing in the article body.
 export function extractHeadlineClubs(title: string): string[] {
-  return KNOWN_CLUBS
-    .filter((club) => title.includes(club))
-    .map((club) => ({ club, at: title.indexOf(club) }))
+  return findClubs(title)
     .sort((a, b) => a.at - b.at)
-    .map((x) => x.club)
+    .map((f) => f.name)
     .slice(0, 2);
 }
 

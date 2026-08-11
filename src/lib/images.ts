@@ -16,9 +16,35 @@ export function slugify(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
+function deburr(s: string): string {
+  return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
 // slug -> filename (for player + club drop-ins)
 const playerFiles: Record<string, string> = {};
 for (const f of scan('players')) playerFiles[f.replace(IMG_RE, '').toLowerCase()] = f;
+
+// Loose name index for matching headlines that use only a mononym ("Rodri")
+// or a surname ("Haaland") instead of the full filename. Keys map to a filename,
+// but only when UNAMBIGUOUS — a name part shared by two players is dropped so we
+// never show the wrong face (e.g. "silva", "hernandez", "james").
+const nameIndex: Record<string, string> = {};
+{
+  const collide = new Set<string>();
+  for (const slug in playerFiles) {
+    const file = playerFiles[slug];
+    const parts = slug.split('-');
+    const keys = new Set<string>([parts.join(' ')]);       // full name
+    keys.add(parts[0]);                                     // first name / mononym
+    keys.add(parts[parts.length - 1]);                      // surname
+    for (const k of keys) {
+      if (k.length < 4) continue;                           // skip tiny/ambiguous tokens
+      if (nameIndex[k] && nameIndex[k] !== file) collide.add(k);
+      else nameIndex[k] = file;
+    }
+  }
+  for (const k of collide) delete nameIndex[k];
+}
 
 const photoFiles = scan('photos').sort();
 
@@ -40,11 +66,33 @@ const crestSlugs = scanSvg('crests');
 
 const credits = creditsRaw as Record<string, { author: string; license: string; url: string }>;
 
-// First matching player (or club) image, else null.
+// First matching player image, else null.
 export function playerImage(names: string[]): string | null {
   for (const n of names || []) {
     const s = slugify(n);
     if (playerFiles[s]) return `/players/${playerFiles[s]}`;
+  }
+  return null;
+}
+
+// Resolve a player photo for a story: try the extracted names exactly, then scan
+// the TITLE for any known player (full name, mononym, or unambiguous surname).
+// Returns the image path + the player slug (for credit lookup), or null.
+export function resolvePlayer(names: string[], title: string): { src: string; slug: string } | null {
+  for (const n of names || []) {
+    const s = slugify(n);
+    if (playerFiles[s]) return { src: `/players/${playerFiles[s]}`, slug: s };
+  }
+  const norm = deburr(title).replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const padded = ` ${norm} `;
+  const toHit = (file: string) => ({ src: `/players/${file}`, slug: file.replace(IMG_RE, '').toLowerCase() });
+  // full names (multi-word keys) first — most specific
+  for (const key in nameIndex) {
+    if (key.includes(' ') && padded.includes(` ${key} `)) return toHit(nameIndex[key]);
+  }
+  // then single-token (mononym / surname) matches
+  for (const tok of norm.split(' ')) {
+    if (nameIndex[tok]) return toHit(nameIndex[tok]);
   }
   return null;
 }

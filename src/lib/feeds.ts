@@ -39,3 +39,16 @@ export const KNOWN_CLUBS = [
   'Bayer Leverkusen', 'RB Leipzig', 'Sevilla', 'Valencia',
   'Celtic', 'Rangers', 'Feyenoord',
 ];
+
+// Headline nicknames / short forms -> canonical KNOWN_CLUBS name.
+// Matched with WORD BOUNDARIES in processor.ts, so short/ambiguous tokens
+// (e.g. "Inter", "City", "United") are deliberately NOT listed here.
+export const CLUB_ALIASES: Record<string, string> = {
+  'Barça': 'Barcelona', 'Barca': 'Barcelona', 'Blaugrana': 'Barcelona',
+  'Spurs': 'Tottenham', 'Gunners': 'Arsenal',
+  'Man City': 'Manchester City', 'Man Utd': 'Manchester United', 'Man United': 'Manchester United',
+  'Atleti': 'Atletico Madrid', 'Atlético Madrid': 'Atletico Madrid', 'Atlético': 'Atletico Madrid',
+  'Bayern': 'Bayern Munich', 'BVB': 'Dortmund', 'Leverkusen': 'Bayer Leverkusen',
+  'Leipzig': 'RB Leipzig', 'Nerazzurri': 'Inter Milan', 'Rossoneri': 'AC Milan',
+  'Los Blancos': 'Real Madrid', 'Bianconeri': 'Juventus',
+};

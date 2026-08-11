@@ -2,7 +2,7 @@
 import type { Transfer } from '../lib/types';
 import ClubBadge from './ClubBadge.astro';
 import ReliabilityStars from './ReliabilityStars.astro';
-import { playerImage, clubImage, clubSlugForImage, genericPhoto, getCredit, slugify } from '../lib/images';
+import { resolvePlayer, clubImage, clubSlugForImage, genericPhoto, getCredit } from '../lib/images';
 
 interface Props {
   transfer: Transfer;
@@ -58,11 +58,15 @@ const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
 //   2. club emblem (public/crests)   — centred, when no player photo
 //   3. royalty-free Pixabay generic  — full-bleed cover, when neither
 //   4. vector art alone
-const playerHit = playerImage(transfer.players);
+// Match a player photo by extracted names OR by scanning the headline (handles
+// mononyms like "Rodri" and surnames that don't equal the full filename).
+const playerRes = resolvePlayer(transfer.players, transfer.title);
+const playerHit = playerRes?.src ?? null;
+const playerName = playerRes ? playerRes.slug.replace(/-/g, ' ') : '';
 const clubHit = playerHit ? null : clubImage(transfer.headlineClubs);
 const coverPhoto = playerHit ?? (clubHit ? null : genericPhoto(transfer.id));
 // Attribution for whichever real image is shown (player photo or club crest).
-const playerCredit = playerHit && transfer.players[0] ? getCredit(slugify(transfer.players[0])) : null;
+const playerCredit = playerRes ? getCredit(playerRes.slug) : null;
 const clubCreditSlug = clubHit ? clubSlugForImage(transfer.headlineClubs) : null;
 const imgCredit = playerCredit ?? (clubCreditSlug ? getCredit(clubCreditSlug) : null);
 ---
@@ -93,7 +97,7 @@ const imgCredit = playerCredit ?? (clubCreditSlug ? getCredit(clubCreditSlug) : 
     {coverPhoto && (
       <img
         src={coverPhoto}
-        alt={playerHit ? transfer.players[0] : ''}
+        alt={playerHit ? playerName : ''}
         aria-hidden={playerHit ? undefined : 'true'}
         loading="lazy"
         decoding="async"
