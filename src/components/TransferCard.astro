@@ -35,8 +35,10 @@ const isBreaking = (() => {
   return !isNaN(ts) && Date.now() - ts < 2 * 60 * 60 * 1000;
 })();
 
-const fromClub = transfer.clubs[0] ?? null;
-const toClub   = transfer.clubs[1] ?? null;
+// Badges reflect the HEADLINE clubs only, so a card never implies a transfer
+// between clubs that were merely mentioned in passing in the article body.
+const fromClub = transfer.headlineClubs[0] ?? null;
+const toClub   = transfer.headlineClubs[1] ?? null;
 
 const gradient =
   transfer.type === 'confirmed' ? 'bg-gradient-to-br from-pitch-600 to-pitch-700' :
@@ -57,11 +59,11 @@ const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
 //   3. royalty-free Pixabay generic  — full-bleed cover, when neither
 //   4. vector art alone
 const playerHit = playerImage(transfer.players);
-const clubHit = playerHit ? null : clubImage(transfer.clubs);
+const clubHit = playerHit ? null : clubImage(transfer.headlineClubs);
 const coverPhoto = playerHit ?? (clubHit ? null : genericPhoto(transfer.id));
 // Attribution for whichever real image is shown (player photo or club crest).
 const playerCredit = playerHit && transfer.players[0] ? getCredit(slugify(transfer.players[0])) : null;
-const clubCreditSlug = clubHit ? clubSlugForImage(transfer.clubs) : null;
+const clubCreditSlug = clubHit ? clubSlugForImage(transfer.headlineClubs) : null;
 const imgCredit = playerCredit ?? (clubCreditSlug ? getCredit(clubCreditSlug) : null);
 ---
 

@@ -144,8 +144,14 @@ function pickCandidate(pages, playerName) {
 }
 
 async function toCard(buf) {
-  // 16:9 card crop, biased to the top so faces survive portrait sources.
-  return sharp(buf).rotate().resize(800, 450, { fit: 'cover', position: 'top' }).jpeg({ quality: 82 }).toBuffer();
+  // Fit the WHOLE image into the 16:9 card (no cropping/cutting). The letterbox
+  // margins are filled with a blurred, darkened cover of the same image so the
+  // player is fully visible and centred without ugly flat bars.
+  const W = 800, H = 450;
+  const fg = await sharp(buf).rotate().resize(W, H, { fit: 'inside' }).toBuffer();
+  const bg = await sharp(buf).rotate().resize(W, H, { fit: 'cover', position: 'attention' })
+    .blur(22).modulate({ brightness: 0.55 }).toBuffer();
+  return sharp(bg).composite([{ input: fg, gravity: 'center' }]).jpeg({ quality: 82 }).toBuffer();
 }
 
 // --- credits file ----------------------------------------------------------

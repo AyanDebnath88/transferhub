@@ -3,7 +3,8 @@ export interface Transfer {
   title: string;
   summary: string;
   players: string[];
-  clubs: string[];
+  clubs: string[];          // any club named in title or body — drives club-page membership
+  headlineClubs: string[];  // clubs named in the TITLE, in order — drives the from->to badges
   type: 'confirmed' | 'rumour' | 'news';
   confidence: number; // 1-10
   source: string;

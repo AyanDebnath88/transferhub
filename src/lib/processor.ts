@@ -66,14 +66,31 @@ export function isTransferRelated(title: string, description: string): boolean {
 }
 
 export function classifyType(title: string, description: string): Transfer['type'] {
+  const t = title.toLowerCase();
   const text = `${title} ${description}`.toLowerCase();
+  // A rumour/speculation word in the HEADLINE dominates: "Diomande might move to
+  // Chelsea" is a rumour even if the article body mentions an old "signed" deal.
+  // This runs BEFORE the confirmed check to stop body text from faking a done deal.
+  if (RUMOUR_KEYWORDS.some((kw) => t.includes(kw))) return 'rumour';
   if (CONFIRMED_KEYWORDS.some((kw) => text.includes(kw))) return 'confirmed';
   if (RUMOUR_KEYWORDS.some((kw) => text.includes(kw))) return 'rumour';
   return 'news';
 }
 
+// Every known club mentioned anywhere (title or body) — for club-page membership.
 export function extractClubs(text: string): string[] {
   return KNOWN_CLUBS.filter((club) => text.includes(club));
+}
+
+// Clubs named in the TITLE, ordered by where they appear — for the from->to
+// badges so a card reflects its actual headline, not a club mentioned in passing.
+export function extractHeadlineClubs(title: string): string[] {
+  return KNOWN_CLUBS
+    .filter((club) => title.includes(club))
+    .map((club) => ({ club, at: title.indexOf(club) }))
+    .sort((a, b) => a.at - b.at)
+    .map((x) => x.club)
+    .slice(0, 2);
 }
 
 export function extractPlayers(title: string): string[] {
@@ -121,6 +138,7 @@ export function processItem(
 
   const type = classifyType(title, description);
   const clubs = extractClubs(fullText);
+  const headlineClubs = extractHeadlineClubs(title);
   const players = extractPlayers(title);
   const confidence = scoreConfidence(type, sourceConfidence, title);
   const summary = buildSummary(title, description);
@@ -138,6 +156,7 @@ export function processItem(
     summary,
     players,
     clubs,
+    headlineClubs,
     type,
     confidence,
     source: sourceName,
