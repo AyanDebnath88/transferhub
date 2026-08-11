@@ -15,24 +15,29 @@ A live football transfer-news aggregator. Pulls 6 RSS feeds, classifies each sto
 - 6 sources: Sky Sports (9), BBC Sport (9), ESPN (8), The Guardian (8), Goal.com (7), Football365 (7). Number = base reliability weight.
 - Rule-based classification (no AI): Confirmed / Rumour / News from headline+body language.
 - Reliability rating 1–10 → 5 stars, adjusted by type + "exclusive".
-- OpenGraph enrichment: fetches each article for a high-quality `og:image` + description; BBC/Sky image-URL upsizing; gradient fallback so no card is ever imageless.
+- Article `og:description` fetched for ~60-word summaries. **No agency/press photos** — see Images below.
 - **Soccer-only filter**: rejects NFL/NBA/MLB/cricket/rugby/tennis/etc in title or body.
 - 5-minute in-memory cache; homepage falls back to top football stories when no transfers.
 
-**Pages (47 total)**
+**Pages (48 total)**
 - Feeds: Home, Confirmed, Rumours.
 - League hubs: Premier League + `/league/{la-liga,serie-a,bundesliga,ligue-1}` (dynamic, unique blurb each).
 - Club hubs: `/club/<slug>` — 28 clubs, each with a unique intro (league/city/nickname) + live counts.
 - Clubs index `/clubs`.
 - Editorial: `/about`, `/methodology` (how reliability works) — original long-form copy.
-- Legal: `/privacy`, `/terms`, `/disclaimer`, `/attribution`, `/contact` (DMCA).
+- Legal: `/privacy`, `/terms`, `/disclaimer`, `/attribution`, `/credits` (image attribution), `/contact` (DMCA).
+
+**Images (copyright-safe)**
+- No agency photos. Card image priority: your player drop-in (`public/players/<slug>.jpg`) → royalty-free Pixabay generic (`public/photos/`, 24) → original vector art (`public/cards/`, 12). Club emblem always shown.
+- Player drop-ins: add files named `player-name.jpg`; only PD/CC0/CC-BY/CC-BY-SA (Wikimedia etc). CC-BY/BY-SA → add a credit to `src/data/imageCredits.json`; shown on `/credits`.
+- Crests are original own-design emblems, not real trademarks. Full detail in `.claude/skills/transferhub/SKILL.md`.
 - Error/utility: `/404`, `/500`, `/offline`.
 
 **Brand & UX**
 - Custom gold arrow logo (favicon + PWA + app icons all regenerated to match).
 - Scrolling confirmed-transfers ticker (85s desktop / 70s mobile).
 - Sticky header: desktop **Leagues dropdown**, working **mobile hamburger menu**.
-- Real club crests (self-hosted `public/logos/`, 28 clubs) with colored-monogram fallback.
+- **Original** club emblems (own design, `public/crests/`, 28 clubs) — not real trademarked crests — with colored-monogram fallback.
 - Fully responsive, no horizontal scroll, 44px tap targets.
 
 **SEO**
