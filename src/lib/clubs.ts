@@ -35,6 +35,42 @@ export const CLUB_META: Record<string, { color: string; short: string }> = {
   'Rangers': { color: '#1B458F', short: 'RAN' },
 };
 
+// Factual club data used to write a UNIQUE intro paragraph per club page.
+export const CLUB_INFO: Record<string, { league: string; city: string; nick: string }> = {
+  'Arsenal': { league: 'the Premier League', city: 'north London', nick: 'the Gunners' },
+  'Chelsea': { league: 'the Premier League', city: 'west London', nick: 'the Blues' },
+  'Liverpool': { league: 'the Premier League', city: 'Merseyside', nick: 'the Reds' },
+  'Manchester City': { league: 'the Premier League', city: 'Manchester', nick: 'the Cityzens' },
+  'Manchester United': { league: 'the Premier League', city: 'Manchester', nick: 'the Red Devils' },
+  'Tottenham': { league: 'the Premier League', city: 'north London', nick: 'Spurs' },
+  'Newcastle': { league: 'the Premier League', city: 'the North East', nick: 'the Magpies' },
+  'Aston Villa': { league: 'the Premier League', city: 'Birmingham', nick: 'the Villans' },
+  'West Ham': { league: 'the Premier League', city: 'east London', nick: 'the Hammers' },
+  'Brighton': { league: 'the Premier League', city: 'the south coast', nick: 'the Seagulls' },
+  'Real Madrid': { league: 'La Liga', city: 'the Spanish capital', nick: 'Los Blancos' },
+  'Barcelona': { league: 'La Liga', city: 'Catalonia', nick: 'Blaugrana' },
+  'Atletico Madrid': { league: 'La Liga', city: 'Madrid', nick: 'Los Colchoneros' },
+  'Bayern Munich': { league: 'the Bundesliga', city: 'Bavaria', nick: 'Die Roten' },
+  'Dortmund': { league: 'the Bundesliga', city: 'the Ruhr', nick: 'BVB' },
+  'PSG': { league: 'Ligue 1', city: 'Paris', nick: 'Les Parisiens' },
+  'Juventus': { league: 'Serie A', city: 'Turin', nick: 'the Bianconeri' },
+  'Inter Milan': { league: 'Serie A', city: 'Milan', nick: 'the Nerazzurri' },
+  'AC Milan': { league: 'Serie A', city: 'Milan', nick: 'the Rossoneri' },
+  'Napoli': { league: 'Serie A', city: 'Naples', nick: 'the Partenopei' },
+  'Bayer Leverkusen': { league: 'the Bundesliga', city: 'Leverkusen', nick: 'Die Werkself' },
+  'RB Leipzig': { league: 'the Bundesliga', city: 'Saxony', nick: 'the Red Bulls' },
+  'Ajax': { league: 'the Eredivisie', city: 'Amsterdam', nick: 'de Godenzonen' },
+  'Porto': { league: "Portugal's Primeira Liga", city: 'Porto', nick: 'the Dragons' },
+  'Benfica': { league: "Portugal's Primeira Liga", city: 'Lisbon', nick: 'the Eagles' },
+  'Sevilla': { league: 'La Liga', city: 'Andalusia', nick: 'Los Nervionenses' },
+  'Celtic': { league: 'the Scottish Premiership', city: 'Glasgow', nick: 'the Bhoys' },
+  'Rangers': { league: 'the Scottish Premiership', city: 'Glasgow', nick: 'the Gers' },
+};
+
+export function getClubInfo(name: string) {
+  return CLUB_INFO[name] ?? null;
+}
+
 function slugify(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }

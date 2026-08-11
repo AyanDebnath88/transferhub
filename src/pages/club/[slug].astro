@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TransferCard from '../../components/TransferCard.astro';
 import ClubBadge from '../../components/ClubBadge.astro';
-import { CLUB_META } from '../../lib/clubs';
+import { CLUB_META, getClubInfo } from '../../lib/clubs';
 import { fetchAllTransfers } from '../../lib/fetchTransfers';
 
 function slugify(s: string): string {
@@ -18,9 +18,11 @@ export function getStaticPaths() {
 }
 
 const { name } = Astro.props;
+const info = getClubInfo(name);
 const all = await fetchAllTransfers();
 const transfers = all.filter((t) => t.clubs.includes(name));
 const confirmed = transfers.filter((t) => t.type === 'confirmed').length;
+const rumours = transfers.filter((t) => t.type === 'rumour').length;
 const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
 const SITE = 'https://transferhub.club';
@@ -90,14 +92,27 @@ const collectionSchema = JSON.stringify({
     </div>
   )}
 
-  <!-- SEO copy -->
+  <!-- SEO copy — unique per club -->
   <section class="mt-12 pt-8 border-t border-line max-w-3xl">
-    <h2 class="font-display text-2xl font-bold text-cream mb-3">{name} Transfer News &amp; Rumours</h2>
+    <h2 class="font-display text-2xl font-bold text-cream mb-3">Following {name} in the transfer market</h2>
+    {info ? (
+      <p class="text-sm text-cream-muted leading-relaxed mb-3">
+        {name}, {info.nick} of {info.city}, are one of {info.league}'s most-watched sides in the transfer market, and
+        this page tracks their every move. Whenever {name} are linked with a new signing, close in on a deal, or agree
+        to sell, the story lands here — pulled the moment it breaks from Sky Sports, BBC Sport, ESPN, The Guardian and
+        more. Right now we're tracking <strong class="text-cream">{transfers.length}</strong> {name} {transfers.length === 1 ? 'story' : 'stories'}{confirmed > 0 && <>, including <strong class="text-grass">{confirmed}</strong> confirmed</>}{rumours > 0 && <> and <strong class="text-rumor">{rumours}</strong> live {rumours === 1 ? 'rumour' : 'rumours'}</>}.
+      </p>
+    ) : (
+      <p class="text-sm text-cream-muted leading-relaxed mb-3">
+        This page tracks {name}'s every move in the transfer market — new links, developing deals and confirmed
+        signings, pulled the moment they break from Sky Sports, BBC Sport, ESPN, The Guardian and more.
+      </p>
+    )}
     <p class="text-sm text-cream-muted leading-relaxed">
-      Follow every {name} transfer story in one place — confirmed signings, outgoing deals and the latest rumours,
-      aggregated in real time from Sky Sports, BBC Sport, ESPN, Goal.com, The Guardian and Football365. Each story
-      carries a source reliability rating and links straight to the original article, so you can tell a done deal
-      from speculation at a glance. Updated every 30 minutes throughout the 2026 transfer window.
+      Every {name} story carries a source reliability rating, so you can tell a genuine {info?.nick ?? name} done deal
+      from newspaper speculation at a glance, and links straight to the original article for the full report. We add
+      no opinion and reproduce no article in full — just the fastest, clearest way to follow {name}'s window.
+      <a href="/methodology" class="text-gold hover:underline">See how our reliability ratings work</a>.
     </p>
   </section>
 </BaseLayout>

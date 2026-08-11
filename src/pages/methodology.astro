@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sources = [
+  { name: 'Sky Sports', score: 9, note: 'Dedicated transfer desk with a strong record on breaking Premier League deals.' },
+  { name: 'BBC Sport', score: 9, note: 'Conservative and rarely wrong; reports deals once they are well advanced.' },
+  { name: 'ESPN', score: 8, note: 'Strong global network, particularly on European and South American moves.' },
+  { name: 'The Guardian', score: 8, note: 'Measured reporting with good sourcing across the major leagues.' },
+  { name: 'Goal.com', score: 7, note: 'Broad, fast coverage that mixes original reporting with aggregation.' },
+  { name: 'Football365', score: 7, note: 'Good on context and analysis; more round-up than exclusive-breaker.' },
+];
+---
+<BaseLayout
+  title="How TransferHub Rates Transfer Reliability"
+  description="How TransferHub scores transfer stories: source weighting, confirmed vs rumour classification, and what the reliability stars on each card actually mean."
+>
+  <div class="max-w-3xl">
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream mb-2">How we rate reliability</h1>
+    <p class="text-cream-muted mb-8">Every story on TransferHub carries a rating. Here's exactly what it means.</p>
+
+    <div class="space-y-6 text-sm text-cream-muted leading-relaxed">
+      <p>
+        Not all transfer news is equal. A club's official announcement is not the same as a single tweet claiming
+        interest. To make that difference visible at a glance, TransferHub gives every story two signals: a
+        <strong class="text-cream">type</strong> and a <strong class="text-cream">reliability rating</strong>.
+      </p>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-cream mb-2">1. Story type</h2>
+        <p class="mb-3">Each item is automatically classified from the language of its headline and summary:</p>
+        <ul class="space-y-2">
+          <li class="flex gap-2"><span class="text-grass font-bold flex-shrink-0">Confirmed</span> — official, done, signed, completed or unveiled. The deal has happened.</li>
+          <li class="flex gap-2"><span class="text-rumor font-bold flex-shrink-0">Rumour</span> — linked, eyeing, in talks, considering. Unverified and still developing.</li>
+          <li class="flex gap-2"><span class="text-info font-bold flex-shrink-0">News</span> — transfer-related, but neither a confirmation nor a speculative link.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-cream mb-2">2. The reliability rating</h2>
+        <p>
+          The stars on each card come from the <strong class="text-cream">source</strong> that reported the story.
+          We weight each newsroom by its track record for breaking transfers that actually go through, then adjust for
+          the type of story: a confirmed deal nudges the score up, an unverified rumour nudges it down, and an
+          "exclusive" from a strong source earns a small bump. The result is a 1–10 rating, shown as five stars.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-cream mb-2">Source weightings</h2>
+        <div class="space-y-2">
+          {sources.map((s) => (
+            <div class="flex items-center gap-3 bg-pitch-700 border border-line rounded-xl px-4 py-3">
+              <span class="text-gold font-black text-lg w-8 flex-shrink-0">{s.score}</span>
+              <div>
+                <p class="text-sm font-bold text-cream">{s.name}</p>
+                <p class="text-xs text-cream-muted">{s.note}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-cream mb-2">What the rating is not</h2>
+        <p>
+          The reliability rating is an <strong class="text-cream">automated estimate</strong>, not an editorial
+          guarantee. It tells you how much weight the reporting source usually deserves — it cannot promise any
+          individual transfer will happen. Rumours are speculative by nature. Always open the original article and
+          judge for yourself before treating anything as fact. See our
+          <a href="/disclaimer" class="text-gold hover:underline">disclaimer</a> for the full terms.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-cream mb-2">How stories are filtered</h2>
+        <p>
+          We only surface football (soccer) transfer content. Match reports, injury round-ups and other sports —
+          NFL, NBA, cricket and the rest — are filtered out automatically, so the feed stays focused on the window.
+          New stories are pulled from source feeds regularly and de-duplicated so you never see the same move twice.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

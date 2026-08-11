@@ -14,6 +14,8 @@ const PAGES = [
   { path: '/rumours',        changefreq: 'hourly',  priority: '0.9' },
   { path: '/premier-league', changefreq: 'daily',   priority: '0.8' },
   { path: '/clubs',          changefreq: 'daily',   priority: '0.7' },
+  { path: '/about',          changefreq: 'monthly', priority: '0.5' },
+  { path: '/methodology',    changefreq: 'monthly', priority: '0.5' },
   ...clubPages,
   { path: '/attribution',    changefreq: 'monthly', priority: '0.4' },
   { path: '/privacy',        changefreq: 'monthly', priority: '0.3' },
