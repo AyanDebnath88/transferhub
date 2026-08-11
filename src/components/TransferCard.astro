@@ -43,6 +43,13 @@ const gradient =
                                   'bg-gradient-to-br from-pitch-600 to-pitch-700';
 
 const hasSummary = transfer.summary && transfer.summary !== transfer.title;
+
+// Copyright-free card art (public/cards/) picked deterministically from the story id.
+// No agency photos are used — nothing to infringe.
+const CARD_ART = 8;
+let h = 0;
+for (const c of transfer.id) h = (h * 31 + c.charCodeAt(0)) | 0;
+const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
 ---
 
 <article class={`group relative bg-pitch-700 rounded-xl border border-line overflow-hidden transition-all duration-200 hover:border-gold/50 hover:shadow-lg hover:shadow-black/30 ${featured ? 'md:flex' : ''}`}>
@@ -52,22 +59,21 @@ const hasSummary = transfer.summary && transfer.summary !== transfer.title;
     <div class="absolute top-0 left-0 right-0 h-[3px] bg-gold z-10"></div>
   )}
 
-  <!-- Image area — gradient base always behind, image overlays it.
-       If the image 404s, onerror hides it and the gradient shows through. -->
+  <!-- Image area — original copyright-free card art (no agency photos).
+       Gradient base sits behind as the final fallback. -->
   <div class={`relative overflow-hidden flex-shrink-0 aspect-[16/9] ${featured ? 'md:w-80 md:aspect-auto md:min-h-[200px]' : ''}`}>
     <div class={`absolute inset-0 flex items-end p-3 ${gradient}`}>
       <span class="text-[11px] font-bold text-cream-dim uppercase tracking-widest">{transfer.source}</span>
     </div>
-    {transfer.image && (
-      <img
-        src={transfer.image}
-        alt={transfer.title}
-        loading="lazy"
-        decoding="async"
-        class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-        onerror="this.style.display='none'"
-      />
-    )}
+    <img
+      src={cardArt}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+      onerror="this.style.display='none'"
+    />
     <!-- Type badge on image -->
     <span class={`absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md tracking-wider backdrop-blur-sm ${isBreaking ? 'bg-gold text-pitch-900' : `bg-pitch-900/80 ${typeConfig.cls}`}`}>
       {isBreaking ? 'Breaking' : typeConfig.label}
