@@ -1,0 +1,25 @@
+name: Daily site refresh
+
+# Rebuilds the site so the static feed re-fetches fresh transfer news.
+# Runs twice a day (UTC) plus an on-demand button in the Actions tab.
+on:
+  schedule:
+    - cron: '0 6 * * *'    # 06:00 UTC (~11:30 IST)
+    - cron: '0 18 * * *'   # 18:00 UTC (~23:30 IST)
+  workflow_dispatch: {}     # manual "Run workflow" button
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel production rebuild
+        run: |
+          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK }}" ]; then
+            echo "::error::VERCEL_DEPLOY_HOOK secret is not set. Add it in repo Settings > Secrets > Actions."
+            exit 1
+          fi
+          echo "Triggering Vercel deploy hook..."
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}")
+          echo "Vercel responded: $code"
+          [ "$code" -ge 200 ] && [ "$code" -lt 300 ] || { echo "::error::Deploy hook failed ($code)"; exit 1; }
+          echo "Rebuild triggered."
