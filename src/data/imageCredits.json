@@ -1,1393 +1,2595 @@
 {
   "_note": "Credit map for CC-BY / CC-BY-SA images in public/players. Key = file slug (no extension). Remove this _note key or leave it; it is ignored. Example: \"jude-bellingham\": { \"author\": \"Name\", \"license\": \"CC BY-SA 4.0\", \"url\": \"https://commons.wikimedia.org/wiki/File:...\" }",
+  "aaron-cresswell": {
+    "author": "Jon Candy from Cardiff, Wales",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Aaron_Cresswell.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ac-milan": {
+    "author": "A.C. Milan Uploaded by Vargklo at en.wikipedia",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Logo_of_AC_Milan.svg",
+    "source": "Wikimedia Commons"
+  },
   "achraf-hakimi": {
     "author": "Nawfel Ajari",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:HakimiAchraf.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:HakimiAchraf.jpg",
+    "source": "Wikimedia Commons"
   },
   "adam-idah": {
     "author": "Mattythewhite",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Adam_Idah_2021-08-07_1.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Adam_Idah_2021-08-07_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "adam-webster": {
     "author": "Ncadc2004",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:AdamWebsterIpsBar1.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:AdamWebsterIpsBar1.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ajax": {
+    "author": "AFC Ajax",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Logo_AFC_Ajax_(1928-1991,_2025-).svg",
+    "source": "Wikimedia Commons"
   },
   "alan-varela": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_FC_Porto_(2025-09-25_UEFA_Euro_League_)_63_(Alan_Varela).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_FC_Porto_(2025-09-25_UEFA_Euro_League_)_63_(Alan_Varela).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "aleix-garcia": {
+    "author": "Tam Tam from Shizuoka, JAPAN",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Aleix_Garcia_Serrano_SBS_Cup_2015_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "alejandro-garnacho": {
     "author": "Ardfern",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Alejandro_Garnacho_7_August_2022_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Alejandro_Garnacho_7_August_2022_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "alejandro-grimaldo": {
     "author": "Clément Bucco-Lechat",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bar%C3%A7a_-_Napoli_-_20140806_-_Alejandro_Grimaldo.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Bar%C3%A7a_-_Napoli_-_20140806_-_Alejandro_Grimaldo.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "aleksandar-pavlovic": {
+    "author": "Bryan Berlin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Aleksandar_Pavlovic_Ecuador_v_Germany_25_June_2026-099.jpg",
+    "source": "Wikimedia Commons"
   },
   "alessandro-bastoni": {
     "author": "Original: MichaelEmilio / Derivative work: Danyele",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_B_35_-_Bastoni_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_B_35_-_Bastoni_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "alex-meret": {
     "author": "Rapallo80",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Alex_Meret_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Alex_Meret_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "alexander-bah": {
     "author": "Sport Lisboa e Benfica",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:AlexanderBah.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:AlexanderBah.jpg",
+    "source": "Wikimedia Commons"
   },
   "alexander-isak": {
     "author": "Rolandhino1",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Alexander_Isak_56.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Alexander_Isak_56.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "alexis-mac-allister": {
+    "author": "Hossein Zohrevand",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Alexis_Mac_Allister_WC_2022.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "alisson-becker": {
+    "author": "Agencia de Noticias ANDES",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:EMELEC-INTERNACIONAL_(16861342155)_-_Alisson_Becker.jpg",
+    "source": "Wikimedia Commons"
   },
   "alistair-johnston": {
     "author": "Jim Easton",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Alistair_Johnston,_Rangers_v_Celtic_2_January_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Alistair_Johnston,_Rangers_v_Celtic_2_January_2023.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "alphonse-areola": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Alphonse_Areola_14092024.jpg",
+    "source": "Wikimedia Commons"
   },
   "alphonso-davies": {
     "author": "Chris from Brampton, Canada",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Alphonso_Davies_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Alphonso_Davies_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "alvaro-carreras": {
     "author": "Sport Lisboa e Benfica",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:%C3%81lvaroCarreras.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:%C3%81lvaroCarreras.jpg",
+    "source": "Wikimedia Commons"
   },
   "alvaro-morata": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:%C3%81lvaro_Morata.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:%C3%81lvaro_Morata.jpg",
+    "source": "Wikimedia Commons"
   },
   "amad-diallo": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Amad_Diallo_Cote_D%27Ivoire_v_Ecuador_14_June_2026-260.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Amad_Diallo_Cote_D%27Ivoire_v_Ecuador_14_June_2026-260.jpg",
+    "source": "Wikimedia Commons"
   },
   "amadou-onana": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Amadou_Onana_USMNT_v_Belgium_Mar_28_2026-135.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Amadou_Onana_USMNT_v_Belgium_Mar_28_2026-135.jpg",
+    "source": "Wikimedia Commons"
   },
   "amar-dedic": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Amar_Dedi%C4%87_RB_Salzburg_2023.jpeg"
+    "url": "https://commons.wikimedia.org/wiki/File:Amar_Dedi%C4%87_RB_Salzburg_2023.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "amine-adli": {
+    "author": "Nebuno",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Amine_Adli.jpg",
+    "source": "Wikimedia Commons"
   },
   "andre-frank-zambo-anguissa": {
     "author": "Дмитрий Садовник",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9-Frank_Zambo_Anguissa.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9-Frank_Zambo_Anguissa.jpg",
+    "source": "Wikimedia Commons"
   },
   "andre-onana": {
     "author": "Franco237",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9_Onana.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9_Onana.jpg",
+    "source": "Wikimedia Commons"
   },
   "andrea-belotti": {
     "author": "Biser Todorov ( User:Biso ) from Sofia, Bulgaria",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Italy_national_football_team_-_2021_(Andrea_Belotti)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Italy_national_football_team_-_2021_(Andrea_Belotti)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "andrea-cambiaso": {
     "author": "HeiligerSatyr",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Salone_principale_di_Palazzo_Pallavicini-Cambiaso.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Salone_principale_di_Palazzo_Pallavicini-Cambiaso.jpg",
+    "source": "Wikimedia Commons"
   },
   "andreas-christensen": {
     "author": "thearcticblues from United States of America",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Andreas_Christensen.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Andreas_Christensen.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "andrew-robertson": {
+    "author": "Анна Джалалян",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Andrew_Robertson_2019.jpg",
+    "source": "Wikimedia Commons"
   },
   "angel-correa": {
     "author": "Антон Зайцев",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:%C3%81ngel_Correa.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:%C3%81ngel_Correa.jpg",
+    "source": "Wikimedia Commons"
   },
   "angel-di-maria": {
     "author": "Fanny Schertzer",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Angel_Di_Maria_%E2%80%93_Portugal_vs._Argentina,_9th_February_2011_(1).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Angel_Di_Maria_%E2%80%93_Portugal_vs._Argentina,_9th_February_2011_(1).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "anthony-gordon": {
+    "author": "Bryan Berlin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Anthony_Gordon_England_v_Ghana_23_June_2026-186.jpg",
+    "source": "Wikimedia Commons"
   },
   "antoine-griezmann": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Antoine_Griezmann_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Antoine_Griezmann_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "anton-gaaei": {
     "author": "Mtjonenfa",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Anton_Gaaei_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Anton_Gaaei_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "antonio-nusa": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Antonio_Nusa_Morocco_v_Norway_7_June_2026-59.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Antonio_Nusa_Morocco_v_Norway_7_June_2026-59.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "antonio-rudiger": {
+    "author": "Granada",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Antonio_R%C3%BCdiger_850_0711.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "antonio-silva": {
+    "author": "Sport Lisboa e Benfica",
+    "license": "CC BY 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ant%C3%B3nioSilva22.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "archie-gray": {
+    "author": "Jim Easton",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Rangers_v_Tottenham_Hotspur_-_54202663229_(Archie_Gray).jpg",
+    "source": "Wikimedia Commons"
   },
   "arda-guler": {
     "author": "Mintone97",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Arda_G%C3%BCler_Fenerbah%C3%A7e_Formas%C4%B1_%C4%B0le_lig_kupas%C4%B1_ma%C3%A7%C4%B1nda.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Arda_G%C3%BCler_Fenerbah%C3%A7e_Formas%C4%B1_%C4%B0le_lig_kupas%C4%B1_ma%C3%A7%C4%B1nda.jpg",
+    "source": "Wikimedia Commons"
   },
   "arne-engels": {
     "author": "Arne List",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Marx-engels-platz.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Marx-engels-platz.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "arsenal": {
+    "author": "Wikimedia Commons",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Arsenal_Crest_1930.svg",
+    "source": "Wikimedia Commons"
   },
   "assan-ouedraogo": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Assan_Ouedraogo_Ecuador_v_Germany_25_June_2026-014.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Assan_Ouedraogo_Ecuador_v_Germany_25_June_2026-014.jpg",
+    "source": "Wikimedia Commons"
   },
   "aurelien-tchouameni": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Aur%C3%A9lien_Tchouam%C3%A9ni.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Aur%C3%A9lien_Tchouam%C3%A9ni.jpg",
+    "source": "Wikimedia Commons"
   },
   "auston-trusty": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Auston_Trusty_USMNT_v_Belgium_Mar_28_2026-43.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Auston_Trusty_USMNT_v_Belgium_Mar_28_2026-43.jpg",
+    "source": "Wikimedia Commons"
   },
   "axel-witsel": {
     "author": "Umi1903 (Umut Işık)",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Axel_Witsel_in_National_Team.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Axel_Witsel_in_National_Team.jpg",
+    "source": "Wikimedia Commons"
   },
   "bart-verbruggen": {
     "author": "LauraHale",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bart_Verbruggen_of_the_Netherlands_Super_Combined_2.JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:Bart_Verbruggen_of_the_Netherlands_Super_Combined_2.JPG",
+    "source": "Wikimedia Commons"
+  },
+  "bayer-leverkusen": {
+    "author": "Wikimedia Commons",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Logo_TSV_Bayer_04_Leverkusen.svg",
+    "source": "Wikimedia Commons"
+  },
+  "bayern-munich": {
+    "author": "Wikimedia Commons",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Logo_FC_Bayern_M%C3%BCnchen_(2002%E2%80%932017).svg",
+    "source": "Wikimedia Commons"
   },
   "ben-white": {
     "author": "Daxipedia",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ben_White_2023_cropped.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ben_White_2023_cropped.jpg",
+    "source": "Wikimedia Commons"
   },
   "benjamin-pavard": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Benjamin_Pavard_20180709.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Benjamin_Pavard_20180709.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "bernardo-silva": {
+    "author": "pantkiewicz",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Bernardo-Silva-2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "bertrand-traore": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bertrand_Traor%C3%A9_2019.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Bertrand_Traor%C3%A9_2019.jpg",
+    "source": "Wikimedia Commons"
   },
   "billy-gilmour": {
     "author": "Mattythewhite",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Billy_Gilmour_2021-08-07_1_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Billy_Gilmour_2021-08-07_1_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "boubacar-kamara": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Boubacar_Kamara_-_FC_Salzburg_gegen_Olympique_Marseille_(28._September_2017)_29_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Boubacar_Kamara_-_FC_Salzburg_gegen_Olympique_Marseille_(28._September_2017)_29_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "bradley-barcola": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bradley_Barcola_France_v_Senegal_16_June_2026-398.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Bradley_Barcola_France_v_Senegal_16_June_2026-398.jpg",
+    "source": "Wikimedia Commons"
   },
   "brahim-diaz": {
     "author": "Laloumance",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Brahim_Diaz_vs_Niger.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Brahim_Diaz_vs_Niger.jpg",
+    "source": "Wikimedia Commons"
   },
   "branco-van-den-boomen": {
     "author": "Gaillac",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:VanDenBoomen_2022-01-19_5.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:VanDenBoomen_2022-01-19_5.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "brennan-johnson": {
+    "author": "OhNoNotYouAgain",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:2021-11-16_-_Wales_vs_Belgium_-_Brennan_Johnson.jpg",
+    "source": "Wikimedia Commons"
   },
   "brian-brobbey": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_53464014017_(Brian_Brobbey).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_53464014017_(Brian_Brobbey).jpg",
+    "source": "Wikimedia Commons"
   },
   "bruno-fernandes": {
     "author": "Alexander Veprev",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bruno_Fernandes_Portugal,_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Bruno_Fernandes_Portugal,_2018.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "bruno-guimaraes": {
+    "author": "Segue o Baile",
+    "license": "CC BY 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Brunoguimaraes.jpg",
+    "source": "Wikimedia Commons"
   },
   "bukayo-saka": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bukayo_Saka_England_v_Panama_27_June_26-149.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Bukayo_Saka_England_v_Panama_27_June_26-149.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "callum-mcgregor": {
+    "author": "Keiteay",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Callum_McGregor_in_DC.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "callum-wilson": {
+    "author": "Mattythewhite",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Callum_Wilson_2021-08-07_1.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "cameron-carter-vickers": {
+    "author": "US Embassy from New Zealand",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Cameron_Carter-Vickers_USA-Columbia,_FIFA_U20_World_Cup_(18684217745)_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "carlos-augusto": {
+    "author": "Nehme1499",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Carlos_Augusto,_Monza_v_Alessandria_(2021)_01_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "carlos-baleba": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Carlos_Baleba_24012026_(2).jpg",
+    "source": "Wikimedia Commons"
   },
   "casemiro-silva": {
     "author": "Granada",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Thiago_Silva_Brazil_Austria_June_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Thiago_Silva_Brazil_Austria_June_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "christian-pulisic": {
     "author": "Reto Stauffer",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Christian_Pulisic_2017_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Christian_Pulisic_2017_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "christoph-baumgartner": {
+    "author": "Silesia711",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:ChristophBaumgartner.jpg",
+    "source": "Wikimedia Commons"
   },
   "christopher-nkunku": {
     "author": "Steffen Prößdorf",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Christopher_Nkunku_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Christopher_Nkunku_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "chuba-akpom": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:ChubaAkpom2024.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:ChubaAkpom2024.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "cody-gakpo": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Cody_Gakpo_06042025_(2).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "cole-palmer": {
+    "author": "Truth619",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:ColePalmervsLeicester.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "conor-bradley": {
+    "author": "Biser Todorov",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Conor_Bradley_in_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "conor-gallagher": {
+    "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Conor_Gallagher_December_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "cristian-romero": {
     "author": "Agencia de Noticias ANDES",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Cristian_Gabriel_Romero_(cropped_3).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Cristian_Gabriel_Romero_(cropped_3).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "crysencio-summerville": {
+    "author": "Egghead06",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Crysencio_Summerville_of_West_Ham_United.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "curtis-jones": {
+    "author": "Werner100359",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Curtis_Jones_in_2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "cyriel-dessers": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Cyriel_Dessers_2017_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Cyriel_Dessers_2017_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "daizen-maeda": {
     "author": "Keiteay",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Daizen_Maeda.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Daizen_Maeda.jpg",
+    "source": "Wikimedia Commons"
   },
   "dan-burn": {
     "author": "Will bcfc",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Dan_Burn_BCFC_2013.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Dan_Burn_BCFC_2013.jpg",
+    "source": "Wikimedia Commons"
   },
   "dani-carvajal": {
     "author": "Rolandhino1",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Dani_Carvajal_10_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Dani_Carvajal_10_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "dani-olmo": {
     "author": "crop by M-B",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Dani_Olmo_2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Dani_Olmo_2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "danilo-pereira": {
     "author": "Clément Bucco-Lechat",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Mattia_De_Sciglio_et_Danilo_Pereira_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20150616_-_Portugal_-_Italie_-_Gen%C3%A8ve_-_Mattia_De_Sciglio_et_Danilo_Pereira_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "danny-welbeck": {
+    "author": "Кирилл Венедиктов",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Danny_Welbeck_2018-06-13_1.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "darwin-nunez": {
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Darwin_N%C3%BA%C3%B1ez_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "david-alaba": {
     "author": "Granada",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_David_Alaba_850_0064.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_David_Alaba_850_0064.jpg",
+    "source": "Wikimedia Commons"
   },
   "david-neres": {
     "author": "Agencia de Noticias ANDES",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:David_Neres_2017.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:David_Neres_2017.jpg",
+    "source": "Wikimedia Commons"
   },
   "david-raum": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:David_Raum_Ecuador_v_Germany_25_June_2026-239.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:David_Raum_Ecuador_v_Germany_25_June_2026-238.jpg",
+    "source": "Wikimedia Commons"
   },
   "david-raya": {
     "author": "Ardfern",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:David_Raya,_Brentford_F.C._footballer,_July_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:David_Raya,_Brentford_F.C._footballer,_July_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "davy-klaassen": {
     "author": "Silesia711",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Davy_Klaassen.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Davy_Klaassen.jpg",
+    "source": "Wikimedia Commons"
   },
   "dayot-upamecano": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Dayot_Upamecano_France_v_Senegal_16_June_2026-324.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Dayot_Upamecano_France_v_Senegal_16_June_2026-324.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "declan-rice": {
+    "author": "Egghead06",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Declan_Rice_September_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "dejan-kulusevski": {
     "author": "Original: Kirill Venediktov / Derivative work: Danyele",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_43_-_Dejan_Kulusevski_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_43_-_Dejan_Kulusevski_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "desire-doue": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Desire_Doue_France_v_Senegal_16_June_2026-393.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Desire_Doue_France_v_Senegal_16_June_2026-393.jpg",
+    "source": "Wikimedia Commons"
   },
   "devyne-rensch": {
     "author": "Carlo Bruil from Nederland",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Devyne_Rensch_GAE_-_Ajax_(53464925551).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Devyne_Rensch_GAE_-_Ajax_(53464925551).jpg",
+    "source": "Wikimedia Commons"
   },
   "diogo-costa": {
     "author": "Елена Рыбакова",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Diogo_Costa.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Diogo_Costa.jpg",
+    "source": "Wikimedia Commons"
   },
   "diogo-dalot": {
     "author": "Ardfern",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Diogo_Dalot_2022_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Diogo_Dalot_2022_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "diogo-jota": {
+    "author": "@cfcunofficial (Chelsea Debs) London",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Diogo_Jota_2018_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "djed-spence": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Djed_Spence_England_v_Ghana_23_June_2026-065.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Djed_Spence_England_v_Ghana_23_June_2026-188.jpg",
+    "source": "Wikimedia Commons"
   },
   "djibril-sow": {
     "author": "Silesia711",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:DjibrilSow.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:DjibrilSow.jpg",
+    "source": "Wikimedia Commons"
   },
   "dodi-lukebakio": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Dodi_Lukebakio_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Dodi_Lukebakio_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "dominic-solanke": {
     "author": "CFC Unofficial (Debs)",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Dominic_Solanke_v_Maribor_2014.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Dominic_Solanke_v_Maribor_2014.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "dominik-szoboszlai": {
+    "author": "Werner100359",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Dominik_Szoboszlai_in_2020.jpg",
+    "source": "Wikimedia Commons"
   },
   "donyell-malen": {
     "author": "Sandro Halank, Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:DONYELL_MALEN_%E2%80%93_2023.08.12.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:DONYELL_MALEN_%E2%80%93_2023.08.12.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "dortmund": {
+    "author": "Wikimedia Commons",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Logo_Borussia_Dortmund_(1945-1964).svg",
+    "source": "Wikimedia Commons"
+  },
+  "douglas-luiz": {
+    "author": "Ardfern",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Douglas_Luiz_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "dusan-vlahovic": {
     "author": "Original: Dariuzzdigambassi / Derivative work: Danyele",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Dusan_Vlahovic_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Dusan_Vlahovic_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "eder-militao": {
     "author": "Real Madrid",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Eder_Militao_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Eder_Militao_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "ederson-moraes": {
     "author": "User:Zafer",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ederson_Moraes_31_Fenerbah%C3%A7e_20260805_(3).JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:Ederson_Moraes_31_Fenerbah%C3%A7e_20260805_(6).JPG",
+    "source": "Wikimedia Commons"
   },
   "edmond-tapsoba": {
     "author": "Pyaet",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Edmond_Tapsoba,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Edmond_Tapsoba,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1)_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "edson-alvarez": {
+    "author": "Carlo Bruil Fotografie",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Edson_Alvarez_2023.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "emerson-palmieri": {
+    "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Emerson_20180216.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "emerson-royal": {
+    "author": "This file was contributed to Wikimedia Commons by Univers…",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Royal_Emerson_Whitman_portrait.jpg",
+    "source": "Wikimedia Commons"
   },
   "emiliano-buendia": {
     "author": "jmmuguerza",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Emiliano_Buend%C3%ADa_2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Emiliano_Buend%C3%ADa_2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "emiliano-martinez": {
     "author": "Chensiyuan",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:1_Emiliano_Mart%C3%ADnez_2018_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:1_Emiliano_Mart%C3%ADnez_2018_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "emre-can": {
     "author": "karpidis from Piraeus, Greece",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Emre_Can.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Emre_Can.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "endrick-felipe": {
+    "author": "NullReason",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Endrick-Palmeiras-Liverpool-abr24.jpg",
+    "source": "Wikimedia Commons"
   },
   "enzo-fernandez": {
     "author": "Hossein Zohrevand",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Enzo_Fern%C3%A1ndez_WC2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Enzo_Fern%C3%A1ndez_WC2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "eric-dier": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Eric_Dier_2018-06-28_1.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Eric_Dier_2018-06-28_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "erling-haaland": {
     "author": "Jacek Stanislawek",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "ethan-nwaneri": {
     "author": "Totya a cselkirály",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ethan_Nwaneri_2023_UEFA_European_Under-17_Championship.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ethan_Nwaneri_2023_UEFA_European_Under-17_Championship.jpg",
+    "source": "Wikimedia Commons"
   },
   "exequiel-palacios": {
     "author": "Pyaet",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Exequiel_Palacios,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Exequiel_Palacios,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ezri-konsa": {
+    "author": "Ardfern",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ezri_Konsa.jpg",
+    "source": "Wikimedia Commons"
   },
   "fabian-ruiz": {
     "author": "Rolandhino1",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Fabian_Ruiz_6_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Fabian_Ruiz_6_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "fabian-schar": {
     "author": "Светлана Бекетова",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Fabian_Sch%C3%A4r.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Fabian_Sch%C3%A4r.jpg",
+    "source": "Wikimedia Commons"
   },
   "fabio-vieira": {
     "author": "David",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:2023_MLS_All_Star_Game_2023-07-19_Fabio_Vieira_John_Tolkin.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:2023_MLS_All_Star_Game_2023-07-19_Fabio_Vieira_John_Tolkin.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "federico-chiesa": {
+    "author": "Kirill Venediktov",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Federico_Chiesa_vs_Zenit_2021-10-20_(cropped2).jpg",
+    "source": "Wikimedia Commons"
   },
   "federico-dimarco": {
     "author": "Original: Werner100359 / Derivative work: Danyele",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_Inter_Mailand_(Testspiel_2023-08-09)_73_-_Federico_Dimarco_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_Inter_Mailand_(Testspiel_2023-08-09)_73_-_Federico_Dimarco_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "federico-gatti": {
     "author": "Mario Salati",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Frosinone_Calcio_-_Federico_Gatti_-_MS_1_cut.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Frosinone_Calcio_-_Federico_Gatti_-_MS_1_cut.jpg",
+    "source": "Wikimedia Commons"
   },
   "federico-valverde": {
     "author": "Jimmy Baikovicius from Montevideo, Uruguay",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Federico_Valverde_20171010.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Federico_Valverde_20171010.jpg",
+    "source": "Wikimedia Commons"
   },
   "felix-nmecha": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Felix_Nmecha_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Felix_Nmecha_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ferland-mendy": {
+    "author": "Laura Jonin",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ferland_Mendy_2017.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "fermin-lopez": {
+    "author": "Pedrovjrv",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Maestro_Fermin_L%C3%B3pez,_Retrato.jpg",
+    "source": "Wikimedia Commons"
   },
   "ferran-torres": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ferran_Torres_France_v_Spain_7.24.26-025.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ferran_Torres_France_v_Spain_7.24.26-025.jpg",
+    "source": "Wikimedia Commons"
   },
   "fikayo-tomori": {
     "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:FikayoTomori.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:FikayoTomori.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "florentino-luis": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Florentino_Lu%C3%ADs_29112025_(2).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "florian-wirtz": {
+    "author": "Pyaet",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Florian_Wirtz,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "fran-garcia": {
     "author": "Friends of Oaxacan Ceramics",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Fran_Garc%C3%ADa_V%C3%A1squez.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Fran_Garc%C3%ADa_V%C3%A1squez.jpg",
+    "source": "Wikimedia Commons"
   },
   "francesco-acerbi": {
     "author": "Антон Зайцев",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Francesco_Acerbi_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Francesco_Acerbi_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "francisco-conceicao": {
+    "author": "Bryan Berlin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Francisco_Conceicao_Croatia_v_Portugal_2_July_2026-256.jpg",
+    "source": "Wikimedia Commons"
   },
   "fredrik-aursnes": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Fredrik_Aursnes_Morocco_v_Norway_7_June_2026-55.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Fredrik_Aursnes_Morocco_v_Norway_7_June_2026-55.jpg",
+    "source": "Wikimedia Commons"
   },
   "frenkie-de-jong": {
-    "author": "Unknown author Unknown author",
+    "author": "Wikimedia Commons",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Frenkie_De_Jong_(2025)_(cropped).png"
+    "url": "https://commons.wikimedia.org/wiki/File:Frenkie_De_Jong_(2025)_(cropped).png",
+    "source": "Wikimedia Commons"
+  },
+  "gabriel-jesus": {
+    "author": "Granada",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Gabriel_Jesus_850_1688.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "gabriel-magalhaes": {
+    "author": "Bryan Berlin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Gabriel_Magalhaes_Brazil_V_Morocco_13_June_2026-116.jpg",
+    "source": "Wikimedia Commons"
   },
   "gabriel-martinelli": {
     "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Gabriel_Martinelli_2020.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Gabriel_Martinelli_2020.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "gavi-paez": {
+    "author": "TheSoccerBoy",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Gavi_(footballer).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "georginio-rutter": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Georginio_Rutter_24012026_(2).jpg",
+    "source": "Wikimedia Commons"
   },
   "giacomo-raspadori": {
-    "author": "Aramis974",
-    "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Raspadori_Nazionale.jpg"
+    "author": "Presidenza della Repubblica",
+    "license": "Attribution",
+    "url": "https://commons.wikimedia.org/wiki/File:Giacomo_Raspadori_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "gianluigi-donnarumma": {
     "author": "Doha Stadium Plus Qatar from Doha, Qatar",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Gianluigi_Donnarumma_(31895135436)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Gianluigi_Donnarumma_(31895135436)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "giovanni-di-lorenzo": {
     "author": "Eugeniatta",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Giovanni_Di_Lorenzo_Meeting_di_Rimini_2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Giovanni_Di_Lorenzo_Meeting_di_Rimini_2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "giuliano-simeone": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Giuliano_Simeone,_FC_Salzburg_vs._Atletico_Madrid_(2025-01-29_UEFA_Championsleague)_53_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Giuliano_Simeone,_FC_Salzburg_vs._Atletico_Madrid_(2025-01-29_UEFA_Championsleague)_53_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "gleison-bremer": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bremer_Brazil_V_Morocco_13_June_2026-143.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Bremer_Brazil_V_Morocco_13_June_2026-143.jpg",
+    "source": "Wikimedia Commons"
   },
   "goncalo-ramos": {
     "author": "Sport Lisboa e Benfica",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Gon%C3%A7aloRamos22.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Gon%C3%A7aloRamos22.jpg",
+    "source": "Wikimedia Commons"
   },
   "granit-xhaka": {
     "author": "Ludovic Péron",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Suisse_vs_Argentine_-_Granit_Xhaka_%26_Lionel_Messi.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Suisse_vs_Argentine_-_Granit_Xhaka_%26_Lionel_Messi.jpg",
+    "source": "Wikimedia Commons"
   },
   "greg-taylor": {
-    "author": "GregT5Cufc",
-    "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Greg_Taylor.jpg"
+    "author": "Governor Eric Holcomb",
+    "license": "PDM-owner",
+    "url": "https://commons.wikimedia.org/wiki/File:Greg_Taylor_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "gregor-kobel": {
     "author": "Silesia711",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:GregorKobel.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:GregorKobel.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "guglielmo-vicario": {
+    "author": "Enzo Di Gianni",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Madonna_delle_rose_-_Inglese_Vicario.png",
+    "source": "Wikimedia Commons"
   },
   "guido-rodriguez": {
     "author": "Egghead06",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Guido_Rodr%C3%ADguez_Of_West_Ham_United.jpeg"
+    "url": "https://commons.wikimedia.org/wiki/File:Guido_Rodr%C3%ADguez_Of_West_Ham_United.jpeg",
+    "source": "Wikimedia Commons"
   },
   "hakan-calhanoglu": {
     "author": "Fuguito",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Hakan-Calhanoglu-2015-08.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Hakan-Calhanoglu-2015-08.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "hamza-igamane": {
+    "author": "Laloumance",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Hamza_Igamane_vs_Niger.jpg",
+    "source": "Wikimedia Commons"
   },
   "harry-kane": {
     "author": "Number 10",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Harry_Kane_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Harry_Kane_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "harry-maguire": {
     "author": "UK Prime Minister",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Harry_Maguire_2023_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Harry_Maguire_2023_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "harvey-barnes": {
+    "author": "Pottercomuneo",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Harvey_Barnes_2022_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "harvey-elliott": {
+    "author": "crop by Indopug",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Harvey_Elliott_in_2022.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "henrikh-mkhitaryan": {
+    "author": "Yerevantsi",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Henrikh_Mkhitaryan_toy.jpg",
+    "source": "Wikimedia Commons"
   },
   "ian-maatsen": {
     "author": "u/reepers_hellcat",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:St._Louis_City_vs_Aston_Villa_(Jul_2025)_06_(Ian_Maatsen).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:St._Louis_City_vs_Aston_Villa_(Jul_2025)_06_(Ian_Maatsen).jpg",
+    "source": "Wikimedia Commons"
   },
   "ianis-hagi": {
     "author": "Rolandhino1",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ianis_Hagi_-_Sweden_vs_Romania_23_March_2019_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ianis_Hagi_-_Sweden_vs_Romania_23_March_2019_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ibrahima-konate": {
+    "author": "Bryan Berlin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ibrahima_Konate_France_v_Senegal_16_June_2026-284.jpg",
+    "source": "Wikimedia Commons"
   },
   "inigo-martinez": {
     "author": "Rolandhino1",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Inigo_Martinez_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_Inigo_Martinez_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "inter-milan": {
+    "author": "Football Club Internazionale Milano",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Logo_of_FC_Inter_Milan_(1963-1979).svg",
+    "source": "Wikimedia Commons"
   },
   "isaac-romero": {
     "author": "MFonzatti",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Isaac_Del_Toro_Romero_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Isaac_Del_Toro_Romero_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "ismael-bennacer": {
     "author": "joshjdss",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Isma%C3%ABl_Bennacer_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Isma%C3%ABl_Bennacer_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "jack-butland": {
+    "author": "Daemonickangaroo2018",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jack_Butland_at_2012_Olympic_Games,_Cardiff.jpg",
+    "source": "Wikimedia Commons"
   },
   "jack-grealish": {
     "author": "Steffen Prößdorf",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jack_Grealish_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jack_Grealish_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "jack-hinshelwood": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jack_Hinshelwood_24012026_(5).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "jacob-murphy": {
+    "author": "SonoGrazy",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Premier_League_Newcastle-Arsenal_2023-05-07_29_(cropped_Jacob_Murphy).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "jacob-ramsey": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jacob_Ramsey_24052026_(3).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "jadon-sancho": {
+    "author": "Вячеслав Евдокимов",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jadon_Sancho_2020.jpg",
+    "source": "Wikimedia Commons"
   },
   "jamal-musiala": {
     "author": "crop by ArsenalGhanaPartey",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jamal_Musiala_2022_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jamal_Musiala_2022_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "james-maddison": {
+    "author": "KrispyKrumpets",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:James_Maddison_pre-match_training_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "james-tavernier": {
+    "author": "Carlisleprogrammes",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:James_Tavernier_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "jan-oblak": {
     "author": "Анна Нэсси",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jan_Oblak_2019.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jan_Oblak_2019.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "jan-paul-van-hecke": {
+    "author": "jamesboyes",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jan_Paul_van_Hecke_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "jarrod-bowen": {
+    "author": "Egghead06",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jarrod_Bowen2023.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "jeremie-frimpong": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jeremie_Frimpong_04012026_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "jeremy-doku": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:J%C3%A9r%C3%A9my_Doku_USMNT_v_Belgium_Mar_28_2026-27.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:J%C3%A9r%C3%A9my_Doku_USMNT_v_Belgium_Mar_28_2026-27.jpg",
+    "source": "Wikimedia Commons"
   },
   "jesus-navas": {
     "author": "Дмитрий Садовников",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jes%C3%BAs_Navas.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jes%C3%BAs_Navas.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "joao-felix": {
+    "author": "Анна Нэсси",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jo%C3%A3o_F%C3%A9lix_2019.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "joao-neves": {
+    "author": "Liondartois",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jo%C3%A3o_Neves_(PSG).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "joao-pedro": {
+    "author": "Jimmy Baikovicius",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Joao_Pedro_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "joe-hart": {
     "author": "Голубович Дмитрий",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Joe_Hart_69775.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Joe_Hart_69775.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "joe-willock": {
+    "author": "Chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:1_joe_willock_2018.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "joel-veltman": {
+    "author": "jamesboyes",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jo%C3%ABl_Veltman_2022_(cropped)_(2).jpg",
+    "source": "Wikimedia Commons"
   },
   "john-lundstram": {
     "author": "Catherine Kõrtsmik from Tallinn, Estonia",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:John_Lundstram,_England_U-19_-_Greece_U-19,_12_July_2012_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:John_Lundstram,_England_U-19_-_Greece_U-19,_12_July_2012_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "john-mcginn": {
     "author": "Анна Джалалян",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:John_McGinn_2019.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:John_McGinn_2019.jpg",
+    "source": "Wikimedia Commons"
   },
   "john-stones": {
     "author": "Chensiyuan",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:1_john_stones_2015_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:1_john_stones_2015_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "jonathan-tah": {
     "author": "Fuguito",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jonathan-Tah-2015-08.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jonathan-Tah-2015-08.jpg",
+    "source": "Wikimedia Commons"
   },
   "jorrel-hato": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jorrel_Hato.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jorrel_Hato.jpg",
+    "source": "Wikimedia Commons"
   },
   "jose-gimenez": {
     "author": "Анна Нэсси",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Mar%C3%ADa_Gim%C3%A9nez_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Mar%C3%ADa_Gim%C3%A9nez_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "joshua-kimmich": {
     "author": "Granada",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Joshua_Kimmich_850_0717.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Joshua_Kimmich_850_0717.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "joshua-zirkzee": {
+    "author": "Sven Mandel",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Joshua_Zirkzee_2019.jpg",
+    "source": "Wikimedia Commons"
   },
   "josip-sutalo": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Josip_Sutalo_Croatia_v_Portugal_2_July_2026-071.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Josip_Sutalo_Croatia_v_Portugal_2_July_2026-234.jpg",
+    "source": "Wikimedia Commons"
   },
   "josko-gvardiol": {
     "author": "crop by FMSky",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:2021_Jo%C5%A1ko_Gvardiol_2_(cropped2).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:2021_Jo%C5%A1ko_Gvardiol_2_(cropped2).jpg",
+    "source": "Wikimedia Commons"
   },
   "jude-bellingham": {
     "author": "Barcex",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Jude_Bellingham_-_240422_190551-2_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "jules-kounde": {
     "author": "Дмитрий Пукалик",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Jules_Kound%C3%A9_2020.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Jules_Kound%C3%A9_2020.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "julian-alvarez": {
+    "author": "Gaetano Gallino",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Juli%C3%A1n_%C3%81lvarez.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "julian-brandt": {
+    "author": "Granada",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Julian_Brandt_850_0710.jpg",
+    "source": "Wikimedia Commons"
   },
   "julian-ryerson": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Julian_Ryerson_Morocco_v_Norway_7_June_2026-155.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Julian_Ryerson_Morocco_v_Norway_7_June_2026-155.jpg",
+    "source": "Wikimedia Commons"
   },
   "julio-enciso": {
     "author": "Mundo arte Paraguay",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Julio_Enciso_Ignacio_Villalba.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Julio_Enciso_Ignacio_Villalba.jpg",
+    "source": "Wikimedia Commons"
   },
   "jurrien-timber": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52788075131_(Jurri%C3%ABn_Timber).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52788075131_(Jurri%C3%ABn_Timber).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "juventus": {
+    "author": "Interbrand – Global Brand Consultancy / Juventus Football…",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Juventus_FC_-_logo_black_(Italy,_2020).svg",
+    "source": "Wikimedia Commons"
   },
   "kai-havertz": {
     "author": "Дмитрий Пукалик",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kai_Havertz_2020.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kai_Havertz_2020.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "kaoru-mitoma": {
+    "author": "jamesboyes",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Kaoru_Mitoma_(2022).jpg",
+    "source": "Wikimedia Commons"
   },
   "karim-adeyemi": {
     "author": "Анна Джалалян",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Karim_Adeyemi_(Red_Bull_Salzburg,_01.12.2020).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Karim_Adeyemi_(Red_Bull_Salzburg,_01.12.2020).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "kenan-yildiz": {
+    "author": "Esra Sobi",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Kenan_Y%C4%B1ld%C4%B1z.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "kenneth-taylor": {
+    "author": "Carlo Bruil Fotografie",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52788474930_(Kenneth_Taylor).jpg",
+    "source": "Wikimedia Commons"
   },
   "kerem-akturkoglu": {
     "author": "Анна Нэсси",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kerem_Akt%C3%BCrko%C4%9Flu_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kerem_Akt%C3%BCrko%C4%9Flu_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "kevin-de-bruyne": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kevin_De_Bruyne_201807091.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kevin_De_Bruyne_201807091.jpg",
+    "source": "Wikimedia Commons"
   },
   "kevin-kampl": {
     "author": "Tim Reckmann from Hamm, Deutschland",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kevin_Kampl_(15772129333).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kevin_Kampl_(15772129333).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "khephren-thuram": {
+    "author": "Supporterhéninois",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Kh%C3%A9phren_Thuram.jpg",
+    "source": "Wikimedia Commons"
   },
   "khvicha-kvaratskhelia": {
     "author": "გიორგი კეკელიძის პირადი არქივი",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Khvicha_Kvaratskhelia_cropped.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Khvicha_Kvaratskhelia_cropped.jpg",
+    "source": "Wikimedia Commons"
   },
   "kian-fitz-jim": {
     "author": "SonoGrazy",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Qaraba%C4%9F_vs_Ajax_(24.10.2024)_(Kian_Fitz-Jim).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Qaraba%C4%9F_vs_Ajax_(24.10.2024)_(Kian_Fitz-Jim).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "kieran-trippier": {
+    "author": "Кирилл Венедиктов",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Kieran_Trippier_2018-07-14_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "kim-min-jae": {
     "author": "Viu Indonesia",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kim_Min-jae_(%EA%B9%80%EB%AF%BC%EC%9E%AC)_Poong,_the_Joseon_Psychiatrist_Script_Reading_(3).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kim_Min-jae_(%EA%B9%80%EB%AF%BC%EC%9E%AC)_Poong,_the_Joseon_Psychiatrist_Script_Reading_(3).jpg",
+    "source": "Wikimedia Commons"
   },
   "kingsley-coman": {
     "author": "Sven Mandel",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kingsley_Coman_(2019)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kingsley_Coman_(2019)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "kobbie-mainoo": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kobbie_Mainoo_England_v_Panama_27_June_26-052.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kobbie_Mainoo_England_v_Panama_27_June_26-052.jpg",
+    "source": "Wikimedia Commons"
   },
   "koke-resurreccion": {
     "author": "Carlos Delgado",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Koke_Resurrecci%C3%B3n_-_01.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Koke_Resurrecci%C3%B3n_-_01.jpg",
+    "source": "Wikimedia Commons"
   },
   "konstantinos-mavropanos": {
     "author": "Egghead06",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Konstantinos_Mavropanos_2023.jpeg"
+    "url": "https://commons.wikimedia.org/wiki/File:Konstantinos_Mavropanos_2023.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "kyle-walker": {
+    "author": "Кирилл Венедиктов",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Kyle_Walker.jpg",
+    "source": "Wikimedia Commons"
   },
   "kylian-mbappe": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_Unai_Simon_France_v_Spain_7.24.26-133.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "kyogo-furuhashi": {
+    "author": "pantkiewicz",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:2023.07.19_Yokohama_F._Marinos_-_Celtic_Glasgow_(6-4)_-_53063133069_(Kyogo_Furuhashi).jpg",
+    "source": "Wikimedia Commons"
   },
   "lamine-yamal": {
     "author": "Biso",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lamine_Yamal_in_2025.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lamine_Yamal_in_2025.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "lautaro-martinez": {
+    "author": "Agencia de Noticias ANDES",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Lautaro_Mart%C3%ADnez_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "leandro-barreiro": {
+    "author": "Leandro de Almeida Lima",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Barreiro_de_Cima.jpg",
+    "source": "Wikimedia Commons"
   },
   "leandro-trossard": {
     "author": "jamesboyes",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Leandro_Trossard_2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Leandro_Trossard_2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "lee-kang-in": {
     "author": "Republic of Korea from Seoul, Republic of Korea",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lee_Kang-in_-_2022_(52551771501)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lee_Kang-in_-_2022_(52551771501)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "leon-bailey": {
     "author": "Fuguito",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Leon_Bailey_bei_der_Saisoneroeffnung_August_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Leon_Bailey_bei_der_Saisoneroeffnung_August_2018.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "leon-goretzka": {
+    "author": "Rufus46",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Leon_Goretzka_Training_2019-09-01_FC_Bayern_Muenchen-3.jpg",
+    "source": "Wikimedia Commons"
   },
   "leonardo-spinazzola": {
     "author": "Ago76",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Leonardo_Spinazzola_02.JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:Leonardo_Spinazzola_02.JPG",
+    "source": "Wikimedia Commons"
   },
   "leroy-sane": {
     "author": "Granada",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Leroy_San%C3%A9_850_0668.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Leroy_San%C3%A9_850_0668.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "levi-colwill": {
+    "author": "Pedro Semitiel",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Levi_Colwill_playing_for_England_U17s_against_Spain_in_2019.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "lewis-dunk": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Lewis_Dunk_24012026_(1).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "lewis-hall": {
+    "author": "Wikimedia Commons",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Perry_Hall_-_Geo_Lewis_postcard.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "liel-abada": {
+    "author": "Jim Easton",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Liel_Abada_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "lisandro-martinez": {
     "author": "Ardfern",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lisandro_Martinez_2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lisandro_Martinez_2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "loic-bade": {
     "author": "Fuguito",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Loic_Bade_Leverkusen-2026.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Loic_Bade_Leverkusen-2026.jpg",
+    "source": "Wikimedia Commons"
   },
   "lois-openda": {
     "author": "Sanem1891",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lo%C3%AFs_Openda.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lo%C3%AFs_Openda.jpg",
+    "source": "Wikimedia Commons"
   },
   "lucas-digne": {
     "author": "Espandero",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lucas_Digne_Everton.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lucas_Digne_Everton.jpg",
+    "source": "Wikimedia Commons"
   },
   "lucas-hernandez": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lucas_Hern%C3%A1ndez.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lucas_Hern%C3%A1ndez.jpg",
+    "source": "Wikimedia Commons"
   },
   "lucas-ocampos": {
     "author": "jmmuguerza",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lucas_Ocampos_2022.jpeg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lucas_Ocampos_2022.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "lucas-paqueta": {
+    "author": "Egghead06",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Lucas_Paquet%C3%A1_of_West_Ham.jpeg",
+    "source": "Wikimedia Commons"
   },
   "luis-diaz": {
     "author": "jmmuguerza",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Luis_Diaz_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Luis_Diaz_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "luka-modric": {
     "author": "Real Madrid",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Interview_2021_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Interview_2021_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "luke-mccowan": {
+    "author": "Stuartp1213",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Luke_McCowan.png",
+    "source": "Wikimedia Commons"
   },
   "luke-shaw": {
     "author": "Ardfern",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Luke_Shaw,_Manchester_United_v_Newcastle_United,_11_September_2021_(44)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Luke_Shaw,_Manchester_United_v_Newcastle_United,_11_September_2021_(44)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "lutsharel-geertruida": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lutsharel_Geertruida_(Testspiel_2022-07-09)_14_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lutsharel_Geertruida_(Testspiel_2022-07-09)_14_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "malick-thiaw": {
+    "author": "Bryan Berlin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Malick_Thiaw_Ecuador_v_Germany_25_June_2026-153.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "malo-gusto": {
+    "author": "Sebleouf",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Olympique_lyonnais_-_ES_Troyes_AC_L1_19-08-2022_-_Malo_Gusto.jpg",
+    "source": "Wikimedia Commons"
   },
   "manuel-locatelli": {
     "author": "Kirill Venediktov",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_34_(Manuel_Locatelli).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_34_(Manuel_Locatelli).jpg",
+    "source": "Wikimedia Commons"
   },
   "manuel-neuer": {
     "author": "Granada",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Manuel_Neuer_850_0723.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Manuel_Neuer_850_0723.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "manuel-ugarte": {
+    "author": "George Grantham Bain Collection (Library of Congress)",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Manuel_Ugarte.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "marc-andre-ter-stegen": {
+    "author": "Clément Bucco-Lechat",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Bar%C3%A7a_-_Napoli_-_20140806_-_Marc-Andr%C3%A9_ter_Stegen_1.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "marc-casado": {
+    "author": "Government of Catalonia",
+    "license": "Attribution",
+    "url": "https://commons.wikimedia.org/wiki/File:Marc_Casad%C3%B3,_durant_la_gira_de_pretemporada_a_EUA._(05-08-2024)_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "marc-cucurella": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Marc_Cucurella_20042025_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "marcel-sabitzer": {
     "author": "Steffen Prößdorf",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Marcel_Sabitzer_2020_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Marcel_Sabitzer_2020_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "marcos-llorente": {
     "author": "Анна Нэсси",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Marcos_Llorente_2019.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Marcos_Llorente_2019.jpg",
+    "source": "Wikimedia Commons"
   },
   "marcus-rashford": {
     "author": "Oleg Bkhambri (Voltmetro)",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Marcus_Rashford,_FWC_2018_-_Round_of_16_-_COL_v_ENG_-_Photo_106_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Marcus_Rashford,_FWC_2018_-_Round_of_16_-_COL_v_ENG_-_Photo_106_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "marcus-thuram": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Marcus_Thuram_in_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Marcus_Thuram_in_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "marko-arnautovic": {
     "author": "Ailura",
     "license": "CC BY-SA 3.0 at",
-    "url": "https://commons.wikimedia.org/wiki/File:20130814_AT-GR_Marko_Arnautovic_2499.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20130814_AT-GR_Marko_Arnautovic_2499.jpg",
+    "source": "Wikimedia Commons"
   },
   "marquinhos-correa": {
     "author": "Liondartois",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Marquinhos_(Marcos_Ao%C3%A1s_Corr%C3%AAa),_PSG.JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:Marquinhos_(Marcos_Ao%C3%A1s_Corr%C3%AAa),_PSG.JPG",
+    "source": "Wikimedia Commons"
   },
   "martin-odegaard": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Martin_Odegaard_Morocco_v_Norway_7_June_2026-136.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Martin_Odegaard_Morocco_v_Norway_7_June_2026-136.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "mason-mount": {
+    "author": "Oleg Bkhambri (Voltmetro) derivative work: Py21",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Mason_Mount_-_FC_Zenit_Saint_Petersburg_v_Chelsea_F.C._-_2021-12-08.jpg",
+    "source": "Wikimedia Commons"
   },
   "mateo-kovacic": {
     "author": "Roberta F.",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Mateo_Kovacic_21032013_2_Zagrebello_roberta_f.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Mateo_Kovacic_21032013_2_Zagrebello_roberta_f.jpg",
+    "source": "Wikimedia Commons"
   },
   "matheus-nunes": {
     "author": "Sporting Clube de Portugal",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Matheus_Nunes.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Matheus_Nunes.jpg",
+    "source": "Wikimedia Commons"
   },
   "mathias-olivera": {
     "author": "Agencia de Noticias ANDES",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Math%C3%ADas_Olivera_2017.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Math%C3%ADas_Olivera_2017.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "matt-o-riley": {
+    "author": "Keiteay",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Matt_O%27Riley_warming_up.jpg",
+    "source": "Wikimedia Commons"
   },
   "matthijs-de-ligt": {
     "author": "Femke Kruize",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Matthijs_de_Ligt.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Matthijs_de_Ligt.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "matty-cash": {
+    "author": "Nottingham Forest F.C.",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Matty_Cash.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "max-kilman": {
+    "author": "Egghead06",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Maximilian_Kilman_of_West_Ham_United.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "maximilian-beier": {
+    "author": "FriederRöcklerII",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Maximilian_Beier_training_with_Borussia_Dortmund_(2026).jpg",
+    "source": "Wikimedia Commons"
   },
   "mehdi-taremi": {
     "author": "MRG90",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Mehdi_Taremi_-_2015.JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:Mehdi_Taremi_-_2015.JPG",
+    "source": "Wikimedia Commons"
   },
   "michael-olise": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Michael_Olise_France_v_Senegal_16_June_2026-214.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Michael_Olise_France_v_Senegal_16_June_2026-214.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "michail-antonio": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Michail_Antonio_14092024.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "michele-di-gregorio": {
+    "author": "Luigi Catalani",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Chiesa_di_San_Michele_Arcangelo,_Potenza_-_Annunciazione_di_Giovanni_De_Gregorio_(1612).jpg",
+    "source": "Wikimedia Commons"
   },
   "mika-godts": {
     "author": "SonoGrazy",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Qaraba%C4%9F_vs_Ajax_(24.10.2024)_(Mika_Godts).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Qaraba%C4%9F_vs_Ajax_(24.10.2024)_(Mika_Godts).jpg",
+    "source": "Wikimedia Commons"
   },
   "mike-maignan": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Mike_Maignan_2022_Salzburg_vs_AC_Milan_2022-09-06.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Mike_Maignan_2022_Salzburg_vs_AC_Milan_2022-09-06.jpg",
+    "source": "Wikimedia Commons"
   },
   "mikel-merino": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Mikel_Merino_France_v_Spain_7.24.26-281.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Mikel_Merino_France_v_Spain_7.24.26-281.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "mohamed-diomande": {
+    "author": "Jim Easton",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Rangers_v_Tottenham_Hotspur_-_54202663229_(Mohamed_Diomande).jpg",
+    "source": "Wikimedia Commons"
   },
   "mohamed-salah": {
     "author": "Анна Нэсси",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_2018.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "mohammed-kudus": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Mohammed_Kudus_14092024.jpg",
+    "source": "Wikimedia Commons"
   },
   "moises-caicedo": {
     "author": "jamesboyes",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Moises_Caicedo_2022_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Moises_Caicedo_2022_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "morgan-rogers": {
+    "author": "MintyGel",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Morgan_Rogers_April_2026.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "mykhailo-mudryk": {
+    "author": "@8Dodo8",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Mykhailo_Mudryk_-_Spain_U21_vs_Ukraine_U21,_5_July_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "myles-lewis-skelly": {
     "author": "Chensiyuan",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:1_Myles_Lewis-Skelly_arsenal_2025.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:1_Myles_Lewis-Skelly_arsenal_2025.jpg",
+    "source": "Wikimedia Commons"
   },
   "nahuel-molina": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nahuel_Molina_Argentina_v_Spain_19_July_2026-023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nahuel_Molina_Argentina_v_Spain_19_July_2026-023.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "napoli": {
+    "author": "Logo: SSC Napoli S.p.A. Upload: The White Lion",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:SSC_Napoli_2024_(azure).svg",
+    "source": "Wikimedia Commons"
   },
   "nathan-ake": {
     "author": "pantkiewicz",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Yokohama_F._Marinos_-_Manchester_City_(3-5)_-_53075276224_(Nathan_Ake).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Yokohama_F._Marinos_-_Manchester_City_(3-5)_-_53075276224_(Nathan_Ake).jpg",
+    "source": "Wikimedia Commons"
   },
   "nathan-tella": {
     "author": "Fuguito",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nathan-Tella-2025.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nathan-Tella-2025.jpg",
+    "source": "Wikimedia Commons"
   },
   "nayef-aguerd": {
     "author": "Egghead06",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nayef_Aguerd.jpeg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nayef_Aguerd.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "nick-pope": {
+    "author": "Charltonkyle",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Nick_Pope_23-04-2016_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "niclas-fullkrug": {
     "author": "Silesia711",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:NiclasF%C3%BCllkrug_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:NiclasF%C3%BCllkrug_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "nico-gonzalez": {
+    "author": "Werner100359",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Nico_Gonzalez_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "nico-schlotterbeck": {
     "author": "Hossein Zohrevand",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nico_Schlotterbeck.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nico_Schlotterbeck.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "nicolas-jackson": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Nicolas_Jackson_20042025_(2).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "nicolas-kuhn": {
+    "author": "Keiteay",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Nicolas-Gerrit_K%C3%BChn_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "nicolas-otamendi": {
     "author": "Carla Cortés",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nicol%C3%A1s_Otamendi_2015_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nicol%C3%A1s_Otamendi_2015_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "nicolas-raskin": {
     "author": "Jim Easton",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nicolas_Raskin_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nicolas_Raskin_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "nicolo-barella": {
     "author": "Biser Todorov",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nicol%C3%B2_Barella_in_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nicol%C3%B2_Barella_in_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "nicolo-fagioli": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Nicol%C3%B2_Fagioli_25072026_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "niklas-sule": {
     "author": "Granada",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Niklas_S%C3%BCle_850_0725.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Niklas_S%C3%BCle_850_0725.jpg",
+    "source": "Wikimedia Commons"
   },
   "noni-madueke": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Noni_Madueke_England_v_Ghana_23_June_2026-213.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Noni_Madueke_England_v_Ghana_23_June_2026-213.jpg",
+    "source": "Wikimedia Commons"
   },
   "nordi-mukiele": {
     "author": "Willibald11",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nordi_Mukiele_(RB_Leipzig).png"
+    "url": "https://commons.wikimedia.org/wiki/File:Nordi_Mukiele_(RB_Leipzig).png",
+    "source": "Wikimedia Commons"
   },
   "noussair-mazraoui": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Noussair_Mazraoui_Brazil_V_Morocco_13_June_2026-97.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Noussair_Mazraoui_Brazil_V_Morocco_13_June_2026-97.jpg",
+    "source": "Wikimedia Commons"
   },
   "nuno-mendes": {
     "author": "Sporting Clube de Portugal",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Nuno_Mendes_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Nuno_Mendes_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "oleksandr-zinchenko": {
+    "author": "Latreia",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Zinchenko_oleksandr_december05.jpg",
+    "source": "Wikimedia Commons"
   },
   "ollie-watkins": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ollie_Watkins_England_v_Ghana_23_June_2026-076.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ollie_Watkins_England_v_Ghana_23_June_2026-076.jpg",
+    "source": "Wikimedia Commons"
   },
   "orkun-kokcu": {
     "author": "Zafer",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Orkun_K%C3%B6k%C3%A7%C3%BC_20260121_(1).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Orkun_K%C3%B6k%C3%A7%C3%BC_20260121_(1).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "otavio-monteiro": {
+    "author": "Elson Sempé Pedroso/CMPA",
+    "license": "Attribution",
+    "url": "https://commons.wikimedia.org/wiki/File:Vereadora_suplente_S%C3%A2mila_Monteiro_(17_November_2021).jpg",
+    "source": "Wikimedia Commons"
   },
   "ousmane-dembele": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ousmane_Dembele_France_v_Spain_7.24.26-063.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ousmane_Dembele_France_v_Norway_26_June_26-085.jpg",
+    "source": "Wikimedia Commons"
   },
   "pablo-barrios": {
     "author": "Steinfurth ( Nordlicht8 )",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Pablo_Barrios_mit_Con_Air,_CSIYH_1_Hamburg.JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:Pablo_Barrios_mit_Con_Air,_CSIYH_1_Hamburg.JPG",
+    "source": "Wikimedia Commons"
   },
   "pascal-gross": {
     "author": "James Boyes from UK",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Pascal_Gross.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Pascal_Gross.jpg",
+    "source": "Wikimedia Commons"
   },
   "pasquale-mazzocchi": {
     "author": "Calciopedia",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Mazzocchi_and_Theo_Hernandez,_AC_Milan_vs_US_Salernitana,_March_13,_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Mazzocchi_and_Theo_Hernandez,_AC_Milan_vs_US_Salernitana,_March_13,_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "patrik-schick": {
     "author": "Tadeáš Bednarz",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Patrik_Schick,_CZE-NIR_2019-10-14_(1).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Patrik_Schick,_CZE-NIR_2019-10-14_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "pau-cubarsi": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Pau_Cubarsi_Argentina_v_Spain_19_July_2026-130.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Pau_Cubarsi_Argentina_v_Spain_19_July_2026-130.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "pau-torres": {
+    "author": "MintyGel",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Pau_Torres_April_2026.jpg",
+    "source": "Wikimedia Commons"
   },
   "paulo-bernardo": {
     "author": "Cleia Viana/Câmara dos Deputados",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Paulo_Bernardo_em_junho_de_2019_(recorte).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Paulo_Bernardo_em_junho_de_2019_(recorte).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "pedri-gonzalez": {
+    "author": "Bryan Berlin",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Pedri_Argentina_v_Spain_19_July_2026-191.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "pedro-neto": {
+    "author": "Bex Walton",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Pedro_Neto_(cropped)_WWFC_vs_Brighton_%26_Hove_Albion_4.3.2022_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "pedro-porro": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Pedro_Porro_Argentina_v_Spain_19_July_2026-203.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Pedro_Porro_Argentina_v_Spain_19_July_2026-203.jpg",
+    "source": "Wikimedia Commons"
   },
   "pepe-aguilar": {
     "author": "PepeAguilar.com",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:PepeAguilarCharro.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:PepeAguilarCharro.jpg",
+    "source": "Wikimedia Commons"
   },
   "pepe-costa": {
     "author": "Ana Suárez",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Presidente_de_Costa_Rica_Pepe_Figueres,_Karen_Olsen_y_Pedro_Gross_en_el_Banco_Central_de_Costa_Rica.png"
+    "url": "https://commons.wikimedia.org/wiki/File:Presidente_de_Costa_Rica_Pepe_Figueres,_Karen_Olsen_y_Pedro_Gross_en_el_Banco_Central_de_Costa_Rica.png",
+    "source": "Wikimedia Commons"
   },
   "peque-fernandez": {
     "author": "Gerard",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:GERARD_FERNANDEZ_SMITH.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:GERARD_FERNANDEZ_SMITH.jpg",
+    "source": "Wikimedia Commons"
   },
   "pervis-estupinan": {
     "author": "Agencia de Noticias ANDES",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Pervis_Estupi%C3%B1%C3%A1n_2015.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Pervis_Estupi%C3%B1%C3%A1n_2015.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "peter-gulacsi": {
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Peter_Gulacsi_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "phil-foden": {
     "author": "Egghead06",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Phil_Foden_2022.jpeg"
+    "url": "https://commons.wikimedia.org/wiki/File:Phil_Foden_2022.jpeg",
+    "source": "Wikimedia Commons"
   },
   "piero-hincapie": {
     "author": "Pyaet",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Piero_Hincapi%C3%A9,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Piero_Hincapi%C3%A9,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "pierre-kalulu": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:PierreKalulu2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:PierreKalulu2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "piotr-zielinski": {
     "author": "Екатерина Лаут",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Piotr_Zieli%C5%84ski_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Piotr_Zieli%C5%84ski_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "rabbi-matondo": {
     "author": "Jim Easton",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Rangers_v_Livingston_12_August_2023_(Rabbi_Matondo).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Rangers_v_Livingston_12_August_2023_(Rabbi_Matondo).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "rafa-silva": {
+    "author": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Rafa_Silva_20240803_(cropped)_wide.jpg",
+    "source": "Wikimedia Commons"
   },
   "rafael-leao": {
     "author": "Agência Lusa",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:RafaelLe%C3%A3oPortugal23.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:RafaelLe%C3%A3oPortugal23.jpg",
+    "source": "Wikimedia Commons"
   },
   "raheem-sterling": {
     "author": "Антон Зайцев",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Raheem_Sterling_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Raheem_Sterling_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "ramy-bensebaini": {
     "author": "34 super héros",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Bensebaini_MHSC.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Bensebaini_MHSC.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "randal-kolo-muani": {
+    "author": "Supporterhéninois",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Randal_Kolo_Muani_2020.jpg",
+    "source": "Wikimedia Commons"
   },
   "raphael-guerreiro": {
     "author": "Анна Нэсси",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Rapha%C3%ABl_Guerreiro_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Rapha%C3%ABl_Guerreiro_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "raphinha-dias": {
+    "author": "Government of Catalonia",
+    "license": "Attribution",
+    "url": "https://commons.wikimedia.org/wiki/File:Raphael_Dias_Belloli_2023.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "rasmus-hojlund": {
+    "author": "Locked Down Spectator",
+    "license": "CC BY 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Rasmus_H%C3%B8jlund_emocionado.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "rb-leipzig": {
+    "author": "Steffen Prößdorf , edited by User:CennoxX",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:2019-07-12_Fu%C3%9Fball;_Freundschaftsspiel_RB_Leipzig_-_FC_Z%C3%BCrich_1DX_0881_by_Stepro_2.png",
+    "source": "Wikimedia Commons"
+  },
+  "reece-james": {
+    "author": "Oleg Bkhambri (Voltmetro)",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Reece_James_in_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "remko-pasveer": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52787525577_(Remko_Pasveer).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52787525577_(Remko_Pasveer).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "reo-hatate": {
+    "author": "Keiteay",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Reo_Hatate_2.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "riccardo-calafiori": {
+    "author": "Pietro Luca Cassarino",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Riccardo_Calafiori.jpg",
+    "source": "Wikimedia Commons"
   },
   "richarlison-andrade": {
     "author": "Agencia de Noticias ANDES",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Richarlison_de_Andrade_2017.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Richarlison_de_Andrade_2017.jpg",
+    "source": "Wikimedia Commons"
   },
   "robert-andrich": {
     "author": "Pyaet",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Robert_Andrich,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Robert_Andrich,_2022-07-31,_Saisoner%C3%B6ffnung_Bayer_04,_Leverkusen_(1)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "robert-lewandowski": {
-    "author": "Rufus46",
-    "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_Training_FC_Bayern_M%C3%BCnchen-2.jpg"
+    "author": "Christopher Neundorf",
+    "license": "Attribution",
+    "url": "https://commons.wikimedia.org/wiki/File:Robert_Lewandowski_2010.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "robert-sanchez": {
+    "author": "jamesboyes",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Robert_Sanchez_2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "robin-le-normand": {
     "author": "Basara001",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Robin_Le_Normand_2122.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Robin_Le_Normand_2122.jpg",
+    "source": "Wikimedia Commons"
   },
   "robin-propper": {
     "author": "Hans Reefman",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Robin_propper-1672744977.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Robin_propper-1672744977.jpg",
+    "source": "Wikimedia Commons"
   },
   "rodri-hernandez": {
     "author": "CARLOS TEIXIDOR CADENAS",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Celebrando_ganar_la_Copa_Mundial_de_F%C3%BAtbol_de_2026._Rodri_Hern%C3%A1ndez_en_Madrid.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Celebrando_ganar_la_Copa_Mundial_de_F%C3%BAtbol_de_2026._Rodri_Hern%C3%A1ndez_en_Madrid.jpg",
+    "source": "Wikimedia Commons"
   },
   "rodrigo-bentancur": {
     "author": "Original: Ailura Derivative work: Danyele",
     "license": "CC BY-SA 3.0 at",
-    "url": "https://commons.wikimedia.org/wiki/File:20171114_AUT_URU_4518_-_Rodrigo_Bentancur_(cropped)_2.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:20171114_AUT_URU_4518_-_Rodrigo_Bentancur_(cropped)_2.jpg",
+    "source": "Wikimedia Commons"
   },
   "rodrigo-de-paul": {
     "author": "Barcex",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Rodrigo_de_Paul_-_240422_192702_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:25th_Laureus_World_Sports_Awards_-_Red_Carpet_-_Rodrigo_de_Paul_-_240422_192702_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "rodrigo-mora": {
     "author": "jikatu (Jimmy Baikovicius from Montevideo, Uruguay)",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Rodrigo_Mora.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Rodrigo_Mora.jpg",
+    "source": "Wikimedia Commons"
   },
   "rodrygo-goes": {
     "author": "Douglas Teixeira from Santos, Brasil",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:RodrygoGoes.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:RodrygoGoes.jpg",
+    "source": "Wikimedia Commons"
   },
   "romelu-lukaku": {
     "author": "Vyacheslav Evdokimov",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Romelu_Lukaku_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Romelu_Lukaku_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "romeo-lavia": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Rom%C3%A9o_Lavia_20042025_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "ronald-araujo": {
-    "author": "Olga Shcherbytska",
-    "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%82%D1%87_%C2%AB%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%BE%C2%BB_-_%C2%AB%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0%C2%BB_0-1._2_%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%BF%D0%B0%D0%B4%D0%B0_2021_%D1%80%D0%BE%D0%BA%D1%83_%E2%80%94_1289463_(Ronald_Ara%C3%BAjo).jpg"
+    "author": "Government of Catalonia",
+    "license": "Attribution",
+    "url": "https://commons.wikimedia.org/wiki/File:Ronald_Araujo_i_Gavi_amb_els_polos_de_passeig_que_inclouen_la_marca_Catalunya_(28-07-2023)_(Ronald_Ara%C3%BAjo).jpg",
+    "source": "Wikimedia Commons"
   },
   "ruben-dias": {
     "author": "pantkiewicz",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:RubenDiasCity2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:RubenDiasCity2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "ruben-loftus-cheek": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ruben_Loftus-Cheek_2018-06-13_1.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ruben_Loftus-Cheek_2018-06-13_1.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ryan-gravenberch": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ryan_Gravenberch_04012026_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "ryan-jack": {
     "author": "Jim Easton",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Ryan_Jack_2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Ryan_Jack_2022.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "samu-aghehowa": {
+    "author": "Like tears in rain",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Uzbekistan_vs._Spain,_2024_Summer_Olympic_men%27s_association_football,_2024-07-24_(471)_-_Samu.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "samuel-chukwueze": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Samuel_Chukwueze_01112025_(1).jpg",
+    "source": "Wikimedia Commons"
   },
   "samuel-lino": {
     "author": "Werner100359",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Samuel_Lino,_FC_Salzburg_vs._Atletico_Madrid_(2025-01-29_UEFA_Championsleague)_83_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Samuel_Lino,_FC_Salzburg_vs._Atletico_Madrid_(2025-01-29_UEFA_Championsleague)_83_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "sandro-tonali": {
+    "author": "Werner100359",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:SandroTonali2022Salzburg.jpg",
+    "source": "Wikimedia Commons"
   },
   "saul-niguez": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Sa%C3%BAl_%C3%91%C3%ADguez_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Sa%C3%BAl_%C3%91%C3%ADguez_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "savinho-moreira": {
+    "author": "SonoGrazy",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Palermo_FC_v_Manchester_City_FC,_9_August_2025_-_41_(Savinho).jpg",
+    "source": "Wikimedia Commons"
   },
   "scott-mctominay": {
     "author": "Ardfern",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Scott_McTominay_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Scott_McTominay_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "sean-longstaff": {
+    "author": "Mattythewhite",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Sean_Longstaff_2021-08-07_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "serge-gnabry": {
     "author": "حسین ظهروند",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Serge_Gnabry_WC2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Serge_Gnabry_WC2022.jpg",
+    "source": "Wikimedia Commons"
   },
   "sergio-ramos": {
     "author": "Майоров Владимир",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Sergio_Ramos_Garc%C3%ADa.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Sergio_Ramos_Garc%C3%ADa.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "serhou-guirassy": {
+    "author": "Jeollo von VfB-exklusiv.de",
+    "license": "CC BY 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Serhou_guirassy.jpg",
+    "source": "Wikimedia Commons"
   },
   "simon-adingra": {
     "author": "Sidney.Cortez",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Simon_Adingra_USG_2023.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Simon_Adingra_USG_2023.jpg",
+    "source": "Wikimedia Commons"
   },
   "solly-march": {
     "author": "James Boyes from UK",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Solly_March_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Solly_March_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "son-heung-min": {
     "author": "Ujishadow",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:BFA_2023_-2_Heung-Min_Son_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "stanislav-lobotka": {
     "author": "Антон Зайцев",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Stanislav_Lobotka_2021.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Stanislav_Lobotka_2021.jpg",
+    "source": "Wikimedia Commons"
   },
   "stephen-eustaquio": {
     "author": "RedPatch",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Stephen_Eustaquio_-_Canada_vs_Panama_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Stephen_Eustaquio_-_Canada_vs_Panama_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "steven-berghuis": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52788476320_(Steven_Berghuis).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52788476320_(Steven_Berghuis).jpg",
+    "source": "Wikimedia Commons"
   },
   "strahinja-pavlovic": {
     "author": "Hossein Zohrevand",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Brazil_vs_Serbia_WC2022_Richarlison,_Pavlovic_and_Lukic.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Brazil_vs_Serbia_WC2022_Richarlison,_Pavlovic_and_Lukic.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "suso-fernandez": {
+    "author": "Doha Stadium Plus Qatar from Doha, Qatar",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Suso_(31931880485).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "sven-botman": {
+    "author": "Timmy96",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Sven_Botman_24052026_(5).jpg",
+    "source": "Wikimedia Commons"
   },
   "tammy-abraham": {
     "author": "@cfcunofficial (Chelsea Debs) London",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Tammy_Abraham_20160511.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Tammy_Abraham_20160511.jpg",
+    "source": "Wikimedia Commons"
   },
   "teun-koopmeiners": {
     "author": "Ardfern",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Teun_Koopmeiners_Manchester_United_v_Atalanta_BC,_20_October_2021_(12)_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Teun_Koopmeiners_Manchester_United_v_Atalanta_BC,_20_October_2021_(12)_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "theo-hernandez": {
     "author": "Антон Зайцев",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Theo_Hern%C3%A1ndez.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Theo_Hern%C3%A1ndez.jpg",
+    "source": "Wikimedia Commons"
   },
   "thibaut-courtois": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Thibaut_Courtois_at_the_2018_World_Cup_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Thibaut_Courtois_at_the_2018_World_Cup_(cropped).jpg",
+    "source": "Wikimedia Commons"
   },
   "thomas-muller": {
     "author": "Michael Kranewitter",
     "license": "CC BY 3.0 at",
-    "url": "https://commons.wikimedia.org/wiki/File:FIFA_WC-qualification_2014_-_Austria_vs._Germany_2012-09-11_-_Thomas_M%C3%BCller_01_edit.JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:FIFA_WC-qualification_2014_-_Austria_vs._Germany_2012-09-11_-_Thomas_M%C3%BCller_01_edit.JPG",
+    "source": "Wikimedia Commons"
   },
   "tijjani-reijnders": {
     "author": "Saggittarius A",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Reijnders_arriva_in_albergo_(cropped).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Reijnders_arriva_in_albergo_(cropped).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "timo-werner": {
+    "author": "Granada",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:20180602_FIFA_Friendly_Match_Austria_vs._Germany_Timo_Werner_850_0621.jpg",
+    "source": "Wikimedia Commons"
   },
   "timothy-weah": {
     "author": "Keiteay",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Timothy_Weah.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Timothy_Weah.jpg",
+    "source": "Wikimedia Commons"
   },
   "todd-cantwell": {
     "author": "Joseph2302",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Todd_Cantwell.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Todd_Cantwell.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "tom-lawrence": {
+    "author": "Jon Candy from Cardiff, Wales",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Tom_Lawrence.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "tomas-soucek": {
+    "author": "Egghead06",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Tom%C3%A1%C5%A1_Sou%C4%8Dek_WHU.jpeg",
+    "source": "Wikimedia Commons"
   },
   "trent-alexander-arnold": {
     "author": "Антон Зайцев",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Trent_Alexander-Arnold_2018.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Trent_Alexander-Arnold_2018.jpg",
+    "source": "Wikimedia Commons"
   },
   "tyrone-mings": {
     "author": "Jon Candy from Cardiff, Wales",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Tyrone_Mings_2014.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Tyrone_Mings_2014.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "vaclav-cerny": {
+    "author": "Femke Kruize",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Vaclav_Cerny_2016.jpg",
+    "source": "Wikimedia Commons"
   },
   "vangelis-pavlidis": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Vangelis_Pavlidis.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Vangelis_Pavlidis.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "vasco-sousa": {
+    "author": "Manuel de Faria y Sousa",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Vasco_de_Gama_Faria_y_Sousa.png",
+    "source": "Wikimedia Commons"
   },
   "victor-boniface": {
     "author": "Fuguito",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:2026-07-21_Victor_Boniface.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:2026-07-21_Victor_Boniface.jpg",
+    "source": "Wikimedia Commons"
   },
   "vinicius-junior": {
     "author": "Agencia de Noticias ANDES",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Vinicius_Junior_2018_1.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Vinicius_Junior_2018_1.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "virgil-van-dijk": {
+    "author": "@cfcunofficial (Chelsea Debs) London from London, UK",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Virgil_van_Dijk_2019.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "vitinha-ferreira": {
+    "author": "Liondartois",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Vitinha_(PSG).jpg",
+    "source": "Wikimedia Commons"
   },
   "vladimir-coufal": {
     "author": "Egghead06",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Vladim%C3%ADr_Coufal_with_West_Ham_United.jpeg"
+    "url": "https://commons.wikimedia.org/wiki/File:Vladim%C3%ADr_Coufal_with_West_Ham_United.jpeg",
+    "source": "Wikimedia Commons"
   },
   "waldemar-anton": {
     "author": "Northside",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Anton,_Waldemar_H96_16-17_WP.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Anton,_Waldemar_H96_16-17_WP.jpg",
+    "source": "Wikimedia Commons"
   },
   "warren-zaire-emery": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Warren_Zaire-Emery_France_v_Senegal_16_June_2026-279.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Warren_Zaire-Emery_France_v_Senegal_16_June_2026-279.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "wenderson-galeno": {
+    "author": "Zarateman",
+    "license": "CC0",
+    "url": "https://commons.wikimedia.org/wiki/File:Benidorm_-_Edificio_Torre_Galeno_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "weston-mckennie": {
-    "author": "Jamie Smed",
+    "author": "Original: Hayden Schiff from Cincinnati, USA Derivative w…",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Weston_McKennie_on_June_9,_2019.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:USAvVEN_2019-06-09_-_Weston_McKennie_(51170534993)_(close-up).jpg",
+    "source": "Wikimedia Commons"
   },
   "willi-orban": {
     "author": "Thomas Hilmes / http://der-betze-brennt.de",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Willi_Orban1112.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Willi_Orban1112.jpg",
+    "source": "Wikimedia Commons"
   },
   "william-saliba": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:William_Saliba_France_v_Senegal_16_June_2026-336.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:William_Saliba_France_v_Senegal_16_June_2026-336.jpg",
+    "source": "Wikimedia Commons"
   },
   "willian-pacho": {
     "author": "Like tears in rain",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Paris_Saint-Germain_-_Manchester_City_FC,_22_January_2025_(952)_(Willian_Pacho).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Paris_Saint-Germain_-_Manchester_City_FC,_22_January_2025_(952)_(Willian_Pacho).jpg",
+    "source": "Wikimedia Commons"
   },
   "wilson-odobert": {
     "author": "ESTAC Troyes",
     "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Wilson_Odobert_2022.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Wilson_Odobert_2022.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "wout-weghorst": {
+    "author": "Кирилл Венедиктов",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Wout_Weghorst_2016.jpg",
+    "source": "Wikimedia Commons"
   },
   "xavi-simons": {
     "author": "Eloy Lecina",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Xavi-simons-paris.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Xavi-simons-paris.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "yankuba-minteh": {
+    "author": "Carlo Bruil Fotografie",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Go_Ahead_Eagles_-_Feyenoord_-_53679350805_(Yankuba_Minteh).jpg",
+    "source": "Wikimedia Commons"
   },
   "yann-sommer": {
     "author": "Christophe95",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Yann_Sommer_2014.JPG"
+    "url": "https://commons.wikimedia.org/wiki/File:Yann_Sommer_2014.JPG",
+    "source": "Wikimedia Commons"
   },
   "youri-baas": {
     "author": "Carlo Bruil Fotografie",
     "license": "CC BY 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52787519512_(Youri_Baas).jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_52787519512_(Youri_Baas).jpg",
+    "source": "Wikimedia Commons"
   },
   "youri-tielemans": {
     "author": "Кирилл Венедиктов",
     "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Youri_Tielemans_2019.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Youri_Tielemans_2019.jpg",
+    "source": "Wikimedia Commons"
   },
   "youssef-en-nesyri": {
     "author": "A.Nawfel",
     "license": "CC BY 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Youssef_En-Nesyri_(cropped)_vs_Burkina_Faso.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Youssef_En-Nesyri_(cropped)_vs_Burkina_Faso.jpg",
+    "source": "Wikimedia Commons"
   },
   "yves-bissouma": {
     "author": "Bigmatbasket",
     "license": "CC BY-SA 4.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Lille_vs_Lyon,_18_novembre_2016_-_Yves_Bissouma.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Lille_vs_Lyon,_18_novembre_2016_-_Yves_Bissouma.jpg",
+    "source": "Wikimedia Commons"
   }
 }

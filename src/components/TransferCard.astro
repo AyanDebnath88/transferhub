@@ -2,7 +2,7 @@
 import type { Transfer } from '../lib/types';
 import ClubBadge from './ClubBadge.astro';
 import ReliabilityStars from './ReliabilityStars.astro';
-import { playerImage, clubImage, genericPhoto, getCredit, slugify } from '../lib/images';
+import { playerImage, clubImage, clubSlugForImage, genericPhoto, getCredit, slugify } from '../lib/images';
 
 interface Props {
   transfer: Transfer;
@@ -59,7 +59,10 @@ const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
 const playerHit = playerImage(transfer.players);
 const clubHit = playerHit ? null : clubImage(transfer.clubs);
 const coverPhoto = playerHit ?? (clubHit ? null : genericPhoto(transfer.id));
-const credit = playerHit && transfer.players[0] ? getCredit(slugify(transfer.players[0])) : null;
+// Attribution for whichever real image is shown (player photo or club crest).
+const playerCredit = playerHit && transfer.players[0] ? getCredit(slugify(transfer.players[0])) : null;
+const clubCreditSlug = clubHit ? clubSlugForImage(transfer.clubs) : null;
+const imgCredit = playerCredit ?? (clubCreditSlug ? getCredit(clubCreditSlug) : null);
 ---
 
 <article class={`group relative bg-pitch-700 rounded-xl border border-line overflow-hidden transition-all duration-200 hover:border-gold/50 hover:shadow-lg hover:shadow-black/30 ${featured ? 'md:flex' : ''}`}>
@@ -106,10 +109,16 @@ const credit = playerHit && transfer.players[0] ? getCredit(slugify(transfer.pla
         class="absolute inset-0 w-full h-full object-contain p-8 opacity-90 group-hover:scale-[1.03] transition-transform duration-500"
       />
     )}
-    {credit && (
-      <span class="absolute bottom-1 right-1.5 text-[8px] text-white/60 bg-black/40 px-1 rounded z-10" title={`${credit.author} / ${credit.license}`}>
-        © {credit.author}
-      </span>
+    {imgCredit && (
+      <a
+        href={imgCredit.url}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        class="absolute bottom-1 right-1.5 text-[8px] text-white/70 hover:text-white bg-black/45 px-1 rounded z-10"
+        title={`${imgCredit.author} — ${imgCredit.license} — via Wikimedia Commons`}
+      >
+        © {imgCredit.author} · Wikimedia Commons
+      </a>
     )}
     <!-- Type badge on image -->
     <span class={`absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md tracking-wider backdrop-blur-sm ${isBreaking ? 'bg-gold text-pitch-900' : `bg-pitch-900/80 ${typeConfig.cls}`}`}>

@@ -22,8 +22,16 @@ for (const f of scan('players')) playerFiles[f.replace(IMG_RE, '').toLowerCase()
 
 const photoFiles = scan('photos').sort();
 
-// Original club emblems (public/crests/<slug>.svg) — used as the card image
-// when no player photo matches. These are our own copyright-safe designs.
+// Club emblem used as the card image when no player photo matches.
+// Priority: real crest downloaded from Wikimedia Commons (public/clubs/<slug>.*)
+// -> our own original emblem (public/crests/<slug>.svg).
+// slug -> filename for downloaded Commons crests (any image ext incl. SVG)
+const clubFiles: Record<string, string> = {};
+try {
+  for (const f of readdirSync(join(PUBLIC, 'clubs'))) {
+    if (/\.(svg|png|jpe?g|webp)$/i.test(f)) clubFiles[f.replace(/\.(svg|png|jpe?g|webp)$/i, '').toLowerCase()] = f;
+  }
+} catch { /* no clubs dir yet */ }
 function scanSvg(dir: string): Set<string> {
   try { return new Set(readdirSync(join(PUBLIC, dir)).filter((f) => /\.svg$/i.test(f)).map((f) => f.replace(/\.svg$/i, '').toLowerCase())); }
   catch { return new Set(); }
@@ -41,11 +49,22 @@ export function playerImage(names: string[]): string | null {
   return null;
 }
 
-// First matching club emblem (original SVG) for the story's clubs, else null.
+// First matching club image for the story's clubs, else null.
+// Prefers a real crest downloaded from Commons, else our original emblem.
 export function clubImage(names: string[]): string | null {
   for (const n of names || []) {
     const s = slugify(n);
+    if (clubFiles[s]) return `/clubs/${clubFiles[s]}`;
     if (crestSlugs.has(s)) return `/crests/${s}.svg`;
+  }
+  return null;
+}
+
+// The club slug a clubImage() path resolves to (for credit lookup), or null.
+export function clubSlugForImage(names: string[]): string | null {
+  for (const n of names || []) {
+    const s = slugify(n);
+    if (clubFiles[s] || crestSlugs.has(s)) return s;
   }
   return null;
 }

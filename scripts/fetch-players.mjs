@@ -69,29 +69,15 @@ const existing = new Set(
 );
 
 // --- license classification ------------------------------------------------
-// Returns { label, attribution } if allowed, or null to REJECT.
+// Commons hosts free-content only, so accept ANY licence and credit it.
+// Only guard against anything explicitly marked non-free / all-rights-reserved.
+// Returns { label } if allowed, or null to REJECT. Every kept image is credited.
 function classifyLicense(meta) {
   const short = (meta?.LicenseShortName?.value || '').trim();
   const code = (meta?.License?.value || '').toLowerCase();
   const hay = `${short} ${code}`.toLowerCase();
-
-  // hard reject anything that smells non-free
-  if (/fair use|non[- ]?free|all rights reserved|©|copyright(?!ed free)/.test(hay)) return null;
-
-  // public domain / CC0 -> no attribution required
-  if (/\bcc0\b|cc-zero|public domain|\bpd\b|pd-|pdmark|no restrictions/.test(hay)) {
-    return { label: short || 'Public domain', attribution: false };
-  }
-  // CC-BY-SA (check before CC-BY) -> attribution required
-  if (/cc[ -]?by[ -]?sa|cc-by-sa/.test(hay)) {
-    return { label: short || 'CC BY-SA', attribution: true };
-  }
-  // CC-BY -> attribution required
-  if (/cc[ -]?by(?![ -]?sa)/.test(hay)) {
-    return { label: short || 'CC BY', attribution: true };
-  }
-  // GFDL-only, unknown, or empty -> reject to stay safe
-  return null;
+  if (/fair use|non[- ]?free|all rights reserved/.test(hay)) return null;
+  return { label: short || 'Wikimedia Commons' };
 }
 
 function cleanText(html) {
@@ -136,14 +122,14 @@ function pickCandidate(pages, playerName) {
     if (!lic) continue;
 
     const t = deburr(title);
-    // must plausibly be this person: surname in the file title
-    if (!t.includes(surname)) continue;
+    // must plausibly be this person: surname OR a name token in the file title
+    if (!t.includes(surname) && !tokens.some((tok) => t.includes(tok))) continue;
 
     let score = 0;
+    if (t.includes(surname)) score += 2;                 // strong signal
     for (const tok of tokens) if (t.includes(tok)) score += 2;
     if (/image\/jpeg/i.test(ii.mime)) score += 1;
     if ((ii.height || 0) >= (ii.width || 1)) score += 1; // prefer portrait
-    if (!lic.attribution) score += 1;                    // prefer PD/CC0 (no credit needed)
 
     if (!best || score > best.score) {
       best = {
@@ -203,14 +189,10 @@ for (const club of clubs) {
       writeFileSync(join(PLAYERS_DIR, `${slug}.jpg`), card);
       existing.add(slug);
 
-      if (cand.lic.attribution) {
-        credits[slug] = { author: cand.artist, license: cand.lic.label, url: cand.page };
-        creditsDirty = true;
-        console.log(`  OK    ${player} -> ${slug}.jpg  [${cand.lic.label} © ${cand.artist}]`);
-      } else {
-        if (credits[slug]) { delete credits[slug]; creditsDirty = true; } // was CC, now PD source
-        console.log(`  OK    ${player} -> ${slug}.jpg  [${cand.lic.label}, no credit needed]`);
-      }
+      // credit EVERY image, sourced from Wikimedia Commons
+      credits[slug] = { author: cand.artist, license: cand.lic.label, url: cand.page, source: 'Wikimedia Commons' };
+      creditsDirty = true;
+      console.log(`  OK    ${player} -> ${slug}.jpg  [${cand.lic.label} © ${cand.artist}]`);
       ok++; done++;
     } catch (e) {
       console.log(`  FAIL  ${player}: ${e.message}`);
