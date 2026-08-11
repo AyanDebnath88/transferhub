@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import creditsRaw from '../data/imageCredits.json';
+
+const credits = Object.entries(creditsRaw as Record<string, any>)
+  .filter(([k, v]) => k !== '_note' && v && typeof v === 'object' && v.author)
+  .map(([slug, v]) => ({ slug, ...v }));
+---
+<BaseLayout
+  title="Image Credits"
+  description="Attribution for Creative Commons images used on TransferHub, with author, licence and source link for each."
+>
+  <div class="max-w-3xl">
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream mb-2">Image Credits</h1>
+    <p class="text-cream-muted mb-8 text-sm leading-relaxed">
+      Player and club photographs used on TransferHub are either public domain / CC0, or licensed under
+      Creative Commons with attribution shown below. Generic football imagery is royalty-free (Pixabay) or original
+      vector art created by TransferHub. We do not use agency press photos.
+    </p>
+
+    {credits.length === 0 ? (
+      <p class="text-sm text-cream-dim">No attribution-required images are currently in use.</p>
+    ) : (
+      <ul class="space-y-3">
+        {credits.map((c) => (
+          <li class="bg-pitch-700 border border-line rounded-xl px-4 py-3 text-sm">
+            <span class="text-cream font-semibold">{c.slug.replace(/-/g, ' ')}</span>
+            <span class="text-cream-muted"> — {c.author}, {c.license}. </span>
+            <a href={c.url} target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">source</a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</BaseLayout>

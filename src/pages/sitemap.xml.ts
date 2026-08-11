@@ -26,6 +26,7 @@ const PAGES = [
   { path: '/privacy',        changefreq: 'monthly', priority: '0.3' },
   { path: '/terms',          changefreq: 'monthly', priority: '0.3' },
   { path: '/disclaimer',     changefreq: 'monthly', priority: '0.3' },
+  { path: '/credits',        changefreq: 'monthly', priority: '0.3' },
   { path: '/contact',        changefreq: 'monthly', priority: '0.3' },
   // Error pages included so Google sees them as intentional, not crawl errors
   { path: '/404',            changefreq: 'yearly',  priority: '0.1' },

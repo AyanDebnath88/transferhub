@@ -2,6 +2,7 @@
 import type { Transfer } from '../lib/types';
 import ClubBadge from './ClubBadge.astro';
 import ReliabilityStars from './ReliabilityStars.astro';
+import { playerImage, genericPhoto, getCredit, slugify } from '../lib/images';
 
 interface Props {
   transfer: Transfer;
@@ -44,12 +45,17 @@ const gradient =
 
 const hasSummary = transfer.summary && transfer.summary !== transfer.title;
 
-// Copyright-free card art (public/cards/) picked deterministically from the story id.
-// No agency photos are used — nothing to infringe.
+// Copyright-free card art (public/cards/) as the always-present base.
 const CARD_ART = 12;
 let h = 0;
 for (const c of transfer.id) h = (h * 31 + c.charCodeAt(0)) | 0;
 const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
+
+// Real photo layered on top when available: your player/club drop-in first,
+// else a royalty-free Pixabay generic. Null = show the vector art alone.
+const playerHit = playerImage(transfer.players);
+const bgPhoto = playerHit ?? genericPhoto(transfer.id);
+const credit = playerHit && transfer.players[0] ? getCredit(slugify(transfer.players[0])) : null;
 ---
 
 <article class={`group relative bg-pitch-700 rounded-xl border border-line overflow-hidden transition-all duration-200 hover:border-gold/50 hover:shadow-lg hover:shadow-black/30 ${featured ? 'md:flex' : ''}`}>
@@ -65,15 +71,32 @@ const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
     <div class={`absolute inset-0 flex items-end p-3 ${gradient}`}>
       <span class="text-[11px] font-bold text-cream-dim uppercase tracking-widest">{transfer.source}</span>
     </div>
+    <!-- Vector art base (always present) -->
     <img
       src={cardArt}
       alt=""
       aria-hidden="true"
       loading="lazy"
       decoding="async"
-      class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-      onerror="this.style.display='none'"
+      class="absolute inset-0 w-full h-full object-cover"
     />
+    <!-- Real photo overlay (player drop-in or royalty-free generic); hides itself if missing -->
+    {bgPhoto && (
+      <img
+        src={bgPhoto}
+        alt={playerHit ? transfer.players[0] : ''}
+        aria-hidden={playerHit ? undefined : 'true'}
+        loading="lazy"
+        decoding="async"
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+        onerror="this.style.display='none'"
+      />
+    )}
+    {credit && (
+      <span class="absolute bottom-1 right-1.5 text-[8px] text-white/60 bg-black/40 px-1 rounded z-10" title={`${credit.author} / ${credit.license}`}>
+        © {credit.author}
+      </span>
+    )}
     <!-- Type badge on image -->
     <span class={`absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md tracking-wider backdrop-blur-sm ${isBreaking ? 'bg-gold text-pitch-900' : `bg-pitch-900/80 ${typeConfig.cls}`}`}>
       {isBreaking ? 'Breaking' : typeConfig.label}
