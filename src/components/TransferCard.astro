@@ -46,7 +46,7 @@ const hasSummary = transfer.summary && transfer.summary !== transfer.title;
 
 // Copyright-free card art (public/cards/) picked deterministically from the story id.
 // No agency photos are used — nothing to infringe.
-const CARD_ART = 8;
+const CARD_ART = 12;
 let h = 0;
 for (const c of transfer.id) h = (h * 31 + c.charCodeAt(0)) | 0;
 const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
