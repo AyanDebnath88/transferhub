@@ -2,6 +2,25 @@
 
 Drop image files here. The site auto-uses them as card backgrounds — **no code change needed**, just match the naming.
 
+## Automated fetch (recommended)
+
+`scripts/fetch-players.mjs` fills this folder from **Wikimedia Commons**, license-safe and automatic:
+
+```bash
+node scripts/fetch-players.mjs "Arsenal"    # one club (a batch)
+node scripts/fetch-players.mjs all          # every club in scripts/rosters.json
+node scripts/fetch-players.mjs Arsenal --dry --limit 5   # preview, no writes
+node scripts/fetch-players.mjs --list       # list club keys
+```
+
+It searches each player, reads the file's license via the Commons API, **keeps only PD / CC0 / CC-BY / CC-BY-SA**, downloads, crops to a 16:9 card (face-safe top crop), renames to the player slug, and — for CC-BY(-SA) — writes the required credit into `src/data/imageCredits.json` automatically. Already-present files are skipped (re-run to resume; `--force` to overwrite). Squad lists live in `scripts/rosters.json` (edit as squads change, then re-run that club).
+
+When no player photo matches a story, the card falls back to the club's **original emblem** (`public/crests/<slug>.svg`) — see `clubImage()` in `src/lib/images.ts`.
+
+---
+
+## Manual drop-in (also works)
+
 ## Naming (this is how the site matches them)
 
 Name each file as the **player's name, lowercased, words joined by hyphens**, matching how the name appears in headlines:

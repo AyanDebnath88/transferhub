@@ -38,7 +38,7 @@ Deploy = `git push` to `main` (Vercel auto-builds). Domain: apex `transferhub.cl
 
 **Static** (`public/`): `logos/` (28 crest PNGs), `icons/` (PWA), `sw.js` (service worker — network-first pages, cache version `transferhub-v3`), `manifest.json`, `robots.txt`, `ads.txt`, `favicon.svg`, `og-default.png`, Google verify HTML.
 
-**Scripts** (`scripts/`): `fetch-logos.mjs` (download crests from TheSportsDB), `generate-og.mjs` (1200×630 OG image), `generate-app-icon.mjs` (icon+splash+PWA pngs), `generate-icons.mjs` (legacy).
+**Scripts** (`scripts/`): `fetch-players.mjs` (Wikimedia Commons → license-safe player portraits → `public/players/` + auto credits; roster in `rosters.json`), `fetch-images.mjs` (Pixabay generics), `fetch-logos.mjs` (download crests from TheSportsDB), `generate-brand-assets.mjs` (original emblems + vector card art), `generate-og.mjs` (1200×630 OG image), `generate-app-icon.mjs` (icon+splash+PWA pngs), `generate-icons.mjs` (legacy).
 
 **Native**: Capacitor — `capacitor.config.ts`, `android/`, `ios/`. `npm run app:sync` / `app:open:android` / `app:open:ios`. iOS build needs macOS+Xcode; Android needs Android Studio.
 
@@ -86,8 +86,11 @@ Deploy = `git push` to `main` (Vercel auto-builds). Domain: apex `transferhub.cl
 
 **Legal posture:** only PD/CC0/CC-BY/CC-BY-SA images allowed in `public/players/`. Never agency photos, never crop-to-hide-source (removing credit is a separate DMCA §1202 violation). See README in the players folder.
 
+**Card image priority** (`TransferCard.astro` + `src/lib/images.ts`): player photo (`public/players`, full-bleed) → **club emblem** (`public/crests/<slug>.svg`, centred — `clubImage()`) → Pixabay generic (`public/photos`) → vector art base (`public/cards`, always present).
+
 **Common image tasks:**
-- Add player photos: drop `player-name.jpg` into `public/players/` (slug = lowercase, hyphens). If CC-BY/BY-SA, add a credit entry to `src/data/imageCredits.json`. Rebuild — auto-picked.
+- **Fetch player photos automatically (preferred):** `node scripts/fetch-players.mjs "Arsenal"` (one club) or `... all`. Pulls copyright-safe portraits from Wikimedia Commons — keeps only PD/CC0/CC-BY/CC-BY-SA, crops 16:9, renames to slug, auto-writes CC credits to `imageCredits.json`. Squads in `scripts/rosters.json`. `--dry` previews, `--force` overwrites, `--list` shows club keys, skips already-downloaded. Then commit + push to deploy.
+- Add a player photo by hand: drop `player-name.jpg` into `public/players/` (slug = lowercase, hyphens). If CC-BY/BY-SA, add a credit entry to `src/data/imageCredits.json`. Rebuild — auto-picked.
 - Refresh generic photos: `node scripts/fetch-images.mjs <PIXABAY_API_KEY>` (free key from pixabay.com/api/docs). Never commit the key; it's a CLI arg only.
 - Regenerate crests/vector art: `node scripts/generate-brand-assets.mjs`.
 

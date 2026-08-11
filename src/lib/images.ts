@@ -22,6 +22,14 @@ for (const f of scan('players')) playerFiles[f.replace(IMG_RE, '').toLowerCase()
 
 const photoFiles = scan('photos').sort();
 
+// Original club emblems (public/crests/<slug>.svg) — used as the card image
+// when no player photo matches. These are our own copyright-safe designs.
+function scanSvg(dir: string): Set<string> {
+  try { return new Set(readdirSync(join(PUBLIC, dir)).filter((f) => /\.svg$/i.test(f)).map((f) => f.replace(/\.svg$/i, '').toLowerCase())); }
+  catch { return new Set(); }
+}
+const crestSlugs = scanSvg('crests');
+
 const credits = creditsRaw as Record<string, { author: string; license: string; url: string }>;
 
 // First matching player (or club) image, else null.
@@ -29,6 +37,15 @@ export function playerImage(names: string[]): string | null {
   for (const n of names || []) {
     const s = slugify(n);
     if (playerFiles[s]) return `/players/${playerFiles[s]}`;
+  }
+  return null;
+}
+
+// First matching club emblem (original SVG) for the story's clubs, else null.
+export function clubImage(names: string[]): string | null {
+  for (const n of names || []) {
+    const s = slugify(n);
+    if (crestSlugs.has(s)) return `/crests/${s}.svg`;
   }
   return null;
 }
