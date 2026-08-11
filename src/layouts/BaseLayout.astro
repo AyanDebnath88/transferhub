@@ -1,6 +1,5 @@
 ---
 import { fetchAllTransfers } from '../lib/fetchTransfers';
-import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title?: string;
@@ -293,7 +292,7 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
             <li><a href="/terms" class="hover:text-gold transition-colors">Terms of Service</a></li>
             <li><a href="/disclaimer" class="hover:text-gold transition-colors">Disclaimer</a></li>
             <li><a href="/contact" class="hover:text-gold transition-colors">Contact / DMCA</a></li>
-            <li><a href="#" data-cookie-settings class="hover:text-gold transition-colors">Cookie settings</a></li>
+            <li><a href="#" onclick="if(window.googlefc&&googlefc.showRevocationMessage){googlefc.showRevocationMessage();return false;}" class="hover:text-gold transition-colors">Cookie settings</a></li>
           </ul>
         </div>
       </div>
@@ -301,8 +300,6 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
         &copy; {new Date().getFullYear()} TransferHub &mdash; News aggregated from public RSS feeds &mdash; All article rights belong to respective publishers
       </div>
     </footer>
-
-    <CookieConsent />
 
   </body>
 </html>
