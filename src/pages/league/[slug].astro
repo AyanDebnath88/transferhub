@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TransferCard from '../../components/TransferCard.astro';
+import { LEAGUES, getLeague } from '../../lib/leagues';
+import { fetchAllTransfers } from '../../lib/fetchTransfers';
+
+export function getStaticPaths() {
+  return Object.keys(LEAGUES).map((slug) => ({ params: { slug }, props: { slug } }));
+}
+
+const { slug } = Astro.props;
+const league = getLeague(slug)!;
+const all = await fetchAllTransfers();
+const transfers = all.filter((t) => t.clubs.some((c) => league.clubs.includes(c)));
+const confirmed = transfers.filter((t) => t.type === 'confirmed').length;
+const rumours = transfers.filter((t) => t.type === 'rumour').length;
+const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+const SITE = 'https://transferhub.club';
+const url = `${SITE}/league/${slug}`;
+
+const breadcrumbSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: league.name, item: url },
+  ],
+});
+const collectionSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${league.name} Transfer News`,
+  url,
+});
+---
+
+<BaseLayout
+  title={`${league.name} Transfer News & Rumours 2026`}
+  description={`Latest ${league.name} transfer news, confirmed signings and rumours from ${league.country}. ${transfers.length} stories, ${confirmed} confirmed. Updated ${updatedAt}.`}
+  keywords={`${league.name} transfers, ${league.name} transfer news, ${league.name} signings 2026, ${league.name} rumours, ${league.country} football transfers`}
+  canonicalUrl={url}
+>
+  <script type="application/ld+json" set:html={breadcrumbSchema} slot="head" />
+  <script type="application/ld+json" set:html={collectionSchema} slot="head" />
+
+  <nav class="text-xs text-cream-dim mb-4 flex items-center gap-1.5">
+    <a href="/" class="hover:text-gold transition-colors">Home</a>
+    <span>/</span>
+    <span class="text-cream-muted">{league.name}</span>
+  </nav>
+
+  <div class="mb-6">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-4">
+      <div>
+        <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-none tracking-tight">
+          {league.name} <span class="text-gold">Transfers</span>
+        </h1>
+        <p class="text-sm text-cream-muted mt-1.5">
+          <span class="text-cream font-semibold">{transfers.length}</span> stories &nbsp;&middot;&nbsp;
+          <span class="text-grass font-semibold">{confirmed}</span> confirmed &nbsp;&middot;&nbsp;
+          {league.country} &nbsp;&middot;&nbsp; Updated <time>{updatedAt}</time>
+        </p>
+      </div>
+      <a href="/" class="bg-pitch-700 border border-line hover:border-gold/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">&larr; All News</a>
+    </div>
+
+    <!-- League switcher -->
+    <div class="flex gap-1 bg-pitch-700 border border-line rounded-xl p-1 overflow-x-auto">
+      <a href="/premier-league" class="flex-shrink-0 px-3.5 py-1.5 rounded-lg text-sm font-semibold text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all whitespace-nowrap">Premier League</a>
+      {Object.entries(LEAGUES).map(([s, l]) => (
+        <a href={`/league/${s}`}
+           class={`flex-shrink-0 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${s === slug ? 'bg-gold text-pitch-900' : 'text-cream-muted hover:text-cream hover:bg-pitch-600'}`}>
+          {l.name}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  {transfers.length === 0 ? (
+    <div class="text-center py-20">
+      <p class="text-lg font-semibold text-cream-muted">No {league.name} transfer news right now</p>
+      <p class="text-sm text-cream-dim mt-2">We aggregate {league.name} moves the moment trusted publishers report them. Check back soon.</p>
+      <a href="/" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View all news</a>
+    </div>
+  ) : (
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {transfers.map((t) => <TransferCard transfer={t} />)}
+    </div>
+  )}
+
+  <!-- SEO copy -->
+  <section class="mt-12 pt-8 border-t border-line max-w-3xl">
+    <h2 class="font-display text-2xl font-bold text-cream mb-3">{league.name} transfer news, live</h2>
+    <p class="text-sm text-cream-muted leading-relaxed mb-3">{league.blurb}</p>
+    <p class="text-sm text-cream-muted leading-relaxed">
+      This page gathers every {league.name} transfer story — confirmed signings, developing deals and rumours —
+      pulled in real time from Sky Sports, BBC Sport, ESPN, The Guardian and more, and rated for reliability so you
+      can tell a done deal from speculation. Right now we're tracking <strong class="text-cream">{transfers.length}</strong>
+      {' '}{league.name} {transfers.length === 1 ? 'story' : 'stories'}{confirmed > 0 && <>, including <strong class="text-grass">{confirmed}</strong> confirmed</>}{rumours > 0 && <> and <strong class="text-rumor">{rumours}</strong> live {rumours === 1 ? 'rumour' : 'rumours'}</>}.
+      <a href="/methodology" class="text-gold hover:underline">See how our ratings work</a>.
+    </p>
+  </section>
+</BaseLayout>

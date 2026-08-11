@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { CLUB_META } from '../lib/clubs';
+import { LEAGUES } from '../lib/leagues';
 
 const SITE = 'https://transferhub.club';
 
@@ -7,12 +8,16 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
 const clubPages = Object.keys(CLUB_META).map((name) => ({
   path: `/club/${slugify(name)}`, changefreq: 'daily', priority: '0.7',
 }));
+const leaguePages = Object.keys(LEAGUES).map((slug) => ({
+  path: `/league/${slug}`, changefreq: 'daily', priority: '0.8',
+}));
 
 const PAGES = [
   { path: '',                changefreq: 'hourly',  priority: '1.0' },
   { path: '/confirmed',      changefreq: 'hourly',  priority: '0.9' },
   { path: '/rumours',        changefreq: 'hourly',  priority: '0.9' },
   { path: '/premier-league', changefreq: 'daily',   priority: '0.8' },
+  ...leaguePages,
   { path: '/clubs',          changefreq: 'daily',   priority: '0.7' },
   { path: '/about',          changefreq: 'monthly', priority: '0.5' },
   { path: '/methodology',    changefreq: 'monthly', priority: '0.5' },
