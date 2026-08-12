@@ -39,7 +39,7 @@ const perIdx = args.indexOf('--per');
 const positional = args.filter((a, i) => !a.startsWith('--') && i !== perIdx + 1);
 const FORCE = flags.has('--force');
 const DRY = flags.has('--dry');
-const PER = (() => { const i = args.indexOf('--per'); return i >= 0 && args[i + 1] ? parseInt(args[i + 1], 10) : 2; })();
+const PER = (() => { const i = args.indexOf('--per'); return i >= 0 && args[i + 1] ? parseInt(args[i + 1], 10) : 4; })();
 
 const slugify = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const deburr = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -65,6 +65,9 @@ const cleanText = (h) => !h ? '' : h.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, 
 
 // want colour scenes; reject logos/charts/maps/kit-diagrams and non-photo files
 const BAD = /(logo|crest|badge|escudo|wappen|coat of arms|monogram|\bmap\b|performance|\bchart\b|\bgraph\b|statistics|diagram|kit|\.svg|location|locator|pictogram)/i;
+// bland: empty/architectural shots we down-rank (still allowed as backup)
+const BLAND = /(tunnel|interior|concourse|construction|aerial|panorama|facade|exterior|\bseats?\b|empty|entrance|\bgate\b|\bsign\b|under construction|demolition|car park|corridor|toilet|scaffold|night view)/i;
+const VIVID = /(match|matchday|goal|celebrat|fans|supporters|crowd|derby|final|trophy|action|players|squad|lineup|line-up|kick|attack|corner|penalty|ultras|tifo|banner|flag|pitch)/i;
 
 async function search(term) {
   const url = `${API}?action=query&format=json&origin=*` +
@@ -97,7 +100,8 @@ function collect(pages, club, into, seen) {
     seen.add(ii.url);
     let score = 0;
     for (const tok of tokens) if (t.includes(tok)) score += 2;
-    if (/(stadium|arena|ground|match|fans|supporters|team|squad|celebrat)/i.test(title)) score += 2;
+    if (VIVID.test(title)) score += 4;      // action/crowd/celebration -> vivid
+    if (BLAND.test(title)) score -= 4;       // empty/architectural -> dull
     if ((ii.width || 0) >= 1600) score += 1;
     into.push({
       score, title,
@@ -110,6 +114,21 @@ function collect(pages, club, into, seen) {
 }
 
 const toCard = async (buf) => sharp(buf).rotate().resize(800, 450, { fit: 'cover', position: 'centre' }).jpeg({ quality: 82 }).toBuffer();
+
+// mean pixel saturation 0..1 — low = grey/architectural/B&W, high = vivid colour
+async function vividness(buf) {
+  try {
+    const { data } = await sharp(buf).resize(48, 48, { fit: 'cover' }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    let sum = 0, n = data.length / 3;
+    for (let i = 0; i < data.length; i += 3) {
+      const r = data[i], g = data[i + 1], b = data[i + 2];
+      const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+      sum += mx === 0 ? 0 : (mx - mn) / mx;
+    }
+    return sum / n;
+  } catch { return 0; }
+}
+const VIVID_MIN = 0.22;
 
 function loadCredits() { try { return JSON.parse(readFileSync(CREDITS_PATH, 'utf8')); } catch { return {}; } }
 function saveCredits(o) { const { _note, ...r } = o; const out = {}; if (_note) out._note = _note; for (const k of Object.keys(r).sort()) out[k] = r[k]; writeFileSync(CREDITS_PATH, JSON.stringify(out, null, 2) + '\n'); }
@@ -125,30 +144,45 @@ for (const club of targets) {
   const term = CLUBS[club];
   const cands = [], seen = new Set();
   try {
-    for (const q of [`${term} stadium`, `${term} match`, `${term} supporters`, `${term} team`, term]) {
+    for (const q of [`${term} celebration`, `${term} fans`, `${term} match`, `${term} supporters`, `${term} goal`, `${term} team`, `${term} stadium`, term]) {
       collect(await search(q), club, cands, seen);
-      await sleep(200);
-      if (cands.length >= PER * 3) break;
+      await sleep(160);
+      if (cands.length >= PER * 5) break;
     }
   } catch (e) { console.log(`FAIL  ${club}: ${e.message}`); fail++; continue; }
 
   cands.sort((a, b) => b.score - a.score);
-  const chosen = cands.slice(0, PER);
-  if (!chosen.length) { console.log(`MISS  ${club} (no photo)`); miss++; continue; }
+  if (!cands.length) { console.log(`MISS  ${club} (no photo)`); miss++; continue; }
 
-  for (let i = 0; i < chosen.length; i++) {
-    const c = chosen[i];
-    const name = `${slug}-${i + 1}`;
-    if (DRY) { console.log(`dry   ${name} <- ${c.lic.label} | ${c.title}`); continue; }
+  // Download in score order; keep only vivid (colour-saturated) shots, stash the
+  // rest as backups so we still reach PER if few vivid ones exist.
+  const picks = [], backups = [];
+  for (const c of cands) {
+    if (picks.length >= PER) break;
+    if (DRY) { if (picks.length + backups.length < PER * 2) { console.log(`dry   ${slug} <- s${c.score} ${c.lic.label} | ${c.title}`); picks.push(c); } continue; }
     try {
       const r = await fetch(c.src, { headers: { 'User-Agent': UA } });
       if (!r.ok) throw new Error(`img HTTP ${r.status}`);
-      writeFileSync(join(OUT, `${name}.jpg`), await toCard(Buffer.from(await r.arrayBuffer())));
+      const raw = Buffer.from(await r.arrayBuffer());
+      const v = await vividness(raw);
+      c.buf = raw;
+      if (v >= VIVID_MIN) picks.push(c); else backups.push({ c, v });
+    } catch { /* skip */ }
+    await sleep(160);
+  }
+  if (!DRY) { backups.sort((a, b) => b.v - a.v); while (picks.length < PER && backups.length) picks.push(backups.shift().c); }
+  if (!picks.length) { console.log(`MISS  ${club} (no usable photo)`); miss++; continue; }
+
+  for (let i = 0; i < picks.length; i++) {
+    const c = picks[i];
+    const name = `${slug}-${i + 1}`;
+    if (DRY) continue;
+    try {
+      writeFileSync(join(OUT, `${name}.jpg`), await toCard(c.buf));
       credits[name] = { author: c.artist, license: c.lic.label, url: c.page, source: 'Wikimedia Commons' };
       dirty = true; ok++;
       console.log(`OK    ${name}.jpg  [${c.lic.label} © ${c.artist}]`);
     } catch (e) { console.log(`FAIL  ${name}: ${e.message}`); fail++; }
-    await sleep(250);
   }
 }
 
