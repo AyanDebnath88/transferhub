@@ -87,21 +87,24 @@ export function playerImage(names: string[]): string | null {
 // Resolve a player photo for a story: try the extracted names exactly, then scan
 // the TITLE for any known player (full name, mononym, or unambiguous surname).
 // Returns the image path + the player slug (for credit lookup), or null.
-export function resolvePlayer(names: string[], title: string): { src: string; slug: string } | null {
+export function resolvePlayer(names: string[], ...texts: string[]): { src: string; slug: string } | null {
   for (const n of names || []) {
     const s = slugify(n);
     if (playerFiles[s]) return { src: `/players/${playerFiles[s]}`, slug: s };
   }
-  const norm = deburr(title).replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
-  const padded = ` ${norm} `;
   const toHit = (file: string) => ({ src: `/players/${file}`, slug: file.replace(IMG_RE, '').toLowerCase() });
-  // full names (multi-word keys) first — most specific
-  for (const key in nameIndex) {
-    if (key.includes(' ') && padded.includes(` ${key} `)) return toHit(nameIndex[key]);
-  }
-  // then single-token (mononym / surname) matches
-  for (const tok of norm.split(' ')) {
-    if (nameIndex[tok]) return toHit(nameIndex[tok]);
+  // Scan each text in order (title first, then summary): full names win over
+  // single-token (mononym / surname) matches within the same text.
+  for (const text of texts) {
+    if (!text) continue;
+    const norm = deburr(text).replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+    const padded = ` ${norm} `;
+    for (const key in nameIndex) {
+      if (key.includes(' ') && padded.includes(` ${key} `)) return toHit(nameIndex[key]);
+    }
+    for (const tok of norm.split(' ')) {
+      if (nameIndex[tok]) return toHit(nameIndex[tok]);
+    }
   }
   return null;
 }

@@ -65,7 +65,7 @@ const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
 //   2. real club PHOTO for any named club (rotates by id)
 //   3. royalty-free generic
 // Club crest emblem is a last-resort contain layer only if no photo at all.
-const playerRes = resolvePlayer(transfer.players, transfer.title);
+const playerRes = resolvePlayer(transfer.players, transfer.title, transfer.summary);
 const playerHit = playerRes?.src ?? null;
 const playerName = playerRes ? playerRes.slug.replace(/-/g, ' ') : '';
 const clubPhotoRes = playerHit ? null : clubPhoto(transfer.clubs, transfer.id);
