@@ -12,6 +12,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Logo_of_AC_Milan.svg",
     "source": "Wikimedia Commons"
   },
+  "ac-milan-1": {
+    "author": "Vincenzo.togni",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:The_San_Siro_Stadium_before_a_match_between_AC_Milan_and_SSC_Napoli_in_December_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ac-milan-2": {
+    "author": "Wikimedia Commons",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:AC_Milan_fans_at_San_Siro,_ca._1966.jpg",
+    "source": "Wikimedia Commons"
+  },
   "achraf-hakimi": {
     "author": "Nawfel Ajari",
     "license": "CC BY-SA 4.0",
@@ -34,6 +46,18 @@
     "author": "AFC Ajax",
     "license": "Public domain",
     "url": "https://commons.wikimedia.org/wiki/File:Logo_AFC_Ajax_(1928-1991,_2025-).svg",
+    "source": "Wikimedia Commons"
+  },
+  "ajax-1": {
+    "author": "Cat Burston from Melbourne, Australia",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ajax_v_NAC_Breda_2012_Section_410_Ajax_fans,_Amsterdam_Stadium_(7867275460).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "ajax-2": {
+    "author": "Wikimedia Commons",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Ouwe_Houten_Stadion_(Ajax)_in_1917-1918.jpg",
     "source": "Wikimedia Commons"
   },
   "alan-varela": {
@@ -264,10 +288,46 @@
     "url": "https://commons.wikimedia.org/wiki/File:Arsenal_Crest_1930.svg",
     "source": "Wikimedia Commons"
   },
+  "arsenal-1": {
+    "author": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Arsenal_Stadium_Highbury_east_facade.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "arsenal-2": {
+    "author": "Ank kumar",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Arsenal_FC,_Emirates_stadium_01.jpg",
+    "source": "Wikimedia Commons"
+  },
   "assan-ouedraogo": {
     "author": "Bryan Berlin",
     "license": "CC BY-SA 4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Assan_Ouedraogo_Ecuador_v_Germany_25_June_2026-014.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "aston-villa-1": {
+    "author": "Jon Candy",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:20140211_Cardiff_City_v_Aston_Villa,_Cardiff_City_Stadium,_Cardiff,_Wales.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "aston-villa-2": {
+    "author": "Jon Candy",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:20140211_Cardiff_City_v_Aston_Villa,_Cardiff_City_Stadium,_Cardiff,_Wales_(2).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "atletico-madrid-1": {
+    "author": "AnatolyPm",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Atletico_Madrid_vs_Bayer_04,_Champions_League_group_match,_October_22,_2019.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "atletico-madrid-2": {
+    "author": "AnatolyPm",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Atletico_Madrid_vs_Bayer_04,_UEFA_Champions_League_group_match,_October_22_2019.jpg",
     "source": "Wikimedia Commons"
   },
   "aurelien-tchouameni": {
@@ -288,6 +348,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Axel_Witsel_in_National_Team.jpg",
     "source": "Wikimedia Commons"
   },
+  "barcelona-1": {
+    "author": "Paolo Costa Baldi",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:LFP_-_Barcelona_vs_Mallorca_pre-match_-_Oct_3rd_2010.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "barcelona-2": {
+    "author": "Netol",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Camp_nou_before_F.C._Barcelona_-_Real_Madrid_league_match_of_2012.JPG",
+    "source": "Wikimedia Commons"
+  },
   "bart-verbruggen": {
     "author": "LauraHale",
     "license": "CC BY-SA 3.0",
@@ -300,16 +372,52 @@
     "url": "https://commons.wikimedia.org/wiki/File:Logo_TSV_Bayer_04_Leverkusen.svg",
     "source": "Wikimedia Commons"
   },
+  "bayer-leverkusen-1": {
+    "author": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:Bayarena_Leverkusen_2020.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "bayer-leverkusen-2": {
+    "author": "Werner100359",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:FC_Red_Bull_Salzburg_gegen_Bayer_Leverkusen_50.JPG",
+    "source": "Wikimedia Commons"
+  },
   "bayern-munich": {
     "author": "Wikimedia Commons",
     "license": "Public domain",
     "url": "https://commons.wikimedia.org/wiki/File:Logo_FC_Bayern_M%C3%BCnchen_(2002%E2%80%932017).svg",
     "source": "Wikimedia Commons"
   },
+  "bayern-munich-1": {
+    "author": "Martin Falbisoner",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:St_Patrick%27s_Day_Munich_-_Allianz_Arena.JPG",
+    "source": "Wikimedia Commons"
+  },
+  "bayern-munich-2": {
+    "author": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Allianz_Arena,_M%C3%BAnich,_Alemania13.JPG",
+    "source": "Wikimedia Commons"
+  },
   "ben-white": {
     "author": "Daxipedia",
     "license": "CC BY-SA 4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Ben_White_2023_cropped.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "benfica-1": {
+    "author": "Vincenzo.togni",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:The_Da_Luz_Stadium_before_a_game_between_SL_Benfica_and_FC_Porto.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "benfica-2": {
+    "author": "Alvesgaspar",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Estadio_Benfica_April_2013-1.jpg",
     "source": "Wikimedia Commons"
   },
   "benjamin-pavard": {
@@ -372,6 +480,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:GAE_-_Ajax_-_53464014017_(Brian_Brobbey).jpg",
     "source": "Wikimedia Commons"
   },
+  "brighton-1": {
+    "author": "Robert Lamb",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:View_of_the_Brighton_and_Hove_Albion_FC_Amex_Stadium_from_The_Drove_-_geograph.org.uk_-_2717285.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "brighton-2": {
+    "author": "James Boyes",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Opening_of_Amex_Stadium_Brighton_2011_-_BHA_vs_Spurs.jpg",
+    "source": "Wikimedia Commons"
+  },
   "bruno-fernandes": {
     "author": "Alexander Veprev",
     "license": "CC BY-SA 4.0",
@@ -424,6 +544,30 @@
     "author": "Granada",
     "license": "CC BY-SA 4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Thiago_Silva_Brazil_Austria_June_2018.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "celtic-1": {
+    "author": "Thomas Nugent",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Celtic_Park_stadium_on_match_day_(geograph_7857061).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "celtic-2": {
+    "author": "Vincenzo.togni",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Celtic_Park_during_an_Old_Firm_derby_between_Celtic_FC_and_Rangers_FC.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "chelsea-1": {
+    "author": "Ank kumar",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Chelsea_Football_Club,_Stamford_Bridge_(Ank_kumar)_06.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "chelsea-2": {
+    "author": "Ank kumar",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Chelsea_Football_Club,_Stamford_Bridge_11.jpg",
     "source": "Wikimedia Commons"
   },
   "christian-pulisic": {
@@ -658,6 +802,18 @@
     "author": "Wikimedia Commons",
     "license": "Public domain",
     "url": "https://commons.wikimedia.org/wiki/File:Logo_Borussia_Dortmund_(1945-1964).svg",
+    "source": "Wikimedia Commons"
+  },
+  "dortmund-1": {
+    "author": "Arne Müseler / www.arne-mueseler.com",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:Signal_iduna_park_stadium_dortmund_2.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "dortmund-2": {
+    "author": "Sir James at [1]",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Berlin_Olympiastadion_during_footballmatch_hertha_bsc_berlin_vs_borussia_dortmund_02_20070421.jpg",
     "source": "Wikimedia Commons"
   },
   "douglas-luiz": {
@@ -1050,6 +1206,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Logo_of_FC_Inter_Milan_(1963-1979).svg",
     "source": "Wikimedia Commons"
   },
+  "inter-milan-1": {
+    "author": "ElSpaniardo10",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Ibrox_Stadium_Glasgow_Rangers_v_Internazionale(Milan)_2005.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "inter-milan-2": {
+    "author": "Vincenzo.togni",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:The_Stadio_Cornaredo_during_a_friendly_match_between_FC_Lugano_and_Inter_Milan_(2022).jpg",
+    "source": "Wikimedia Commons"
+  },
   "isaac-romero": {
     "author": "MFonzatti",
     "license": "CC BY-SA 4.0",
@@ -1296,6 +1464,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Juventus_FC_-_logo_black_(Italy,_2020).svg",
     "source": "Wikimedia Commons"
   },
+  "juventus-1": {
+    "author": "Gabriele Barberis",
+    "license": "CC BY-SA 3.0 it",
+    "url": "https://commons.wikimedia.org/wiki/File:Inside_Juventus_Stadium_(3).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "juventus-2": {
+    "author": "Francesco Prota",
+    "license": "CC BY-SA 2.0 it",
+    "url": "https://commons.wikimedia.org/wiki/File:Juventus_Stadium_(tribuna_est).jpg",
+    "source": "Wikimedia Commons"
+  },
   "kai-havertz": {
     "author": "Дмитрий Пукалик",
     "license": "CC BY-SA 3.0",
@@ -1500,6 +1680,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Lisandro_Martinez_2022.jpg",
     "source": "Wikimedia Commons"
   },
+  "liverpool-1": {
+    "author": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:Liverpool_anfield_road_stadium.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "liverpool-2": {
+    "author": "Ruaraidh Gillies",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Anfield_Stadium,_view_from_Liverpool_Cathedral.jpg",
+    "source": "Wikimedia Commons"
+  },
   "loic-bade": {
     "author": "Fuguito",
     "license": "CC BY-SA 4.0",
@@ -1576,6 +1768,30 @@
     "author": "Sebleouf",
     "license": "CC BY-SA 4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Olympique_lyonnais_-_ES_Troyes_AC_L1_19-08-2022_-_Malo_Gusto.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "manchester-city-1": {
+    "author": "Ank kumar",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Etihad_Stadium,_Manchester_City_Football_Club_(Ank_Kumar,_Infosys)_22.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "manchester-city-2": {
+    "author": "Ank kumar",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Etihad_Stadium,_Manchester_City_Football_Club_(Ank_Kumar,_Infosys)_14.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "manchester-united-1": {
+    "author": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:Manchester_United_Old_Trafford.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "manchester-united-2": {
+    "author": "abdelkrim abdali",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Manchester_united_FC.jpg",
     "source": "Wikimedia Commons"
   },
   "manuel-locatelli": {
@@ -1806,6 +2022,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:SSC_Napoli_2024_(azure).svg",
     "source": "Wikimedia Commons"
   },
+  "napoli-1": {
+    "author": "Vincenzo.togni",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:The_San_Siro_Stadium_before_a_match_between_AC_Milan_and_SSC_Napoli_in_December_2021.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "napoli-2": {
+    "author": "Werner100359",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:FC_Salzburg_gegen_SSC_Napoli_(Championsleague_3._Runde_23._Oktober_2019)_32.jpg",
+    "source": "Wikimedia Commons"
+  },
   "nathan-ake": {
     "author": "pantkiewicz",
     "license": "CC BY-SA 2.0",
@@ -1822,6 +2050,18 @@
     "author": "Egghead06",
     "license": "CC BY-SA 4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Nayef_Aguerd.jpeg",
+    "source": "Wikimedia Commons"
+  },
+  "newcastle-1": {
+    "author": "Les Hull",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Newcastle_Fans_at_Stadium_of_Light_-_geograph.org.uk_-_7688866.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "newcastle-2": {
+    "author": "Jonathan Hutchins",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Lyme_Valley_Park,_Newcastle_Town_FC_stadium_-_geograph.org.uk_-_4784331.jpg",
     "source": "Wikimedia Commons"
   },
   "nick-pope": {
@@ -2058,6 +2298,30 @@
     "url": "https://commons.wikimedia.org/wiki/File:Piotr_Zieli%C5%84ski_2018.jpg",
     "source": "Wikimedia Commons"
   },
+  "porto-1": {
+    "author": "Vincenzo.togni",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:The_Da_Luz_Stadium_before_a_game_between_SL_Benfica_and_FC_Porto.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "porto-2": {
+    "author": "Threeohsix",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Best_team_and_most_matches_played_at_Museu_FC_Porto.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "psg-1": {
+    "author": "Shinya Suzuki",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:World_Football_Challenge_-_Chelsea_FC_vs_Paris_Saint-Germain_FC.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "psg-2": {
+    "author": "Zakarie Faibis",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Parc_des_Princes_Paris_Saint_Germain_z_37.jpg",
+    "source": "Wikimedia Commons"
+  },
   "rabbi-matondo": {
     "author": "Jim Easton",
     "license": "CC BY-SA 2.0",
@@ -2094,6 +2358,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Randal_Kolo_Muani_2020.jpg",
     "source": "Wikimedia Commons"
   },
+  "rangers-1": {
+    "author": "Lesterhobbes764",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ibrox_Stadium,_Rangers_FC.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "rangers-2": {
+    "author": "Peter Moore",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Balmoral_Stadium_-_home_of_Cove_Rangers_FC_(geograph_6062102).jpg",
+    "source": "Wikimedia Commons"
+  },
   "raphael-guerreiro": {
     "author": "Анна Нэсси",
     "license": "CC BY-SA 3.0",
@@ -2116,6 +2392,30 @@
     "author": "Steffen Prößdorf , edited by User:CennoxX",
     "license": "CC BY-SA 4.0",
     "url": "https://commons.wikimedia.org/wiki/File:2019-07-12_Fu%C3%9Fball;_Freundschaftsspiel_RB_Leipzig_-_FC_Z%C3%BCrich_1DX_0881_by_Stepro_2.png",
+    "source": "Wikimedia Commons"
+  },
+  "rb-leipzig-1": {
+    "author": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:Leipzig_stadium.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "rb-leipzig-2": {
+    "author": "User:Biblr",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:Leipzig_Red_Bull_Arena_Beschilderung_Aufgang.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "real-madrid-1": {
+    "author": "goatling",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Real_Madrid_players_at_Yankee_Stadium.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "real-madrid-2": {
+    "author": "Ian Dick from Glasgow, UK",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Current_Real_Madrid_team_(611631539).jpg",
     "source": "Wikimedia Commons"
   },
   "reece-james": {
@@ -2316,6 +2616,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Serhou_guirassy.jpg",
     "source": "Wikimedia Commons"
   },
+  "sevilla-1": {
+    "author": "Steve Hogg / Solent Creatives from Southampton, United Ki…",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Southampton_FC_versus_Sevilla_(35994679430).jpg",
+    "source": "Wikimedia Commons"
+  },
+  "sevilla-2": {
+    "author": "Christophe Karaba",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Sevilla_UEFA_Cup_2006.jpg",
+    "source": "Wikimedia Commons"
+  },
   "simon-adingra": {
     "author": "Sidney.Cortez",
     "license": "CC BY-SA 4.0",
@@ -2436,6 +2748,18 @@
     "url": "https://commons.wikimedia.org/wiki/File:Tom%C3%A1%C5%A1_Sou%C4%8Dek_WHU.jpeg",
     "source": "Wikimedia Commons"
   },
+  "tottenham-1": {
+    "author": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:London_Tottenham_Hotspur_Stadium.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "tottenham-2": {
+    "author": "Hzh",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Tottenham_Hotspur_Stadium_with_The_Tottenham_Experience,_February_2019.jpg",
+    "source": "Wikimedia Commons"
+  },
   "trent-alexander-arnold": {
     "author": "Антон Зайцев",
     "license": "CC BY-SA 3.0",
@@ -2512,6 +2836,18 @@
     "author": "Zarateman",
     "license": "CC0",
     "url": "https://commons.wikimedia.org/wiki/File:Benidorm_-_Edificio_Torre_Galeno_1.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "west-ham-1": {
+    "author": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "url": "https://commons.wikimedia.org/wiki/File:London_Olympic_Stadium_West_Ham.jpg",
+    "source": "Wikimedia Commons"
+  },
+  "west-ham-2": {
+    "author": "CybJubal",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:West_Ham_Stadium_Store_in_2021.jpg",
     "source": "Wikimedia Commons"
   },
   "weston-mckennie": {

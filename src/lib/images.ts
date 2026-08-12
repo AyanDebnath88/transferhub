@@ -48,6 +48,15 @@ const nameIndex: Record<string, string> = {};
 
 const photoFiles = scan('photos').sort();
 
+// Real club photos (public/club-photos/<slug>-N.jpg) for the card fallback when
+// no player matched but a club is named. slug -> [filenames] for rotation.
+const clubPhotos: Record<string, string[]> = {};
+for (const f of scan('club-photos')) {
+  const slug = f.replace(IMG_RE, '').toLowerCase().replace(/-\d+$/, '');
+  (clubPhotos[slug] ||= []).push(f);
+}
+for (const s in clubPhotos) clubPhotos[s].sort();
+
 // Club emblem used as the card image when no player photo matches.
 // Priority: real crest downloaded from Wikimedia Commons (public/clubs/<slug>.*)
 // -> our own original emblem (public/crests/<slug>.svg).
@@ -93,6 +102,22 @@ export function resolvePlayer(names: string[], title: string): { src: string; sl
   // then single-token (mononym / surname) matches
   for (const tok of norm.split(' ')) {
     if (nameIndex[tok]) return toHit(nameIndex[tok]);
+  }
+  return null;
+}
+
+// Real club photo (rotating by story id) for the fallback when no player matched
+// but a club is named. Returns image path + file slug (for credit), or null.
+export function clubPhoto(names: string[], id: string): { src: string; slug: string } | null {
+  let h = 0;
+  for (const c of id) h = (h * 31 + c.charCodeAt(0)) | 0;
+  for (const n of names || []) {
+    const s = slugify(n);
+    const list = clubPhotos[s];
+    if (list && list.length) {
+      const f = list[Math.abs(h) % list.length];
+      return { src: `/club-photos/${f}`, slug: f.replace(IMG_RE, '').toLowerCase() };
+    }
   }
   return null;
 }

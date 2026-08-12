@@ -2,7 +2,7 @@
 import type { Transfer } from '../lib/types';
 import ClubBadge from './ClubBadge.astro';
 import ReliabilityStars from './ReliabilityStars.astro';
-import { resolvePlayer, clubImage, clubSlugForImage, genericPhoto, getCredit } from '../lib/images';
+import { resolvePlayer, clubPhoto, clubImage, clubSlugForImage, genericPhoto, getCredit } from '../lib/images';
 
 interface Props {
   transfer: Transfer;
@@ -60,15 +60,22 @@ const cardArt = `/cards/${Math.abs(h) % CARD_ART}.svg`;
 //   4. vector art alone
 // Match a player photo by extracted names OR by scanning the headline (handles
 // mononyms like "Rodri" and surnames that don't equal the full filename).
+// Image priority (every card ends with a real photo — never image-less):
+//   1. player photo (headline/name match)
+//   2. real club PHOTO for any named club (rotates by id)
+//   3. royalty-free generic
+// Club crest emblem is a last-resort contain layer only if no photo at all.
 const playerRes = resolvePlayer(transfer.players, transfer.title);
 const playerHit = playerRes?.src ?? null;
 const playerName = playerRes ? playerRes.slug.replace(/-/g, ' ') : '';
-const clubHit = playerHit ? null : clubImage(transfer.headlineClubs);
-const coverPhoto = playerHit ?? (clubHit ? null : genericPhoto(transfer.id));
-// Attribution for whichever real image is shown (player photo or club crest).
+const clubPhotoRes = playerHit ? null : clubPhoto(transfer.clubs, transfer.id);
+const coverPhoto = playerHit ?? clubPhotoRes?.src ?? genericPhoto(transfer.id);
+const clubHit = coverPhoto ? null : clubImage(transfer.headlineClubs);
+// Attribution for whichever real image is shown.
 const playerCredit = playerRes ? getCredit(playerRes.slug) : null;
+const clubPhotoCredit = clubPhotoRes ? getCredit(clubPhotoRes.slug) : null;
 const clubCreditSlug = clubHit ? clubSlugForImage(transfer.headlineClubs) : null;
-const imgCredit = playerCredit ?? (clubCreditSlug ? getCredit(clubCreditSlug) : null);
+const imgCredit = playerCredit ?? clubPhotoCredit ?? (clubCreditSlug ? getCredit(clubCreditSlug) : null);
 ---
 
 <article class={`group relative bg-pitch-700 rounded-xl border border-line overflow-hidden transition-all duration-200 hover:border-gold/50 hover:shadow-lg hover:shadow-black/30 ${featured ? 'md:flex' : ''}`}>

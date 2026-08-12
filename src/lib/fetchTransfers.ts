@@ -169,9 +169,12 @@ function toSummary(text: string, words = 60): string {
 type RawItem = { item: Record<string, unknown>; source: { name: string; confidence: number } };
 
 // Pull raw items from all feeds, keeping only those passing `accept`
+const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000; // hide anything older than 7 days
+
 async function gather(accept: (title: string, desc: string) => boolean): Promise<RawItem[]> {
   const seen = new Set<string>();
   const raw: RawItem[] = [];
+  const now = Date.now();
 
   await Promise.allSettled(
     FEED_SOURCES.map(async (source) => {
@@ -181,6 +184,9 @@ async function gather(accept: (title: string, desc: string) => boolean): Promise
           const title = (item.title as string) || '';
           const description = (item.contentSnippet || item.content || item.summary || '') as string;
           if (!title) continue;
+          // Age gate: drop stories older than 7 days (skip only when date is valid)
+          const ts = new Date((item.isoDate || item.pubDate || '') as string).getTime();
+          if (!isNaN(ts) && now - ts > MAX_AGE_MS) continue;
           if (!accept(title, description)) continue;
 
           const dedupeKey = title.toLowerCase().slice(0, 60);
