@@ -64,7 +64,7 @@ function classifyLicense(meta) {
 const cleanText = (h) => !h ? '' : h.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#\d+;/g, ' ').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ').trim();
 
 // want colour scenes; reject logos/charts/maps/kit-diagrams and non-photo files
-const BAD = /(logo|crest|badge|escudo|wappen|coat of arms|monogram|\bmap\b|performance|\bchart\b|\bgraph\b|statistics|diagram|kit|\.svg|location|locator|pictogram)/i;
+const BAD = /(logo|crest|badge|escudo|wappen|coat of arms|monogram|\bmap\b|performance|\bchart\b|\bgraph\b|statistics|diagram|kit|\.svg|location|locator|pictogram|women|ladies|\bwsl\b|femin|femmin|femenin|frauen|\bw\.?f\.?c\b|girls|youth|\bu-?1[0-9]\b|\bu-?2[0-3]\b|academy|training|reserves?)/i;
 // bland: empty/architectural shots we down-rank (still allowed as backup)
 const BLAND = /(tunnel|interior|concourse|construction|aerial|panorama|facade|exterior|\bseats?\b|empty|entrance|\bgate\b|\bsign\b|under construction|demolition|car park|corridor|toilet|scaffold|night view)/i;
 const VIVID = /(match|matchday|goal|celebrat|fans|supporters|crowd|derby|final|trophy|action|players|squad|lineup|line-up|kick|attack|corner|penalty|ultras|tifo|banner|flag|pitch)/i;
