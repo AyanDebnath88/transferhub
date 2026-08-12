@@ -89,7 +89,7 @@ function cleanText(html) {
     .replace(/\s+/g, ' ').trim();
 }
 
-const BAD_TITLE = /(logo|crest|badge|signature|stadium|arena|jersey|shirt|kit|coat of arms|trophy|celebrat|fans?|graffiti|mural|autograph|training ground)/i;
+const BAD_TITLE = /(logo|crest|badge|signature|stadium|arena|jersey|shirt|kit|coat of arms|trophy|celebrat|fans?|graffiti|mural|autograph|training ground|statue|monument|waxwork|wax figure|tussauds|sculpture|\bbust\b|mosaic|painting|drawing|cartoon|caricature|figurine|mannequin|est[aá]tua|escultura|estatua|denkmal|standbeeld|museu cr7|\bmuseo\b|\bmuseu\b|\bmuseum\b)/i;
 
 async function searchFiles(name) {
   const url = `${API}?action=query&format=json&origin=*` +

@@ -28,22 +28,30 @@ for (const f of scan('players')) playerFiles[f.replace(IMG_RE, '').toLowerCase()
 // or a surname ("Haaland") instead of the full filename. Keys map to a filename,
 // but only when UNAMBIGUOUS — a name part shared by two players is dropped so we
 // never show the wrong face (e.g. "silva", "hernandez", "james").
+// Players genuinely known by a single (usually first) name. Only these get a
+// first-name key — generic first-name matching is unsafe ("Lamine Camara" must
+// NOT resolve to Lamine Yamal).
+const MONONYMS = ['rodri', 'vinicius', 'raphinha', 'pedri', 'gavi', 'rodrygo', 'casemiro',
+  'richarlison', 'fabinho', 'endrick', 'koke', 'joelinton', 'neymar', 'savinho'];
 const nameIndex: Record<string, string> = {};
 {
   const collide = new Set<string>();
+  const add = (k: string, file: string) => {
+    if (k.length < 4) return;
+    if (nameIndex[k] && nameIndex[k] !== file) collide.add(k);
+    else nameIndex[k] = file;
+  };
   for (const slug in playerFiles) {
-    const file = playerFiles[slug];
     const parts = slug.split('-');
-    const keys = new Set<string>([parts.join(' ')]);       // full name
-    keys.add(parts[0]);                                     // first name / mononym
-    keys.add(parts[parts.length - 1]);                      // surname
-    for (const k of keys) {
-      if (k.length < 4) continue;                           // skip tiny/ambiguous tokens
-      if (nameIndex[k] && nameIndex[k] !== file) collide.add(k);
-      else nameIndex[k] = file;
-    }
+    add(parts.join(' '), playerFiles[slug]);               // full name (safe)
+    add(parts[parts.length - 1], playerFiles[slug]);        // surname (last token)
   }
   for (const k of collide) delete nameIndex[k];
+  // curated first-name mononyms (only if exactly one player matches)
+  for (const m of MONONYMS) {
+    const hits = Object.keys(playerFiles).filter((s) => s === m || s.startsWith(m + '-'));
+    if (hits.length === 1) nameIndex[m] = playerFiles[hits[0]];
+  }
 }
 
 const photoFiles = scan('photos').sort();
