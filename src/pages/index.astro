@@ -8,6 +8,17 @@ const transfers = await fetchAllTransfers();
 const topStories = transfers.length === 0 ? await fetchTopStories(12) : [];
 const confirmed = transfers.filter(t => t.type === 'confirmed');
 const rumours   = transfers.filter(t => t.type === 'rumour');
+
+// "Biggest clubs" = European royalty (Champions League + domestic league winners).
+const ELITE_CLUBS = [
+  'Real Madrid', 'Barcelona', 'Bayern Munich', 'Liverpool', 'Manchester United',
+  'Manchester City', 'AC Milan', 'Inter Milan', 'Juventus', 'Chelsea', 'Ajax',
+  'Dortmund', 'PSG', 'Porto', 'Benfica',
+];
+const bigConfirmed = confirmed
+  .filter(t => (t.headlineClubs.length ? t.headlineClubs : t.clubs).some(c => ELITE_CLUBS.includes(c)))
+  .slice(0, 6);
+
 const featured  = transfers[0];
 const top       = transfers.slice(1, 4);
 const rest      = transfers.slice(4);
@@ -246,6 +257,19 @@ const faqSchema = JSON.stringify({
 
       </aside>
     </div>
+  )}
+
+  {bigConfirmed.length > 0 && (
+    <section class="mt-10">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-0.5 h-4 bg-gold rounded-full"></div>
+        <h2 class="text-[11px] font-bold uppercase tracking-widest text-gold">Biggest Clubs — Confirmed</h2>
+        <span class="text-[10px] text-cream-dim">Champions League &amp; league winners</span>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {bigConfirmed.map(t => <TransferCard transfer={t} />)}
+      </div>
+    </section>
   )}
 
   <!-- SEO content: crawlable intro + FAQ (also powers FAQ rich result) -->
