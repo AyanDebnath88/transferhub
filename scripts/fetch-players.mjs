@@ -17,7 +17,7 @@
 //   node scripts/fetch-players.mjs Arsenal --dry    # preview, write nothing
 //   node scripts/fetch-players.mjs --list           # list club keys and exit
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import sharp from 'sharp';
 
@@ -215,7 +215,14 @@ for (const club of clubs) {
         await sleep(120);
       }
       if (!chosen) { chosen = fallback; chosenBuf = fallbackBuf; }
-      if (!chosen) { console.log(`  MISS  ${player} (no colour portrait)`); miss++; await sleep(200); continue; }
+      if (!chosen) {
+        // No usable colour photo -> remove any stale file so the card falls back
+        // to the club photo instead of showing a bad (e.g. greyscale) image.
+        const had = existing.has(slug);
+        if (had) { try { unlinkSync(join(PLAYERS_DIR, `${slug}.jpg`)); } catch {} existing.delete(slug); }
+        if (credits[slug]) { delete credits[slug]; creditsDirty = true; }
+        console.log(`  MISS  ${player} (no colour portrait${had ? ', removed stale' : ''})`); miss++; await sleep(200); continue;
+      }
 
       writeFileSync(join(PLAYERS_DIR, `${slug}.jpg`), await toCard(chosenBuf));
       existing.add(slug);
