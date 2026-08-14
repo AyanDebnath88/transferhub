@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TransferCard from '../components/TransferCard.astro';
 import { fetchAllTransfers, fetchTopStories } from '../lib/fetchTransfers';
+import { DONE_DEALS } from '../data/doneDeals';
+import ClubBadge from '../components/ClubBadge.astro';
 
 const transfers = await fetchAllTransfers();
 // No transfer news? Fall back to top football stories.
@@ -9,15 +11,14 @@ const topStories = transfers.length === 0 ? await fetchTopStories(12) : [];
 const confirmed = transfers.filter(t => t.type === 'confirmed');
 const rumours   = transfers.filter(t => t.type === 'rumour');
 
-// "Biggest clubs" = European royalty (Champions League + domestic league winners).
-const ELITE_CLUBS = [
-  'Real Madrid', 'Barcelona', 'Bayern Munich', 'Liverpool', 'Manchester United',
-  'Manchester City', 'AC Milan', 'Inter Milan', 'Juventus', 'Chelsea', 'Ajax',
-  'Dortmund', 'PSG', 'Porto', 'Benfica',
+// "Top clubs" = biggest sides (Champions League + league winners). Their
+// season done-deals come from the hand-maintained list in src/data/doneDeals.ts.
+const TOP_CLUBS = [
+  'Benfica', 'Porto', 'Chelsea', 'PSG', 'Real Madrid', 'AC Milan', 'Barcelona',
+  'Inter Milan', 'Bayern Munich', 'Liverpool', 'Manchester United', 'Juventus',
+  'Arsenal', 'Manchester City',
 ];
-const bigConfirmed = confirmed
-  .filter(t => (t.headlineClubs.length ? t.headlineClubs : t.clubs).some(c => ELITE_CLUBS.includes(c)))
-  .slice(0, 6);
+const topDeals = DONE_DEALS.filter(d => TOP_CLUBS.includes(d.to));
 
 const featured  = transfers[0];
 const top       = transfers.slice(1, 4);
@@ -220,6 +221,30 @@ const faqSchema = JSON.stringify({
           </div>
         )}
 
+        {topDeals.length > 0 && (
+          <div class="bg-pitch-700 border border-line rounded-xl overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-line-soft bg-pitch-600">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+                <h3 class="text-[11px] font-bold uppercase tracking-widest text-cream-muted">Top Clubs — Done Deals</h3>
+              </div>
+              <span class="text-[10px] text-cream-dim">{topDeals.length}</span>
+            </div>
+            <ul class="divide-y divide-line-soft max-h-[26rem] overflow-y-auto">
+              {topDeals.map(d => (
+                <li class="flex items-center gap-2.5 px-4 py-2.5 hover:bg-pitch-600 transition-colors">
+                  <ClubBadge name={d.to} size="sm" />
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs text-cream font-semibold leading-snug truncate">{d.player}</p>
+                    <p class="text-[10px] text-cream-dim truncate">{d.from} &rarr; {d.to}</p>
+                  </div>
+                  {d.fee && <span class="text-[10px] font-bold text-grass flex-shrink-0">{d.fee}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {rumours.length > 0 && (
           <div class="bg-pitch-700 border border-line rounded-xl overflow-hidden">
             <div class="flex items-center justify-between px-4 py-3 border-b border-line-soft bg-pitch-600">
@@ -257,19 +282,6 @@ const faqSchema = JSON.stringify({
 
       </aside>
     </div>
-  )}
-
-  {bigConfirmed.length > 0 && (
-    <section class="mt-10">
-      <div class="flex items-center gap-2 mb-3">
-        <div class="w-0.5 h-4 bg-gold rounded-full"></div>
-        <h2 class="text-[11px] font-bold uppercase tracking-widest text-gold">Biggest Clubs — Confirmed</h2>
-        <span class="text-[10px] text-cream-dim">Champions League &amp; league winners</span>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {bigConfirmed.map(t => <TransferCard transfer={t} />)}
-      </div>
-    </section>
   )}
 
   <!-- SEO content: crawlable intro + FAQ (also powers FAQ rich result) -->
