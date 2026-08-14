@@ -18,7 +18,11 @@ const TOP_CLUBS = [
   'Inter Milan', 'Bayern Munich', 'Liverpool', 'Manchester United', 'Juventus',
   'Arsenal', 'Manchester City',
 ];
-const topDeals = DONE_DEALS.filter(d => TOP_CLUBS.includes(d.to));
+const feeVal = (f?: string) => { const m = f && f.match(/([0-9.]+)/); return m ? parseFloat(m[1]) : -1; };
+const topDeals = DONE_DEALS
+  .filter(d => TOP_CLUBS.includes(d.to))
+  .sort((a, b) => feeVal(b.fee) - feeVal(a.fee))
+  .slice(0, 10);
 
 const featured  = transfers[0];
 const top       = transfers.slice(1, 4);
@@ -226,19 +230,19 @@ const faqSchema = JSON.stringify({
             <div class="flex items-center justify-between px-4 py-3 border-b border-line-soft bg-pitch-600">
               <div class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
-                <h3 class="text-[11px] font-bold uppercase tracking-widest text-cream-muted">Top Clubs — Done Deals</h3>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-cream-muted">Top Moves</h3>
               </div>
-              <span class="text-[10px] text-cream-dim">{topDeals.length}</span>
+              <span class="text-[11px] text-cream-dim">{topDeals.length}</span>
             </div>
-            <ul class="divide-y divide-line-soft max-h-[26rem] overflow-y-auto">
+            <ul class="divide-y divide-line-soft">
               {topDeals.map(d => (
-                <li class="flex items-center gap-2.5 px-4 py-2.5 hover:bg-pitch-600 transition-colors">
-                  <ClubBadge name={d.to} size="sm" />
+                <li class="flex items-center gap-3 px-4 py-3 hover:bg-pitch-600 transition-colors">
+                  <ClubBadge name={d.to} size="md" />
                   <div class="min-w-0 flex-1">
-                    <p class="text-xs text-cream font-semibold leading-snug truncate">{d.player}</p>
-                    <p class="text-[10px] text-cream-dim truncate">{d.from} &rarr; {d.to}</p>
+                    <p class="text-sm text-cream font-semibold leading-snug truncate">{d.player}</p>
+                    <p class="text-[11px] text-cream-dim truncate">{d.from} &rarr; {d.to}</p>
                   </div>
-                  {d.fee && <span class="text-[10px] font-bold text-grass flex-shrink-0">{d.fee}</span>}
+                  {d.fee && <span class="text-xs font-bold text-grass flex-shrink-0">{d.fee}</span>}
                 </li>
               ))}
             </ul>

@@ -104,11 +104,11 @@ async function searchFiles(name) {
   return Object.values(pages).sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
 }
 
-// Pick the best licensed portrait for a player, or null.
-function pickCandidate(pages, playerName) {
+// Ranked licensed portraits for a player (best first).
+function pickCandidates(pages, playerName) {
   const surname = deburr(playerName.split(' ').slice(-1)[0]);
   const tokens = deburr(playerName).split(/\s+/).filter((t) => t.length > 2);
-  let best = null;
+  const out = [];
 
   for (const p of pages) {
     const ii = p.imageinfo?.[0];
@@ -131,17 +131,30 @@ function pickCandidate(pages, playerName) {
     if (/image\/jpeg/i.test(ii.mime)) score += 1;
     if ((ii.height || 0) >= (ii.width || 1)) score += 1; // prefer portrait
 
-    if (!best || score > best.score) {
-      best = {
-        score, title, lic,
-        src: ii.thumburl || ii.url,
-        page: ii.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(p.title)}`,
-        artist: cleanText(ii.extmetadata?.Artist?.value) || cleanText(ii.extmetadata?.Credit?.value) || 'Wikimedia Commons',
-      };
-    }
+    out.push({
+      score, title, lic,
+      src: ii.thumburl || ii.url,
+      page: ii.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(p.title)}`,
+      artist: cleanText(ii.extmetadata?.Artist?.value) || cleanText(ii.extmetadata?.Credit?.value) || 'Wikimedia Commons',
+    });
   }
-  return best;
+  return out.sort((a, b) => b.score - a.score);
 }
+
+// mean pixel saturation 0..1 — near 0 = black & white / greyscale / statue.
+async function vividness(buf) {
+  try {
+    const { data } = await sharp(buf).resize(48, 48, { fit: 'cover' }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    let sum = 0; const n = data.length / 3;
+    for (let i = 0; i < data.length; i += 3) {
+      const mx = Math.max(data[i], data[i + 1], data[i + 2]);
+      const mn = Math.min(data[i], data[i + 1], data[i + 2]);
+      sum += mx === 0 ? 0 : (mx - mn) / mx;
+    }
+    return sum / n;
+  } catch { return 1; }
+}
+const VIVID_MIN = 0.10; // below this = greyscale/B&W, reject
 
 async function toCard(buf) {
   // Fit the WHOLE image into the 16:9 card (no cropping/cutting). The letterbox
@@ -181,24 +194,34 @@ for (const club of clubs) {
 
     try {
       const pages = await searchFiles(player);
-      const cand = pickCandidate(pages, player);
-      if (!cand) { console.log(`  MISS  ${player} (no free portrait)`); miss++; await sleep(250); continue; }
+      const cands = pickCandidates(pages, player);
+      if (!cands.length) { console.log(`  MISS  ${player} (no free portrait)`); miss++; await sleep(250); continue; }
 
       if (DRY) {
-        console.log(`  dry   ${player} <- ${cand.lic.label} | ${cand.title}`);
+        console.log(`  dry   ${player} <- ${cands[0].lic.label} | ${cands[0].title}`);
         done++; await sleep(250); continue;
       }
 
-      const r = await fetch(cand.src, { headers: { 'User-Agent': UA } });
-      if (!r.ok) throw new Error(`img HTTP ${r.status}`);
-      const card = await toCard(Buffer.from(await r.arrayBuffer()));
-      writeFileSync(join(PLAYERS_DIR, `${slug}.jpg`), card);
-      existing.add(slug);
+      // Try candidates in rank order; skip greyscale/B&W, keep the first vivid one
+      // (fall back to the best colour we saw if none clear the bar).
+      let chosen = null, chosenBuf = null, fallback = null, fallbackBuf = null, fbV = -1;
+      for (const c of cands.slice(0, 6)) {
+        const r = await fetch(c.src, { headers: { 'User-Agent': UA } });
+        if (!r.ok) continue;
+        const raw = Buffer.from(await r.arrayBuffer());
+        const v = await vividness(raw);
+        if (v >= VIVID_MIN) { chosen = c; chosenBuf = raw; break; }
+        if (v > fbV) { fbV = v; fallback = c; fallbackBuf = raw; }
+        await sleep(120);
+      }
+      if (!chosen) { chosen = fallback; chosenBuf = fallbackBuf; }
+      if (!chosen) { console.log(`  MISS  ${player} (no colour portrait)`); miss++; await sleep(200); continue; }
 
-      // credit EVERY image, sourced from Wikimedia Commons
-      credits[slug] = { author: cand.artist, license: cand.lic.label, url: cand.page, source: 'Wikimedia Commons' };
+      writeFileSync(join(PLAYERS_DIR, `${slug}.jpg`), await toCard(chosenBuf));
+      existing.add(slug);
+      credits[slug] = { author: chosen.artist, license: chosen.lic.label, url: chosen.page, source: 'Wikimedia Commons' };
       creditsDirty = true;
-      console.log(`  OK    ${player} -> ${slug}.jpg  [${cand.lic.label} © ${cand.artist}]`);
+      console.log(`  OK    ${player} -> ${slug}.jpg  [${chosen.lic.label} © ${chosen.artist}]`);
       ok++; done++;
     } catch (e) {
       console.log(`  FAIL  ${player}: ${e.message}`);
