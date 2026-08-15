@@ -20,9 +20,19 @@ function deburr(s: string): string {
   return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 }
 
-// slug -> filename (for player + club drop-ins)
-const playerFiles: Record<string, string> = {};
-for (const f of scan('players')) playerFiles[f.replace(IMG_RE, '').toLowerCase()] = f;
+// base-slug -> [filenames], newest first (slug.jpg, then slug-2.jpg, slug-3.jpg…).
+// Multiple images per player let repeated cards rotate instead of showing the same face.
+const playerFiles: Record<string, string[]> = {};
+for (const f of scan('players')) {
+  const base = f.replace(IMG_RE, '').toLowerCase().replace(/-\d+$/, '');
+  (playerFiles[base] ||= []).push(f);
+}
+for (const s in playerFiles) {
+  playerFiles[s].sort((a, b) => {
+    const na = a.match(/-(\d+)\./); const nb = b.match(/-(\d+)\./);
+    return (na ? +na[1] : 1) - (nb ? +nb[1] : 1); // base (=1, newest) first
+  });
+}
 
 // Loose name index for matching headlines that use only a mononym ("Rodri")
 // or a surname ("Haaland") instead of the full filename. Keys map to a filename,
@@ -33,24 +43,24 @@ for (const f of scan('players')) playerFiles[f.replace(IMG_RE, '').toLowerCase()
 // NOT resolve to Lamine Yamal).
 const MONONYMS = ['rodri', 'vinicius', 'raphinha', 'pedri', 'gavi', 'rodrygo', 'casemiro',
   'richarlison', 'fabinho', 'endrick', 'koke', 'joelinton', 'neymar', 'savinho'];
+// name key -> base slug (unambiguous only)
 const nameIndex: Record<string, string> = {};
 {
   const collide = new Set<string>();
-  const add = (k: string, file: string) => {
+  const add = (k: string, slug: string) => {
     if (k.length < 4) return;
-    if (nameIndex[k] && nameIndex[k] !== file) collide.add(k);
-    else nameIndex[k] = file;
+    if (nameIndex[k] && nameIndex[k] !== slug) collide.add(k);
+    else nameIndex[k] = slug;
   };
   for (const slug in playerFiles) {
     const parts = slug.split('-');
-    add(parts.join(' '), playerFiles[slug]);               // full name (safe)
-    add(parts[parts.length - 1], playerFiles[slug]);        // surname (last token)
+    add(parts.join(' '), slug);               // full name (safe)
+    add(parts[parts.length - 1], slug);        // surname (last token)
   }
   for (const k of collide) delete nameIndex[k];
-  // curated first-name mononyms (only if exactly one player matches)
   for (const m of MONONYMS) {
     const hits = Object.keys(playerFiles).filter((s) => s === m || s.startsWith(m + '-'));
-    if (hits.length === 1) nameIndex[m] = playerFiles[hits[0]];
+    if (hits.length === 1) nameIndex[m] = hits[0];
   }
 }
 
@@ -83,35 +93,35 @@ const crestSlugs = scanSvg('crests');
 
 const credits = creditsRaw as Record<string, { author: string; license: string; url: string }>;
 
-// First matching player image, else null.
-export function playerImage(names: string[]): string | null {
-  for (const n of names || []) {
-    const s = slugify(n);
-    if (playerFiles[s]) return `/players/${playerFiles[s]}`;
-  }
-  return null;
+// Pick one of a player's images, rotating by story id so the same player on
+// different cards doesn't repeat (list is newest-first, so single-image players
+// always show their most recent shot).
+function pickPlayer(slug: string, id: string): { src: string; slug: string } | null {
+  const list = playerFiles[slug];
+  if (!list || !list.length) return null;
+  let h = 0;
+  for (const c of id || slug) h = (h * 31 + c.charCodeAt(0)) | 0;
+  const f = list[Math.abs(h) % list.length];
+  return { src: `/players/${f}`, slug: f.replace(IMG_RE, '').toLowerCase() };
 }
 
 // Resolve a player photo for a story: try the extracted names exactly, then scan
-// the TITLE for any known player (full name, mononym, or unambiguous surname).
-// Returns the image path + the player slug (for credit lookup), or null.
-export function resolvePlayer(names: string[], ...texts: string[]): { src: string; slug: string } | null {
+// the title/summary for any known player (full name, mononym, or surname).
+// `id` drives which of several images is shown. Returns path + slug (for credit).
+export function resolvePlayer(names: string[], id: string, ...texts: string[]): { src: string; slug: string } | null {
   for (const n of names || []) {
     const s = slugify(n);
-    if (playerFiles[s]) return { src: `/players/${playerFiles[s]}`, slug: s };
+    if (playerFiles[s]) return pickPlayer(s, id);
   }
-  const toHit = (file: string) => ({ src: `/players/${file}`, slug: file.replace(IMG_RE, '').toLowerCase() });
-  // Scan each text in order (title first, then summary): full names win over
-  // single-token (mononym / surname) matches within the same text.
   for (const text of texts) {
     if (!text) continue;
     const norm = deburr(text).replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
     const padded = ` ${norm} `;
     for (const key in nameIndex) {
-      if (key.includes(' ') && padded.includes(` ${key} `)) return toHit(nameIndex[key]);
+      if (key.includes(' ') && padded.includes(` ${key} `)) return pickPlayer(nameIndex[key], id);
     }
     for (const tok of norm.split(' ')) {
-      if (nameIndex[tok]) return toHit(nameIndex[tok]);
+      if (nameIndex[tok]) return pickPlayer(nameIndex[tok], id);
     }
   }
   return null;

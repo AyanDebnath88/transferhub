@@ -30,13 +30,19 @@ const UA = 'TransferHub/1.0 (https://transferhub.club; copyright-safe image bot)
 
 const args = process.argv.slice(2);
 const flags = new Set(args.filter((a) => a.startsWith('--')));
-const positional = args.filter((a) => !a.startsWith('--'));
+const valIdx = new Set(['--limit', '--multi'].map((f) => args.indexOf(f) + 1).filter((i) => i > 0));
+const positional = args.filter((a, i) => !a.startsWith('--') && !valIdx.has(i));
 const FORCE = flags.has('--force');
 const DRY = flags.has('--dry');
 const LIMIT = (() => {
   const i = args.indexOf('--limit');
   return i >= 0 && args[i + 1] ? parseInt(args[i + 1], 10) : Infinity;
 })();
+const MULTI = (() => {
+  const i = args.indexOf('--multi');
+  return i >= 0 && args[i + 1] ? Math.max(1, parseInt(args[i + 1], 10)) : 1;
+})();
+const yearOf = (s) => { const m = (s.match(/\b(19|20)\d{2}\b/g) || []).map(Number); return m.length ? Math.max(...m) : 0; };
 
 const clubKeys = Object.keys(ROSTERS).filter((k) => k !== '_note');
 const slugify = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -202,33 +208,39 @@ for (const club of clubs) {
         done++; await sleep(250); continue;
       }
 
-      // Try candidates in rank order; skip greyscale/B&W, keep the first vivid one
-      // (fall back to the best colour we saw if none clear the bar).
-      let chosen = null, chosenBuf = null, fallback = null, fallbackBuf = null, fbV = -1;
-      for (const c of cands.slice(0, 6)) {
+      // Download candidates in rank order; keep up to MULTI distinct COLOUR shots
+      // (skip greyscale/B&W). Fall back to best colour seen if none clear the bar.
+      const keep = []; let fallback = null, fallbackBuf = null, fbV = -1;
+      for (const c of cands.slice(0, MULTI > 1 ? 12 : 6)) {
+        if (keep.length >= MULTI) break;
         const r = await fetch(c.src, { headers: { 'User-Agent': UA } });
         if (!r.ok) continue;
         const raw = Buffer.from(await r.arrayBuffer());
         const v = await vividness(raw);
-        if (v >= VIVID_MIN) { chosen = c; chosenBuf = raw; break; }
-        if (v > fbV) { fbV = v; fallback = c; fallbackBuf = raw; }
+        if (v >= VIVID_MIN) { keep.push({ c, buf: raw }); }
+        else if (v > fbV) { fbV = v; fallback = c; fallbackBuf = raw; }
         await sleep(120);
       }
-      if (!chosen) { chosen = fallback; chosenBuf = fallbackBuf; }
-      if (!chosen) {
-        // No usable colour photo -> remove any stale file so the card falls back
-        // to the club photo instead of showing a bad (e.g. greyscale) image.
+      if (!keep.length && fallback) keep.push({ c: fallback, buf: fallbackBuf });
+      if (!keep.length) {
         const had = existing.has(slug);
         if (had) { try { unlinkSync(join(PLAYERS_DIR, `${slug}.jpg`)); } catch {} existing.delete(slug); }
+        for (let k = 2; k <= 6; k++) { try { unlinkSync(join(PLAYERS_DIR, `${slug}-${k}.jpg`)); } catch {} }
         if (credits[slug]) { delete credits[slug]; creditsDirty = true; }
         console.log(`  MISS  ${player} (no colour portrait${had ? ', removed stale' : ''})`); miss++; await sleep(200); continue;
       }
 
-      writeFileSync(join(PLAYERS_DIR, `${slug}.jpg`), await toCard(chosenBuf));
+      // newest-first, so slug.jpg is the most recent image
+      keep.sort((a, b) => yearOf(b.c.title) - yearOf(a.c.title));
+      for (let k = keep.length + 1; k <= 6; k++) { try { unlinkSync(join(PLAYERS_DIR, `${slug}-${k}.jpg`)); } catch {} } // clear stale extras
+      for (let i = 0; i < keep.length; i++) {
+        const name = i === 0 ? slug : `${slug}-${i + 1}`;
+        writeFileSync(join(PLAYERS_DIR, `${name}.jpg`), await toCard(keep[i].buf));
+        credits[name] = { author: keep[i].c.artist, license: keep[i].c.lic.label, url: keep[i].c.page, source: 'Wikimedia Commons' };
+      }
       existing.add(slug);
-      credits[slug] = { author: chosen.artist, license: chosen.lic.label, url: chosen.page, source: 'Wikimedia Commons' };
       creditsDirty = true;
-      console.log(`  OK    ${player} -> ${slug}.jpg  [${chosen.lic.label} © ${chosen.artist}]`);
+      console.log(`  OK    ${player} -> ${slug}.jpg${keep.length > 1 ? ` (+${keep.length - 1})` : ''}  [${keep[0].c.lic.label}]`);
       ok++; done++;
     } catch (e) {
       console.log(`  FAIL  ${player}: ${e.message}`);
