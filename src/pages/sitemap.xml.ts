@@ -21,7 +21,6 @@ const PAGES = [
   { path: '/rumours',        changefreq: 'hourly',  priority: '0.9' },
   { path: '/premier-league', changefreq: 'daily',   priority: '0.8' },
   ...leaguePages,
-  { path: '/clubs',          changefreq: 'daily',   priority: '0.7' },
   { path: '/tables',         changefreq: 'daily',   priority: '0.8' },
   { path: '/guides',         changefreq: 'weekly',  priority: '0.7' },
   ...GUIDES.map((g) => ({ path: `/guides/${g.slug}`, changefreq: 'monthly', priority: '0.6' })),

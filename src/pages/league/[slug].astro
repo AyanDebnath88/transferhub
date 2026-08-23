@@ -5,6 +5,9 @@ import { LEAGUES, getLeague } from '../../lib/leagues';
 import { fetchAllTransfers } from '../../lib/fetchTransfers';
 import LeagueTable from '../../components/LeagueTable.astro';
 import { getStandings } from '../../lib/standings';
+import { CLUB_META } from '../../lib/clubs';
+
+const clubSlug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 export function getStaticPaths() {
   return Object.keys(LEAGUES).map((slug) => ({ params: { slug }, props: { slug } }));
@@ -15,6 +18,7 @@ const league = getLeague(slug)!;
 const tables = await getStandings();
 const all = await fetchAllTransfers();
 const transfers = all.filter((t) => t.clubs.some((c) => league.clubs.includes(c)));
+const clubLinks = league.clubs.filter((c) => CLUB_META[c]);
 const confirmed = transfers.filter((t) => t.type === 'confirmed').length;
 const rumours = transfers.filter((t) => t.type === 'rumour').length;
 const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
@@ -78,7 +82,22 @@ const collectionSchema = JSON.stringify({
         </a>
       ))}
     </div>
+
+    {clubLinks.length > 0 && (
+      <div class="flex flex-wrap items-center gap-1.5 mt-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-cream-dim mr-1">Browse by club</span>
+        {clubLinks.map((c) => (
+          <a href={`/club/${clubSlug(c)}`}
+             class="club-chip text-xs px-2.5 py-1 rounded-lg font-medium border transition-colors">{c}</a>
+        ))}
+      </div>
+    )}
   </div>
+
+  <style>
+    .club-chip { background:#14301e; color:#aebfB2; border-color:#2a4a34; }
+    .club-chip:hover { border-color:#d4af37; color:#f4f1e8; }
+  </style>
 
   <section class="mb-8">
     <div class="flex items-center gap-2 mb-3">

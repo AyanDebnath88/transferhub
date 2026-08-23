@@ -35,8 +35,7 @@ const breadcrumbSchema = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
-    { '@type': 'ListItem', position: 2, name: 'Clubs', item: `${SITE}/clubs` },
-    { '@type': 'ListItem', position: 3, name, item: url },
+    { '@type': 'ListItem', position: 2, name, item: url },
   ],
 });
 
@@ -62,8 +61,12 @@ const collectionSchema = JSON.stringify({
   <nav class="text-xs text-cream-dim mb-4 flex items-center gap-1.5">
     <a href="/" class="hover:text-gold transition-colors">Home</a>
     <span>/</span>
-    <a href="/clubs" class="hover:text-gold transition-colors">Clubs</a>
-    <span>/</span>
+    {standing ? (
+      <>
+        <a href={`/league/${standing.slug}`} class="hover:text-gold transition-colors">{standing.league}</a>
+        <span>/</span>
+      </>
+    ) : null}
     <span class="text-cream-muted">{name}</span>
   </nav>
 
@@ -95,7 +98,7 @@ const collectionSchema = JSON.stringify({
     <div class="text-center py-20">
       <p class="text-lg font-semibold text-cream-muted">No {name} transfer news right now</p>
       <p class="text-sm text-cream-dim mt-2">We aggregate {name} moves the moment trusted publishers report them. Check back soon.</p>
-      <a href="/clubs" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">Browse all clubs</a>
+      <a href="/transfers" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View all transfers</a>
     </div>
   ) : (
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

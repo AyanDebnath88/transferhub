@@ -54,15 +54,16 @@ const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minu
       ))}
     </div>
 
-    <!-- Club filter chips -->
-    <div class="flex flex-wrap gap-1.5" id="club-filter">
-      <button data-club="all" class="club-chip is-active text-xs px-2.5 py-1 rounded-lg font-medium border transition-colors">All clubs</button>
+    <!-- Browse by club — each chip links to that club's transfer page -->
+    <div class="flex flex-wrap items-center gap-1.5">
+      <span class="text-[11px] font-bold uppercase tracking-widest text-cream-dim mr-1">Browse by club</span>
       {([
         ['Arsenal','Arsenal'], ['Chelsea','Chelsea'], ['Liverpool','Liverpool'],
         ['Man City','Manchester City'], ['Man United','Manchester United'], ['Tottenham','Tottenham'],
         ['Newcastle','Newcastle'], ['Aston Villa','Aston Villa'], ['West Ham','West Ham'], ['Brighton','Brighton'],
-      ] as const).map(([label, match]) => (
-        <button data-club={match.toLowerCase()} class="club-chip text-xs px-2.5 py-1 rounded-lg font-medium border transition-colors">{label}</button>
+      ] as const).map(([label, name]) => (
+        <a href={`/club/${name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}`}
+           class="club-chip text-xs px-2.5 py-1 rounded-lg font-medium border transition-colors">{label}</a>
       ))}
     </div>
   </div>
@@ -82,42 +83,13 @@ const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minu
       <a href="/transfers" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View All News</a>
     </div>
   ) : (
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="pl-grid">
-      {transfers.map(t => (
-        <div class="pl-card" data-clubs={t.clubs.join('|').toLowerCase()}>
-          <TransferCard transfer={t} />
-        </div>
-      ))}
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {transfers.map(t => <TransferCard transfer={t} />)}
     </div>
-    <p id="pl-empty" class="hidden text-center text-sm text-cream-dim py-12">No stories for that club right now.</p>
   )}
 </BaseLayout>
 
 <style>
   .club-chip { background:#14301e; color:#aebfB2; border-color:#2a4a34; }
   .club-chip:hover { border-color:#d4af37; color:#f4f1e8; }
-  .club-chip.is-active { background:#d4af37; border-color:#d4af37; color:#0c1f14; }
 </style>
-
-<script>
-  const chips = document.querySelectorAll('.club-chip');
-  const cards = Array.from(document.querySelectorAll('.pl-card')) as HTMLElement[];
-  const empty = document.getElementById('pl-empty');
-
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      chips.forEach((c) => c.classList.remove('is-active'));
-      chip.classList.add('is-active');
-      const club = chip.getAttribute('data-club') || 'all';
-
-      let shown = 0;
-      cards.forEach((card) => {
-        const clubs = card.getAttribute('data-clubs') || '';
-        const match = club === 'all' || clubs.split('|').includes(club);
-        card.style.display = match ? '' : 'none';
-        if (match) shown++;
-      });
-      empty?.classList.toggle('hidden', shown > 0);
-    });
-  });
-</script>
