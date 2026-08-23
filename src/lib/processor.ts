@@ -175,31 +175,43 @@ export function buildOriginalSummary(t: {
 
   if (t.type === 'confirmed') {
     if (p && to) parts.push(vary([
-      `${p} has signed for ${to}${from ? ` from ${from}` : ''}. The clubs have agreed the deal.`,
+      `${p} has signed for ${to}${from ? ` from ${from}` : ''}.`,
       `${to} have completed the signing of ${p}${from ? ` from ${from}` : ''}.`,
+      `It is official: ${p} is a ${to} player${from ? `, leaving ${from}` : ''}.`,
+      `${p} has joined ${to}${from ? ` from ${from}` : ''}.`,
     ], t.id));
-    else if (club) parts.push(`${club} have confirmed a new signing in this window.`);
-    else parts.push('The clubs involved have now confirmed this transfer.');
+    else if (club) parts.push(vary([`${club} have got a deal over the line.`, `${club} have confirmed their latest signing.`], t.id));
+    else parts.push('The clubs have confirmed the deal.');
   } else if (t.type === 'rumour') {
     if (p && to) parts.push(vary([
-      `${to} want to sign ${p}${from ? `, currently at ${from}` : ''}, but no agreement is in place yet.`,
-      `Reports say ${to} are interested in ${p}${from ? ` of ${from}` : ''}. Talks are at an early stage.`,
+      `${to} want ${p}${from ? ` from ${from}` : ''}, but no deal is agreed.`,
+      `${p}${from ? ` of ${from}` : ''} has been linked with a move to ${to}.`,
+      `${to} are chasing ${p}${from ? ` from ${from}` : ''}, though nothing is signed.`,
+      `Reports connect ${p} with ${to}${from ? `, currently at ${from}` : ''}.`,
     ], t.id));
-    else if (club) parts.push(`${club} are reported to be looking at a new signing.`);
-    else parts.push(`This is a rumour and nothing has been agreed yet${p ? `, with ${p} the player in question` : ''}.`);
+    else if (club) parts.push(vary([`${club} are said to be after a new signing.`, `${club} are weighing up a move in the market.`], t.id));
+    else parts.push(`Nothing is agreed yet${p ? `, with ${p} the name mentioned` : ''}.`);
   } else {
-    parts.push(`Here is the latest update${p ? ` on ${p}` : club ? ` at ${club}` : ''} as the window continues.`);
+    if (p && club) parts.push(vary([
+      `${p} is in the headlines, with ${club} in the picture.`,
+      `${club} and ${p} feature in today's football news.`,
+      `The latest on ${p} and ${club}.`,
+    ], t.id));
+    else if (p) parts.push(vary([`${p} is in today's football news.`, `The latest on ${p}.`, `${p} makes the headlines.`], t.id));
+    else if (club) parts.push(vary([`${club} are in today's football news.`, `The latest on ${club}.`, `${club} feature in the day's headlines.`], t.id));
+    else parts.push(vary(['One of the day\'s football stories.', 'More from around the grounds.', 'A fresh update from the football desk.', 'Today in football.'], t.id));
   }
 
-  if (fee) parts.push(`The fee is around ${fee}.`);
-  parts.push(`${t.source} reported it, and TransferHub scores it ${t.confidence} out of 10 for reliability.`);
-  parts.push(club
-    ? `See more ${club} news on our club page.`
-    : `See more confirmed deals and rumours on TransferHub.`);
+  if (fee) parts.push(vary([`The fee is around ${fee}.`, `It is worth about ${fee}.`, `The deal is close to ${fee}.`], t.id + 'f'));
+  if (from && to && p) parts.push(vary([
+    `Read the full story below for the latest on the move.`,
+    `The report has more detail on how the deal came together.`,
+    `Tap through for the full breakdown from the source.`,
+  ], t.id + 'c'));
 
   let s = parts.join(' ');
   const w = s.split(/\s+/);
-  if (w.length > 56) s = w.slice(0, 56).join(' ').replace(/[,;:.]+$/, '') + '.';
+  if (w.length > 50) s = w.slice(0, 50).join(' ').replace(/[,;:.]+$/, '') + '.';
   return s;
 }
 

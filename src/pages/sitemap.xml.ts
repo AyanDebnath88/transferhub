@@ -15,6 +15,7 @@ const leaguePages = Object.keys(LEAGUES).map((slug) => ({
 
 const PAGES = [
   { path: '',                changefreq: 'hourly',  priority: '1.0' },
+  { path: '/news',           changefreq: 'hourly',  priority: '0.9' },
   { path: '/confirmed',      changefreq: 'hourly',  priority: '0.9' },
   { path: '/rumours',        changefreq: 'hourly',  priority: '0.9' },
   { path: '/premier-league', changefreq: 'daily',   priority: '0.8' },

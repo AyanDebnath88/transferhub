@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TransferCard from '../../components/TransferCard.astro';
+import { fetchFootballNews } from '../../lib/fetchTransfers';
+
+const news = await fetchFootballNews(30);
+const featured = news[0];
+const rest = news.slice(1);
+const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+const itemListSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Latest Football News',
+  itemListElement: news.slice(0, 10).map((n, i) => ({
+    '@type': 'ListItem', position: i + 1, url: n.sourceUrl, name: n.title,
+  })),
+});
+---
+<BaseLayout
+  title="Latest Football News Today: Results, Match Reports & Headlines"
+  description={`Live football news from the Premier League, La Liga, Serie A, Bundesliga and Ligue 1 — results, match reports, injuries and headlines. ${news.length} stories, updated ${updatedAt}.`}
+  keywords="football news today, soccer news, premier league news, match reports, la liga news, serie a news, bundesliga news, ligue 1 news"
+>
+  <script type="application/ld+json" slot="head" set:html={itemListSchema} />
+
+  <div class="mb-6">
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream mb-2">Football <span class="text-gold">News</span></h1>
+    <p class="text-cream-muted text-sm leading-relaxed max-w-2xl">
+      The new season is under way and the transfer window is closing. This is the day's football news beyond the
+      window: results, match reaction, injuries and the stories shaping the Premier League, La Liga, Serie A,
+      Bundesliga and Ligue 1. Every item links to the original report, with a reliability rating on each card.
+    </p>
+    <p class="text-[11px] text-cream-dim mt-2">{news.length} stories · Updated {updatedAt}</p>
+  </div>
+
+  {news.length === 0 ? (
+    <p class="text-sm text-cream-dim">No football news to show right now. Check back shortly.</p>
+  ) : (
+    <div class="space-y-6">
+      {featured && (
+        <section>
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-0.5 h-4 bg-gold rounded-full"></div>
+            <h2 class="text-[11px] font-bold uppercase tracking-widest text-cream-dim">Top Story</h2>
+          </div>
+          <TransferCard transfer={featured} featured={true} />
+        </section>
+      )}
+
+      {rest.length > 0 && (
+        <section>
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-0.5 h-4 bg-line rounded-full"></div>
+            <h2 class="text-[11px] font-bold uppercase tracking-widest text-cream-dim">Latest News</h2>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {rest.map(n => <TransferCard transfer={n} />)}
+          </div>
+        </section>
+      )}
+    </div>
+  )}
+</BaseLayout>

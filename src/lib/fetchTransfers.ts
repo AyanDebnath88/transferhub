@@ -259,3 +259,15 @@ export async function fetchTopStories(limit = 12): Promise<Transfer[]> {
   storiesCache = { at: Date.now(), data };
   return data;
 }
+
+// General football NEWS (matches, results, injuries, previews) — soccer stories
+// that are NOT transfer-related, so it doesn't duplicate the transfer feed.
+let newsCache: { at: number; data: Transfer[] } | null = null;
+export async function fetchFootballNews(limit = 30): Promise<Transfer[]> {
+  if (newsCache && Date.now() - newsCache.at < CACHE_TTL) return newsCache.data;
+  const data = (await enrich(await gather(
+    (title, desc) => title.trim().length > 0 && isSoccerStory(title, desc) && !isTransferRelated(title, desc)
+  ))).slice(0, limit);
+  newsCache = { at: Date.now(), data };
+  return data;
+}
