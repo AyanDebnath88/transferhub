@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GUIDES } from '../../data/guides';
+
+export function getStaticPaths() {
+  return GUIDES.map((g) => ({ params: { slug: g.slug }, props: { guide: g } }));
+}
+
+const { guide } = Astro.props;
+const SITE = 'https://transferhub.club';
+const others = GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 4);
+
+const articleSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: guide.title,
+  description: guide.description,
+  datePublished: guide.updated,
+  dateModified: guide.updated,
+  author: { '@type': 'Organization', name: 'TransferHub' },
+  publisher: { '@type': 'Organization', name: 'TransferHub', url: SITE },
+  mainEntityOfPage: `${SITE}/guides/${guide.slug}`,
+});
+---
+<BaseLayout title={guide.title} description={guide.description}>
+  <script type="application/ld+json" slot="head" set:html={articleSchema} />
+
+  <article class="max-w-3xl">
+    <nav class="text-xs text-cream-dim mb-4">
+      <a href="/guides" class="hover:text-gold transition-colors">Guides</a>
+      <span class="mx-1">/</span>
+      <span class="text-cream-muted">{guide.title}</span>
+    </nav>
+
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-tight mb-3">{guide.title}</h1>
+    <p class="text-sm text-cream-muted leading-relaxed mb-2">{guide.description}</p>
+    <p class="text-[11px] text-cream-dim mb-8">
+      {guide.readMins} min read · Updated {new Date(guide.updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+    </p>
+
+    <div class="guide-body text-sm text-cream-muted leading-relaxed space-y-4" set:html={guide.body} />
+
+    <div class="mt-12 pt-8 border-t border-line">
+      <h2 class="text-[11px] font-bold uppercase tracking-widest text-cream-dim mb-4">More guides</h2>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {others.map((g) => (
+          <a href={`/guides/${g.slug}`} class="block bg-pitch-700 border border-line rounded-xl px-4 py-3 hover:border-gold/50 transition-all">
+            <p class="text-sm font-semibold text-cream leading-snug">{g.title}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .guide-body h2 { font-weight: 700; color: var(--tw-cream, #f4efe1); font-size: 1.15rem; margin-top: 1.75rem; margin-bottom: .5rem; }
+  .guide-body p { margin-bottom: 1rem; }
+  .guide-body ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
+  .guide-body li { margin-bottom: .4rem; }
+  .guide-body strong { color: #f4efe1; }
+  .guide-body a { color: #d4af37; text-decoration: underline; }
+  .guide-body a:hover { color: #e6c65c; }
+</style>

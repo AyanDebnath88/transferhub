@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { CLUB_META } from '../lib/clubs';
 import { LEAGUES } from '../lib/leagues';
+import { GUIDES } from '../data/guides';
 
 const SITE = 'https://transferhub.club';
 
@@ -19,6 +20,8 @@ const PAGES = [
   { path: '/premier-league', changefreq: 'daily',   priority: '0.8' },
   ...leaguePages,
   { path: '/clubs',          changefreq: 'daily',   priority: '0.7' },
+  { path: '/guides',         changefreq: 'weekly',  priority: '0.7' },
+  ...GUIDES.map((g) => ({ path: `/guides/${g.slug}`, changefreq: 'monthly', priority: '0.6' })),
   { path: '/about',          changefreq: 'monthly', priority: '0.5' },
   { path: '/methodology',    changefreq: 'monthly', priority: '0.5' },
   ...clubPages,
