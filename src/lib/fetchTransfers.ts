@@ -1,6 +1,6 @@
 import Parser from 'rss-parser';
 import { FEED_SOURCES } from './feeds';
-import { isTransferRelated, isSoccerStory, processItem } from './processor';
+import { isTransferRelated, isSoccerStory, processItem, buildOriginalSummary } from './processor';
 import type { Transfer } from './types';
 
 const parser = new Parser({
@@ -217,10 +217,6 @@ async function enrich(raw: RawItem[]): Promise<Transfer[]> {
         (meta.image && isAcceptableImage(meta.image) ? meta.image : null) ??
         extractImageFromRss(item);
 
-      const summarySource = meta.description && meta.description.length > 40
-        ? meta.description
-        : rssDescription;
-
       const transfer = processItem(
         title,
         rssDescription,
@@ -230,7 +226,8 @@ async function enrich(raw: RawItem[]): Promise<Transfer[]> {
         source.confidence,
         image
       );
-      transfer.summary = toSummary(summarySource, 60) || transfer.title;
+      // ORIGINAL TransferHub summary (not copied from the source article).
+      transfer.summary = buildOriginalSummary(transfer);
       return transfer;
     })
   );

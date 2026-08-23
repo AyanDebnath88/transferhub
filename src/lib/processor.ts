@@ -120,12 +120,21 @@ export function extractHeadlineClubs(title: string): string[] {
     .slice(0, 2);
 }
 
+const NAME_STOP = new Set(['With', 'The', 'After', 'Before', 'As', 'On', 'In', 'For', 'And', 'But',
+  'His', 'Her', 'New', 'Why', 'How', 'What', 'When', 'Deal', 'Source', 'Exclusive', 'Breaking',
+  'Confirmed', 'Official', 'Done', 'Latest', 'Update', 'Report', 'Reports', 'Loan', 'Transfer',
+  'Man', 'Real', 'West', 'East', 'North', 'South', 'United', 'City', 'Is', 'To', 'Of', 'A', 'An']);
 export function extractPlayers(title: string): string[] {
-  // Heuristic: capitalised words before action verbs like "to", "joins", "signs"
   const matches = title.match(/([A-Z][a-zÀ-ÿ]+(?:\s[A-Z][a-zÀ-ÿ]+)+)/g) || [];
   return matches
+    .map((m) => {
+      // drop leading sentence-words that aren't part of a name ("With Guéhi" -> "Guéhi")
+      let words = m.split(' ');
+      while (words.length > 1 && NAME_STOP.has(words[0])) words = words.slice(1);
+      return words.join(' ');
+    })
+    .filter((m) => m.split(' ').length >= 2 && m.split(' ').length <= 4) // real names have 2+ words
     .filter((m) => !KNOWN_CLUBS.includes(m))
-    .filter((m) => m.split(' ').length <= 4)
     .slice(0, 3);
 }
 
@@ -139,6 +148,59 @@ export function scoreConfidence(
   if (type === 'rumour') score = Math.max(1, score - 2);
   if (title.toLowerCase().includes('exclusive')) score = Math.min(10, score + 1);
   return score;
+}
+
+// Original, synthesised card blurb (~45-55 words) built from OUR extracted data —
+// not copied from the source article. This is TransferHub's own curation/analysis,
+// which is what turns an aggregated link into added-value content.
+const money = (s: string): string | null => {
+  const m = s.match(/[£€$]\s?\d+(?:\.\d+)?\s?(m|million|bn|billion)\b/i);
+  return m ? m[0].replace(/\s+/g, '').replace(/illion/i, '').replace(/^(.*?)m$/i, '$1m') : null;
+};
+const vary = <T,>(arr: T[], seed: string): T => {
+  let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) | 0;
+  return arr[Math.abs(h) % arr.length];
+};
+
+export function buildOriginalSummary(t: {
+  title: string; players: string[]; clubs: string[]; headlineClubs: string[];
+  type: Transfer['type']; source: string; confidence: number; id: string;
+}): string {
+  const p = t.players[0];
+  const from = t.headlineClubs[0];
+  const to = t.headlineClubs[1];
+  const club = to || from;
+  const fee = money(t.title);
+  const parts: string[] = [];
+
+  if (t.type === 'confirmed') {
+    if (p && to) parts.push(vary([
+      `${p} has completed a switch to ${to}${from ? ` from ${from}` : ''}, with the transfer now officially over the line.`,
+      `It's done: ${p} joins ${to}${from ? ` from ${from}` : ''} after the clubs settled terms.`,
+    ], t.id));
+    else if (club) parts.push(`${club} have wrapped up a confirmed piece of transfer business in this window.`);
+    else parts.push('A transfer that has now been officially confirmed by the clubs involved.');
+  } else if (t.type === 'rumour') {
+    if (p && to) parts.push(vary([
+      `${to} are being strongly linked with ${p}${from ? `, currently at ${from}` : ''}, though nothing is agreed yet.`,
+      `Speculation is building over a possible move for ${p} to ${to}${from ? ` from ${from}` : ''}.`,
+    ], t.id));
+    else if (club) parts.push(`${club} are reportedly weighing up a new addition as the rumour gathers pace.`);
+    else parts.push(`A developing rumour doing the rounds on the transfer grapevine${p ? ` involving ${p}` : ''}.`);
+  } else {
+    parts.push(`The latest transfer-window development${p ? ` around ${p}` : club ? ` at ${club}` : ''}, as the story continues to move.`);
+  }
+
+  if (fee) parts.push(`The deal is understood to be worth in the region of ${fee}.`);
+  parts.push(`First reported via ${t.source}; TransferHub rates it ${t.confidence}/10 for reliability.`);
+  parts.push(club
+    ? `Track every ${club} signing and rumour on our dedicated club page.`
+    : `Follow confirmed deals and rumours across Europe's top leagues on TransferHub.`);
+
+  let s = parts.join(' ');
+  const w = s.split(/\s+/);
+  if (w.length > 56) s = w.slice(0, 56).join(' ').replace(/[,;:.]+$/, '') + '.';
+  return s;
 }
 
 export function buildSummary(title: string, description: string): string {
