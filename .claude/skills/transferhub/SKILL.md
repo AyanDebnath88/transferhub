@@ -22,7 +22,10 @@ Deploy = `git push` to `main` (Vercel auto-builds). Domain: apex `transferhub.cl
 **Data pipeline** (`src/lib/`):
 - `feeds.ts` — 6 `FEED_SOURCES` (Sky 9, BBC 9, ESPN 8, Guardian 8, Goal 7, F365 7), `TRANSFER_KEYWORDS`, `CONFIRMED_KEYWORDS`, `RUMOUR_KEYWORDS`, `KNOWN_CLUBS` (club-name extraction list).
 - `processor.ts` — `isTransferRelated()` (keyword match + `EXCLUDE_PATTERNS`), `isSoccerStory()` (rejects `OTHER_SPORTS`: NFL/NBA/cricket/etc — soccer only), `classifyType()`, `extractClubs()`, `scoreConfidence()`, `processItem()`.
-- `fetchTransfers.ts` — `gather(accept)` pulls+dedupes feed items; `enrich(raw)` fetches each article's OG `og:image`/`og:description` (6s timeout, parallel), upgrades BBC/Sky image URLs, trims summary to ~60 words; 5-min module cache. Exports `fetchAllTransfers()` (transfer-filtered) and `fetchTopStories()` (any soccer story — homepage fallback when no transfers).
+- `fetchTransfers.ts` — `gather(accept)` pulls+dedupes feed items (7-day age gate, drops older); `enrich(raw)` fetches OG image, sets `transfer.summary = buildOriginalSummary()` (ORIGINAL, NOT og:description). Exports `fetchAllTransfers()` (transfers), `fetchTopStories()` (any soccer), `fetchFootballNews()` (soccer NOT transfers → `/news`). 5-min cache.
+- `processor.ts` `buildOriginalSummary()` — synthesises an ORIGINAL 50-60 word summary from our fields (player, `headlineClubs` from→to, fee, type, source, confidence) + id-seeded non-repeating context pool (getClubInfo, window timing, reliability). Anti-thin-content. `extractHeadlineClubs()` = title-only clubs (drives badges/crest); `CLUB_ALIASES` resolves nicknames (Barça→Barcelona).
+- `standings.ts` — `getStandings()` LIVE league tables from **football-data.org** (token `FOOTBALL_DATA_TOKEN` in `.env` + Vercel env; PL/PD/SA/BL1/FL1), API team names → CLUB_META via `NAME_MAP`, **static fallback** to `data/leagueTables.ts` if token/API missing. `clubPositionFrom()` for club-page position.
+- `data/` — `doneDeals.ts` (Top Moves widget, hand-maintained), `guides.ts` (6 original explainers), `leagueTables.ts` (static fallback tables), `imageCredits.json` (Wikimedia credits).
 - `clubs.ts` — `CLUB_META` (28 clubs: color+short), `CLUB_INFO` (league/city/nick for unique per-club copy), `getClubMeta()`, `getClubInfo()`, `USE_REAL_CRESTS=true`. Crests self-hosted at `public/logos/<slug>.png`.
 - `leagues.ts` — `LEAGUES` map (la-liga, serie-a, bundesliga, ligue-1) with `clubs[]` + blurb.
 - `types.ts` — `Transfer`, `FeedSource`.
@@ -34,7 +37,7 @@ Deploy = `git push` to `main` (Vercel auto-builds). Domain: apex `transferhub.cl
 - `components/ReliabilityStars.astro` — 1–10 → 5 stars (gold/rumor/line).
 - `components/CookieConsent.astro` — **UNUSED** (removed from layout; Google certified CMP handles consent now). Kept for reference.
 
-**Pages** (`src/pages/`): `index`, `confirmed`, `rumours`, `premier-league`, `clubs`, `club/[slug]` (28 dynamic), `league/[slug]` (4 dynamic), `about`, `methodology`, `privacy`, `terms`, `disclaimer`, `contact`, `attribution`, `404`, `500`, `offline`, `sitemap.xml.ts`.
+**Pages** (`src/pages/`): `index` = **glassmorphism chooser** (Transfers vs Football News); `transfers` (the transfer feed, old homepage); `news` (`fetchFootballNews`); `tables` (live standings, all 5 leagues, `LeagueTable.astro`); `guides` + `guides/[slug]` (6 articles); `confirmed`, `rumours`, `premier-league`, `clubs`, `club/[slug]` (28, shows live position pill), `league/[slug]` (4, shows live table), `about`, `methodology`, `credits`, legal, `404/500/offline`, `sitemap.xml.ts`. Nav: Transfers·News·Confirmed·Rumours·Leagues·Clubs·Tables·Guides·About. Ticker label always `LATEST`.
 
 **Static** (`public/`): `logos/` (28 crest PNGs), `icons/` (PWA), `sw.js` (service worker — network-first pages, cache version `transferhub-v3`), `manifest.json`, `robots.txt`, `ads.txt`, `favicon.svg`, `og-default.png`, Google verify HTML.
 
