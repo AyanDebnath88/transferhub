@@ -1,0 +1,69 @@
+---
+import { LEAGUE_TABLES, type TableRow } from '../data/leagueTables';
+import ClubBadge from './ClubBadge.astro';
+
+interface Props {
+  slug: string;
+  table?: { name: string; slug: string; rows: TableRow[] }; // live data; falls back to static
+  limit?: number;        // show only top N (omit = full table)
+  highlight?: string;    // club name to highlight
+  heading?: boolean;     // show the league name header
+}
+const { slug, table: live, limit, highlight, heading = true } = Astro.props;
+const table = live ?? LEAGUE_TABLES[slug];
+const rows = table ? (limit ? table.rows.slice(0, limit) : table.rows) : [];
+const total = table?.rows.length ?? 0;
+// precompute here — Astro mis-parses < / > comparisons inside JSX expressions
+const dec = rows.map((r) => ({
+  ...r,
+  isHi: !!highlight && r.club === highlight,
+  zone: r.pos <= 4 ? 'cl' : (!limit && r.pos > total - 3 ? 'rel' : ''),
+  gdText: r.gd > 0 ? `+${r.gd}` : String(r.gd),
+}));
+const edge = (z: string) => z === 'cl' ? 'border-l-gold' : z === 'rel' ? 'border-l-rumor' : 'border-l-transparent';
+---
+{table && (
+  <div class="bg-pitch-700 border border-line rounded-xl overflow-hidden">
+    {heading && (
+      <div class="flex items-center justify-between px-4 py-3 border-b border-line-soft bg-pitch-600">
+        <h3 class="text-[11px] font-bold uppercase tracking-widest text-cream-muted">{table.name} Table</h3>
+        <a href="/tables" class="text-[11px] text-cream-dim hover:text-gold transition-colors font-medium">All tables</a>
+      </div>
+    )}
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="text-cream-dim text-[10px] uppercase tracking-wider">
+            <th class="text-left font-semibold px-3 py-2 w-6">#</th>
+            <th class="text-left font-semibold px-1 py-2">Club</th>
+            <th class="text-center font-semibold px-2 py-2 w-8">P</th>
+            <th class="text-center font-semibold px-2 py-2 w-8 hidden sm:table-cell">W</th>
+            <th class="text-center font-semibold px-2 py-2 w-8 hidden sm:table-cell">D</th>
+            <th class="text-center font-semibold px-2 py-2 w-8 hidden sm:table-cell">L</th>
+            <th class="text-center font-semibold px-2 py-2 w-10 hidden sm:table-cell">GD</th>
+            <th class="text-center font-bold px-3 py-2 w-9">Pts</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dec.map((r) => (
+            <tr class={`border-l-2 ${edge(r.zone)} ${r.isHi ? 'bg-gold/10' : 'hover:bg-pitch-600'} transition-colors`}>
+              <td class="px-3 py-2 text-cream-dim tabular-nums">{r.pos}</td>
+              <td class="px-1 py-2">
+                <div class="flex items-center gap-2 min-w-0">
+                  <ClubBadge name={r.club} size="sm" />
+                  <span class={`truncate ${r.isHi ? 'text-gold font-bold' : 'text-cream font-medium'}`}>{r.club}</span>
+                </div>
+              </td>
+              <td class="px-2 py-2 text-center text-cream-muted tabular-nums">{r.p}</td>
+              <td class="px-2 py-2 text-center text-cream-muted tabular-nums hidden sm:table-cell">{r.w}</td>
+              <td class="px-2 py-2 text-center text-cream-muted tabular-nums hidden sm:table-cell">{r.d}</td>
+              <td class="px-2 py-2 text-center text-cream-muted tabular-nums hidden sm:table-cell">{r.l}</td>
+              <td class="px-2 py-2 text-center text-cream-muted tabular-nums hidden sm:table-cell">{r.gdText}</td>
+              <td class="px-3 py-2 text-center font-bold text-cream tabular-nums">{r.pts}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+)}

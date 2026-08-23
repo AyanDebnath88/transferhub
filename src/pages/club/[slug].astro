@@ -4,6 +4,7 @@ import TransferCard from '../../components/TransferCard.astro';
 import ClubBadge from '../../components/ClubBadge.astro';
 import { CLUB_META, getClubInfo } from '../../lib/clubs';
 import { fetchAllTransfers } from '../../lib/fetchTransfers';
+import { getStandings, clubPositionFrom } from '../../lib/standings';
 
 function slugify(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -19,6 +20,7 @@ export function getStaticPaths() {
 
 const { name } = Astro.props;
 const info = getClubInfo(name);
+const standing = clubPositionFrom(await getStandings(), name);
 const all = await fetchAllTransfers();
 const transfers = all.filter((t) => t.clubs.includes(name));
 const confirmed = transfers.filter((t) => t.type === 'confirmed').length;
@@ -69,9 +71,18 @@ const collectionSchema = JSON.stringify({
   <div class="flex items-center gap-4 mb-8 pb-6 border-b border-line">
     <ClubBadge name={name} size="lg" />
     <div>
-      <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-none tracking-tight">
-        {name} <span class="text-gold">Transfers</span>
-      </h1>
+      <div class="flex items-center gap-2 flex-wrap">
+        <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-none tracking-tight">
+          {name} <span class="text-gold">Transfers</span>
+        </h1>
+        {standing && (
+          <a href={`/league/${standing.slug}`}
+             title={`${standing.ordinal} in the ${standing.league} with ${standing.pts} points`}
+             class="inline-flex items-center gap-1 bg-pitch-600 border border-line-soft rounded-full px-2.5 py-1 text-xs font-bold text-gold hover:border-gold/50 transition-all">
+            {standing.ordinal} · {standing.league}
+          </a>
+        )}
+      </div>
       <p class="text-sm text-cream-muted mt-1.5">
         <span class="text-cream font-semibold">{transfers.length}</span> stories &nbsp;&middot;&nbsp;
         <span class="text-grass font-semibold">{confirmed}</span> confirmed &nbsp;&middot;&nbsp;

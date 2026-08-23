@@ -189,7 +189,7 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
         </a>
 
         <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
-          <a href="/" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">Latest</a>
+          <a href="/transfers" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">Transfers</a>
           <a href="/news" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">News</a>
           <a href="/confirmed" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-grass flex-shrink-0"></span>Confirmed
@@ -213,6 +213,7 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
             </div>
           </div>
           <a href="/clubs" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">Clubs</a>
+          <a href="/tables" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">Tables</a>
           <a href="/guides" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">Guides</a>
           <a href="/about" class="px-3 py-1.5 rounded-lg text-cream-muted hover:text-cream hover:bg-pitch-600 transition-all">About</a>
         </nav>
@@ -230,7 +231,7 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
       <!-- Mobile menu (toggled) -->
       <div id="mobile-menu" class="md:hidden hidden border-t border-line bg-pitch-800">
         <nav class="max-w-6xl mx-auto px-2 py-2 flex flex-col text-[15px] font-medium">
-          <a href="/" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Latest</a>
+          <a href="/transfers" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Transfers</a>
           <a href="/news" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">News</a>
           <a href="/confirmed" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-grass flex-shrink-0"></span>Confirmed
@@ -246,6 +247,7 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
           <a href="/league/ligue-1" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Ligue 1</a>
           <div class="h-px bg-line-soft my-1 mx-3"></div>
           <a href="/clubs" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Clubs</a>
+          <a href="/tables" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Tables</a>
           <a href="/guides" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">Guides</a>
           <a href="/about" class="px-3 py-3 rounded-lg text-cream hover:bg-pitch-600 transition-all">About</a>
         </nav>
@@ -299,7 +301,7 @@ const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
         <div>
           <p class="font-semibold text-cream mb-3 uppercase text-xs tracking-wider">Sections</p>
           <ul class="space-y-2">
-            <li><a href="/" class="hover:text-gold transition-colors">Latest Transfers</a></li>
+            <li><a href="/transfers" class="hover:text-gold transition-colors">Latest Transfers</a></li>
             <li><a href="/news" class="hover:text-gold transition-colors">Football News</a></li>
             <li><a href="/confirmed" class="hover:text-gold transition-colors">Confirmed Signings</a></li>
             <li><a href="/rumours" class="hover:text-gold transition-colors">Transfer Rumours</a></li>

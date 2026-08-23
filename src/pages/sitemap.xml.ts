@@ -14,13 +14,15 @@ const leaguePages = Object.keys(LEAGUES).map((slug) => ({
 }));
 
 const PAGES = [
-  { path: '',                changefreq: 'hourly',  priority: '1.0' },
+  { path: '',                changefreq: 'daily',   priority: '1.0' },
+  { path: '/transfers',      changefreq: 'hourly',  priority: '0.9' },
   { path: '/news',           changefreq: 'hourly',  priority: '0.9' },
   { path: '/confirmed',      changefreq: 'hourly',  priority: '0.9' },
   { path: '/rumours',        changefreq: 'hourly',  priority: '0.9' },
   { path: '/premier-league', changefreq: 'daily',   priority: '0.8' },
   ...leaguePages,
   { path: '/clubs',          changefreq: 'daily',   priority: '0.7' },
+  { path: '/tables',         changefreq: 'daily',   priority: '0.8' },
   { path: '/guides',         changefreq: 'weekly',  priority: '0.7' },
   ...GUIDES.map((g) => ({ path: `/guides/${g.slug}`, changefreq: 'monthly', priority: '0.6' })),
   { path: '/about',          changefreq: 'monthly', priority: '0.5' },

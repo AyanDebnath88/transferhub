@@ -24,7 +24,7 @@ const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minu
         </p>
       </div>
       <div class="flex gap-2">
-        <a href="/" class="bg-pitch-700 border border-line hover:border-gold/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">&larr; All News</a>
+        <a href="/transfers" class="bg-pitch-700 border border-line hover:border-gold/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">&larr; All News</a>
         <a href="/confirmed" class="flex items-center gap-1.5 bg-pitch-700 border border-line hover:border-grass/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">
           <span class="w-1.5 h-1.5 rounded-full bg-grass"></span> Confirmed
         </a>
@@ -33,7 +33,7 @@ const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minu
 
     <div class="flex gap-1 bg-pitch-700 border border-line rounded-xl p-1 overflow-x-auto">
       {([
-        { href: '/',               label: 'All News',       active: false },
+        { href: '/transfers',               label: 'All News',       active: false },
         { href: '/confirmed',      label: 'Confirmed',      active: false },
         { href: '/rumours',        label: 'Rumours',        active: true  },
         { href: '/premier-league', label: 'Premier League', active: false },
@@ -50,7 +50,7 @@ const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minu
     <div class="text-center py-24">
       <p class="text-lg font-semibold text-cream-muted">No rumours at the moment</p>
       <p class="text-sm text-cream-dim mt-2">Check back soon — the rumour mill never stops for long.</p>
-      <a href="/" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View All News</a>
+      <a href="/transfers" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View All News</a>
     </div>
   ) : (
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

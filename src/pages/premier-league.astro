@@ -2,6 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TransferCard from '../components/TransferCard.astro';
 import { fetchAllTransfers } from '../lib/fetchTransfers';
+import LeagueTable from '../components/LeagueTable.astro';
+import { getStandings } from '../lib/standings';
+
+const tables = await getStandings();
 
 const PL_CLUBS = [
   'Arsenal','Chelsea','Liverpool','Manchester City','Manchester United',
@@ -33,12 +37,12 @@ const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minu
           <span class="text-cream font-semibold">{transfers.length}</span> stories &nbsp;&middot;&nbsp; All 20 clubs &nbsp;&middot;&nbsp; Updated <time>{updatedAt}</time>
         </p>
       </div>
-      <a href="/" class="bg-pitch-700 border border-line hover:border-gold/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">&larr; All News</a>
+      <a href="/transfers" class="bg-pitch-700 border border-line hover:border-gold/50 text-cream-muted hover:text-cream text-xs font-semibold px-3 py-1.5 rounded-lg transition-all">&larr; All News</a>
     </div>
 
     <div class="flex gap-1 bg-pitch-700 border border-line rounded-xl p-1 overflow-x-auto mb-5">
       {([
-        { href: '/',               label: 'All News',       active: false },
+        { href: '/transfers',               label: 'All News',       active: false },
         { href: '/confirmed',      label: 'Confirmed',      active: false },
         { href: '/rumours',        label: 'Rumours',        active: false },
         { href: '/premier-league', label: 'Premier League', active: true  },
@@ -63,11 +67,19 @@ const updatedAt = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minu
     </div>
   </div>
 
+  <section class="mb-8">
+    <div class="flex items-center gap-2 mb-3">
+      <div class="w-0.5 h-4 bg-info rounded-full"></div>
+      <h2 class="text-[11px] font-bold uppercase tracking-widest text-cream-dim">Premier League Table</h2>
+    </div>
+    <LeagueTable slug="premier-league" table={tables['premier-league']} heading={false} />
+  </section>
+
   {transfers.length === 0 ? (
     <div class="text-center py-24">
       <p class="text-lg font-semibold text-cream-muted">No Premier League transfer news right now</p>
       <p class="text-sm text-cream-dim mt-2">Check back soon — PL clubs are always active in the transfer market.</p>
-      <a href="/" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View All News</a>
+      <a href="/transfers" class="mt-6 inline-block bg-gold hover:bg-gold-400 text-pitch-900 text-sm font-semibold px-5 py-2 rounded-lg transition-colors">View All News</a>
     </div>
   ) : (
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="pl-grid">

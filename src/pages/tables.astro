@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeagueTable from '../components/LeagueTable.astro';
+import { getStandings } from '../lib/standings';
+
+const tables = await getStandings();
+const ALL_TABLES = Object.values(tables);
+---
+<BaseLayout
+  title="League Tables: Premier League, La Liga, Serie A, Bundesliga & Ligue 1"
+  description="Current standings for Europe's top five leagues — Premier League, La Liga, Serie A, Bundesliga and Ligue 1 — with points, goal difference and European and relegation spots."
+  keywords="league tables, premier league table, la liga table, serie a table, bundesliga table, ligue 1 standings"
+>
+  <div class="max-w-4xl">
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream mb-2">League <span class="text-gold">Tables</span></h1>
+    <p class="text-cream-muted text-sm leading-relaxed mb-4 max-w-2xl">
+      Standings for the five leagues we cover. The gold marker shows the Champions League places; the red marker shows
+      the relegation zone. Tables are updated through the season.
+    </p>
+
+    <div class="flex flex-wrap gap-2 mb-8 text-xs">
+      {ALL_TABLES.map((t) => (
+        <a href={`#${t.slug}`} class="px-3 py-1.5 rounded-lg bg-pitch-700 border border-line text-cream-muted hover:text-cream hover:border-gold/50 transition-all">{t.name}</a>
+      ))}
+    </div>
+
+    <div class="space-y-10">
+      {ALL_TABLES.map((t) => (
+        <section id={t.slug} class="scroll-mt-24">
+          <LeagueTable slug={t.slug} table={t} heading={true} />
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

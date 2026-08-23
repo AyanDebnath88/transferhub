@@ -11,3 +11,4 @@ coverage/
 # imageCredits.json is REQUIRED at build time (imported by images.ts + credits.astro)
 # and carries legally-required CC-BY/CC-BY-SA attributions — must be committed.
 !/src/data/imageCredits.json
+.astro/
