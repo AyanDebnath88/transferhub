@@ -56,7 +56,7 @@ const filler = allTransfers.filter(t => t.type !== 'confirmed');
 const tickerItems = [...confirmedTransfers, ...filler].slice(0, 12);
 // Duplicate the list so the marquee can loop seamlessly
 const tickerLoop = [...tickerItems, ...tickerItems];
-const tickerLabel = confirmedTransfers.length ? 'CONFIRMED' : 'LATEST';
+const tickerLabel = 'LATEST';
 ---
 
 <!doctype html>
