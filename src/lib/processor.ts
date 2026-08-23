@@ -175,27 +175,27 @@ export function buildOriginalSummary(t: {
 
   if (t.type === 'confirmed') {
     if (p && to) parts.push(vary([
-      `${p} has completed a switch to ${to}${from ? ` from ${from}` : ''}, with the transfer now officially over the line.`,
-      `It's done: ${p} joins ${to}${from ? ` from ${from}` : ''} after the clubs settled terms.`,
+      `${p} has signed for ${to}${from ? ` from ${from}` : ''}. The clubs have agreed the deal.`,
+      `${to} have completed the signing of ${p}${from ? ` from ${from}` : ''}.`,
     ], t.id));
-    else if (club) parts.push(`${club} have wrapped up a confirmed piece of transfer business in this window.`);
-    else parts.push('A transfer that has now been officially confirmed by the clubs involved.');
+    else if (club) parts.push(`${club} have confirmed a new signing in this window.`);
+    else parts.push('The clubs involved have now confirmed this transfer.');
   } else if (t.type === 'rumour') {
     if (p && to) parts.push(vary([
-      `${to} are being strongly linked with ${p}${from ? `, currently at ${from}` : ''}, though nothing is agreed yet.`,
-      `Speculation is building over a possible move for ${p} to ${to}${from ? ` from ${from}` : ''}.`,
+      `${to} want to sign ${p}${from ? `, currently at ${from}` : ''}, but no agreement is in place yet.`,
+      `Reports say ${to} are interested in ${p}${from ? ` of ${from}` : ''}. Talks are at an early stage.`,
     ], t.id));
-    else if (club) parts.push(`${club} are reportedly weighing up a new addition as the rumour gathers pace.`);
-    else parts.push(`A developing rumour doing the rounds on the transfer grapevine${p ? ` involving ${p}` : ''}.`);
+    else if (club) parts.push(`${club} are reported to be looking at a new signing.`);
+    else parts.push(`This is a rumour and nothing has been agreed yet${p ? `, with ${p} the player in question` : ''}.`);
   } else {
-    parts.push(`The latest transfer-window development${p ? ` around ${p}` : club ? ` at ${club}` : ''}, as the story continues to move.`);
+    parts.push(`Here is the latest update${p ? ` on ${p}` : club ? ` at ${club}` : ''} as the window continues.`);
   }
 
-  if (fee) parts.push(`The deal is understood to be worth in the region of ${fee}.`);
-  parts.push(`First reported via ${t.source}; TransferHub rates it ${t.confidence}/10 for reliability.`);
+  if (fee) parts.push(`The fee is around ${fee}.`);
+  parts.push(`${t.source} reported it, and TransferHub scores it ${t.confidence} out of 10 for reliability.`);
   parts.push(club
-    ? `Track every ${club} signing and rumour on our dedicated club page.`
-    : `Follow confirmed deals and rumours across Europe's top leagues on TransferHub.`);
+    ? `See more ${club} news on our club page.`
+    : `See more confirmed deals and rumours on TransferHub.`);
 
   let s = parts.join(' ');
   const w = s.split(/\s+/);
