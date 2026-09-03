@@ -69,8 +69,15 @@ const playerRes = resolvePlayer(transfer.players, transfer.id, transfer.title, t
 const playerHit = playerRes?.src ?? null;
 const playerName = playerRes ? playerRes.slug.replace(/-/g, ' ') : '';
 const clubPhotoRes = playerHit ? null : clubPhoto(transfer.clubs, transfer.id);
-const coverPhoto = playerHit ?? clubPhotoRes?.src ?? genericPhoto(transfer.id);
-const clubHit = coverPhoto ? null : clubImage(transfer.headlineClubs);
+// Image priority: player photo -> real club photo -> the club's own crest (varies
+// per club) -> royalty-free generic. Preferring the crest over the generic pool
+// stops club-named cards all showing the same recycled stadium/pitch stock shots.
+let coverPhoto = playerHit ?? clubPhotoRes?.src ?? null;
+let clubHit: string | null = null;
+if (!coverPhoto) {
+  clubHit = clubImage(transfer.headlineClubs);
+  if (!clubHit) coverPhoto = genericPhoto(transfer.id);
+}
 // Attribution for whichever real image is shown.
 const playerCredit = playerRes ? getCredit(playerRes.slug) : null;
 const clubPhotoCredit = clubPhotoRes ? getCredit(clubPhotoRes.slug) : null;

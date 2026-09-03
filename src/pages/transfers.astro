@@ -4,6 +4,7 @@ import TransferCard from '../components/TransferCard.astro';
 import { fetchAllTransfers, fetchTopStories } from '../lib/fetchTransfers';
 import { DONE_DEALS } from '../data/doneDeals';
 import ClubBadge from '../components/ClubBadge.astro';
+import WindowBanner from '../components/WindowBanner.astro';
 
 const transfers = await fetchAllTransfers();
 // No transfer news? Fall back to top football stories.
@@ -78,6 +79,8 @@ const faqSchema = JSON.stringify({
 >
   <script type="application/ld+json" set:html={itemListSchema} slot="head" />
   <script type="application/ld+json" set:html={faqSchema} slot="head" />
+
+  <WindowBanner />
 
   <!-- Page header -->
   <div class="mb-6">

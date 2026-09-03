@@ -1,7 +1,7 @@
 import type { FeedSource } from './types';
 
 export const FEED_SOURCES: FeedSource[] = [
-  { name: 'Sky Sports', url: 'https://www.skysports.com/rss/12040', confidence: 9 },
+  { name: 'Sky Sports', url: 'https://www.skysports.com/rss/11095', confidence: 9 },
   { name: 'BBC Sport', url: 'https://feeds.bbci.co.uk/sport/football/rss.xml', confidence: 9 },
   { name: 'ESPN FC', url: 'https://www.espn.com/espn/rss/soccer/news', confidence: 8 },
   { name: 'Goal.com', url: 'https://www.goal.com/feeds/en/news', confidence: 7 },

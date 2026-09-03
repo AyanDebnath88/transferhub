@@ -1,0 +1,18 @@
+---
+// Shown at the top of transfer pages when the window is shut: no new deals can be
+// registered, so point readers to Football News instead.
+import { getWindowStatus, fmtWindowDate } from '../lib/window';
+const win = getWindowStatus();
+---
+{!win.open && (
+  <div class="mb-6 rounded-xl border border-gold/30 bg-gold/10 px-4 py-3.5 flex flex-wrap items-center justify-between gap-3">
+    <div class="min-w-0">
+      <p class="text-sm font-bold text-gold">The transfer window is closed</p>
+      <p class="text-xs text-cream-muted mt-0.5">
+        No new signings can be registered right now{win.nextOpensOn && (<> — the {win.next?.name} window opens on <span class="text-cream font-semibold">{fmtWindowDate(win.nextOpensOn)}</span></>)}.
+        Stories below are the most recent from the last window; for match reports and daily news, follow Football News.
+      </p>
+    </div>
+    <a href="/news" class="flex-shrink-0 bg-gold hover:bg-gold-400 text-pitch-900 text-xs font-bold px-4 py-2 rounded-lg transition-colors">Football News &rarr;</a>
+  </div>
+)}

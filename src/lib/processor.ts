@@ -71,12 +71,42 @@ const OTHER_SPORTS = [
   /\bformula 1\b/i, /\bformula one\b/i, /\bgrand prix\b/i, /\bnascar\b/i,
   /\bboxing\b/i, /\bufc\b/i, /\bmma\b/i, /\bnetball\b/i, /\bbaseball\b/i,
   /\bbasketball\b/i, /\bamerican football\b/i, /\bice hockey\b/i,
+  // tennis
+  /\bsabalenka\b/i, /\bdjokovic\b/i, /\balcaraz\b/i, /\bswiatek\b/i, /\bus open\b/i,
+  /\baustralian open\b/i, /\bfrench open\b/i, /\broland garros\b/i, /\bstraight sets\b/i,
+  // golf
+  /\bsolheim cup\b/i, /\bpga\b/i, /\blpga\b/i, /\bbirdie\b/i, /\bbogey\b/i, /\bthe open championship\b/i,
+  // horse racing
+  /\bhorse racing\b/i, /\bcheltenham\b/i, /\bascot\b/i, /\baintree\b/i, /\bnewmarket\b/i, /\bepsom\b/i,
+  /\bgrand national\b/i, /\bjockey\b/i, /\bfurlong\b/i, /\bfilly\b/i, /\bgelding\b/i, /\bthoroughbred\b/i,
+  /\bmaiden hurdle\b/i, /\bsteeplechase\b/i,
+  // athletics / cycling / other
+  /\bathletics\b/i, /\bmarathon\b/i, /\bsnooker\b/i, /\bdarts\b/i, /\btour de france\b/i, /\bcycling\b/i,
+  /\bolympics?\b/i, /\bcommonwealth games\b/i, /\bhandball\b/i, /\bwaterpolo\b/i,
 ];
 
-// True only for soccer stories (rejects NFL/NBA/cricket/etc). Used by the
-// top-stories fallback, which does NOT require transfer keywords.
+// Positive soccer signals — a story must contain at least one to count as football,
+// so cross-sport items with no banned keyword (a golf/tennis headline) are dropped.
+const SOCCER_SIGNALS = [
+  /\bfootball\b/i, /\bsoccer\b/i, /\bpremier league\b/i, /\bla liga\b/i, /\bserie a\b/i,
+  /\bbundesliga\b/i, /\bligue 1\b/i, /\bchampions league\b/i, /\beuropa league\b/i,
+  /\bfa cup\b/i, /\bcarabao\b/i, /\bworld cup\b/i, /\beuros?\b/i, /\bwembley\b/i,
+  /\bgoalkeeper\b/i, /\bmidfielder\b/i, /\bstriker\b/i, /\bdefender\b/i, /\bwinger\b/i, /\bforward\b/i,
+  /\bmanager\b/i, /\bhead coach\b/i, /\btransfer\b/i, /\bsigning\b/i, /\bloan\b/i, /\bpenalty\b/i,
+  /\boffside\b/i, /\bvar\b/i, /\bmatchday\b/i, /\bfixture\b/i, /\bkick-?off\b/i, /\bequaliser\b/i,
+  /\bhat-?trick\b/i, /\bclean sheet\b/i, /\bderby\b/i, /\brelegation\b/i, /\bpromotion\b/i,
+  /\bafc\b/i, /\bfc\b/i, /\bunited\b/i, /\bcity\b/i, /\brovers\b/i, /\balbion\b/i, /\bwanderers\b/i,
+];
+
+// True only for football stories: rejects other sports AND requires a positive
+// soccer signal (club names count too). Used by /news + the top-stories fallback,
+// which don't require transfer keywords.
 export function isSoccerStory(title: string, description: string): boolean {
-  return !OTHER_SPORTS.some((re) => re.test(`${title.toLowerCase()} ${description.toLowerCase()}`));
+  const text = `${title.toLowerCase()} ${description.toLowerCase()}`;
+  if (OTHER_SPORTS.some((re) => re.test(text))) return false;
+  if (SOCCER_SIGNALS.some((re) => re.test(text))) return true;
+  // Fall back to our known club list so club-only headlines still pass.
+  return KNOWN_CLUBS.some((c) => text.includes(c.toLowerCase()));
 }
 
 export function isTransferRelated(title: string, description: string): boolean {
@@ -151,14 +181,18 @@ export function scoreConfidence(
   return score;
 }
 
-// Original, synthesised card blurb (~45-55 words) built from OUR extracted data —
-// not copied from the source article. This is TransferHub's own curation/analysis,
-// which is what turns an aggregated link into added-value content.
+// Original, synthesised card blurb built from OUR extracted data — never copied
+// from the source article. This is TransferHub's own write-up: the source article
+// is only linked, not reproduced. Transfer cards (with a player/club to work
+// from) get a full 100-140 word piece; headline-only news stays tight and factual
+// rather than padded with detail we can't verify.
 const money = (s: string): string | null => {
   const m = s.match(/[£€$]\s?\d+(?:\.\d+)?\s?(m|million|bn|billion)\b/i);
   return m ? m[0].replace(/\s+/g, '').replace(/illion/i, '').replace(/^(.*?)m$/i, '$1m') : null;
 };
-const vary = <T,>(arr: T[], seed: string): T => {
+const wc = (str: string) => str.trim().split(/\s+/).filter(Boolean).length;
+// Deterministic pick, seeded per slot so two cards rarely share the same combo.
+const pick = <T,>(arr: T[], seed: string): T => {
   let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) | 0;
   return arr[Math.abs(h) % arr.length];
 };
@@ -166,77 +200,162 @@ const vary = <T,>(arr: T[], seed: string): T => {
 export function buildOriginalSummary(t: {
   title: string; players: string[]; clubs: string[]; headlineClubs: string[];
   type: Transfer['type']; source: string; confidence: number; id: string;
-}): string {
+}, transferContext = false): string {
   const p = t.players[0];
   const from = t.headlineClubs[0];
   const to = t.headlineClubs[1];
-  const club = to || from;
+  // Prefer a headline club for the narrative, but fall back to any club found in
+  // the body so transfer-feed stories that only name a club in passing still get
+  // grounded, full-length context rather than the short news blurb.
+  const club = to || from || t.clubs[0];
   const fee = money(t.title);
+  const info = getClubInfo(club || '');
+  const id = t.id;
+
+  // Cards from the transfer feed are all transfer-related even when the headline
+  // carries no explicit "signed"/"linked" wording (type falls back to 'news').
+  // On those, still write the full piece; only genuine football news stays short.
+  const isTransferStory = t.type === 'confirmed' || t.type === 'rumour' || (transferContext && !!club);
+
+  // ---- Genuine NEWS (not a transfer): short + factual, no invented detail ----
+  if (!isTransferStory) {
+    if (p && club) return pick([
+      `${p} is in the spotlight here, with ${club} at the heart of the story. Follow the link for the full report.`,
+      `The latest on ${p} and ${club} — read on at the source for the detail and context behind the headline.`,
+      `${club} and ${p} are the names driving this one. Tap through to the original report for everything that was said.`,
+    ], id);
+    if (p) return pick([
+      `${p} is the name making news today. Open the full story at the source for the detail behind the headline.`,
+      `A fresh update centred on ${p}. Follow the link for the complete report and what it means next.`,
+    ], id);
+    if (club) return pick([
+      `${club} are in the news today. Follow the link to the full report for the detail behind the headline.`,
+      `The latest concerning ${club} — read on at the source for everything behind this one.`,
+    ], id);
+    return pick([
+      `A story worth a look from today's football. Follow the link for the full report at the source.`,
+      `One from around the grounds today. Tap through for the complete report and the detail behind it.`,
+    ], id);
+  }
+
+  // ---- TRANSFERS (confirmed / rumour): full 100-140 word original write-up ----
   const parts: string[] = [];
 
+  // 1) Lead — the actual move, from our extracted facts.
   if (t.type === 'confirmed') {
-    if (p && to) parts.push(vary([
-      `${p} has signed for ${to}${from ? ` from ${from}` : ''}.`,
-      `${to} have completed the signing of ${p}${from ? ` from ${from}` : ''}.`,
-      `It is official: ${p} is a ${to} player${from ? `, leaving ${from}` : ''}.`,
-      `${p} has joined ${to}${from ? ` from ${from}` : ''}.`,
-    ], t.id));
-    else if (club) parts.push(vary([`${club} have got a deal over the line.`, `${club} have confirmed their latest signing.`], t.id));
-    else parts.push('The clubs have confirmed the deal.');
+    if (p && to) parts.push(pick([
+      `${to} have completed the signing of ${p}${from ? ` from ${from}` : ''}, wrapping up a deal that had been taking shape behind the scenes.`,
+      `It is done: ${p} has put pen to paper at ${to}${from ? `, leaving ${from} behind` : ''}, and the club has made the move official.`,
+      `${p} is officially a ${to} player${from ? ` after departing ${from}` : ''}, with the paperwork now signed and the announcement made.`,
+      `${to} have got their man, confirming the arrival of ${p}${from ? ` from ${from}` : ''} after terms were finalised on both sides.`,
+      `${p} has sealed a switch to ${to}${from ? ` from ${from}` : ''}, one of the more notable pieces of business the club has pushed through.`,
+    ], id + '1'));
+    else if (club) parts.push(pick([
+      `${club} have pushed a deal over the line and confirmed their latest addition.`,
+      `${club} have wrapped up a signing the recruitment staff had been chasing for some time.`,
+      `${club} have made it official, ending a piece of business that had been building for weeks.`,
+    ], id + '1'));
+    else parts.push('The move is now official, with both clubs confirming the deal has gone through.');
   } else if (t.type === 'rumour') {
-    if (p && to) parts.push(vary([
-      `${to} want ${p}${from ? ` from ${from}` : ''}, but no deal is agreed.`,
-      `${p}${from ? ` of ${from}` : ''} has been linked with a move to ${to}.`,
-      `${to} are chasing ${p}${from ? ` from ${from}` : ''}, though nothing is signed.`,
-      `Reports connect ${p} with ${to}${from ? `, currently at ${from}` : ''}.`,
-    ], t.id));
-    else if (club) parts.push(vary([`${club} are said to be after a new signing.`, `${club} are weighing up a move in the market.`], t.id));
-    else parts.push(`Nothing is agreed yet${p ? `, with ${p} the name mentioned` : ''}.`);
-  } else {
-    if (p && club) parts.push(vary([
-      `${p} is in the headlines, with ${club} in the picture.`,
-      `${club} and ${p} feature in today's football news.`,
-      `The latest on ${p} and ${club}.`,
-    ], t.id));
-    else if (p) parts.push(vary([`${p} is in today's football news.`, `The latest on ${p}.`, `${p} makes the headlines.`], t.id));
-    else if (club) parts.push(vary([`${club} are in today's football news.`, `The latest on ${club}.`, `${club} feature in the day's headlines.`], t.id));
-    else parts.push(vary(['One of the day\'s football stories.', 'More from around the grounds.', 'A fresh update from the football desk.', 'Today in football.'], t.id));
+    if (p && to) parts.push(pick([
+      `${to} are pushing to sign ${p}${from ? ` from ${from}` : ''}, though the two sides have yet to settle on terms.`,
+      `Talk is growing that ${p}${from ? `, currently at ${from},` : ''} could be on the move to ${to}, with nothing signed as things stand.`,
+      `${to} have been linked with a move for ${p}${from ? ` of ${from}` : ''}, and the speculation is building rather than cooling.`,
+      `Reports connect ${p}${from ? ` of ${from}` : ''} with a switch to ${to}, but this remains firmly in the rumour stage.`,
+      `${p} is being tipped for a move to ${to}${from ? ` from ${from}` : ''}, though no agreement has been struck between the clubs.`,
+    ], id + '1'));
+    else if (club) parts.push(pick([
+      `${club} are being linked with a fresh move in the market, though nothing is close to done.`,
+      `${club} are weighing up business, with the rumour mill turning but no deal yet agreed.`,
+      `${club} are among the names being connected with activity, all of it still speculation for now.`,
+    ], id + '1'));
+    else parts.push(`Nothing is agreed yet${p ? `, with ${p} the name being mentioned` : ', and the talk remains unconfirmed'}.`);
+  } else { // transfer-context 'news' — a transfer story without explicit signed/linked wording
+    if (p && club) parts.push(pick([
+      `${p} is caught up in the transfer picture around ${club}, with the situation still developing.`,
+      `There is transfer business swirling around ${club}, and ${p} is right in the middle of it.`,
+      `${club} and ${p} are part of the latest movement in the market, though how it ends is not yet settled.`,
+    ], id + '1'));
+    else if (club) parts.push(pick([
+      `${club} are in the thick of the transfer picture, with business still taking shape around them.`,
+      `There is plenty of market activity involving ${club} as the details continue to firm up.`,
+      `${club} are one of the sides driving the day's transfer talk, even if nothing is nailed down yet.`,
+    ], id + '1'));
+    else parts.push(`This one sits in the transfer conversation, with the specifics still coming into focus.`);
   }
 
-  if (fee) parts.push(vary([`The fee is around ${fee}.`, `It is worth about ${fee}.`, `The deal is close to ${fee}.`], t.id + 'f'));
+  // 2) Fee, when the headline gives us one.
+  if (fee) parts.push(pick([
+    `The figure being talked about is around ${fee}.`,
+    `Reports put the value of the deal close to ${fee}.`,
+    `A fee in the region of ${fee} has been attached to it.`,
+  ], id + '2'));
 
-  // Build a pool of substantive, original context sentences, then append enough of
-  // them (id-seeded, no repeats) to land at 50-60 words — thin one-liners get
-  // flagged as low-value content, so every card carries real context.
-  const info = getClubInfo(club || '');
-  const pool: string[] = [];
-  if (info) {
-    pool.push(`${club}, ${info.nick} of ${info.league}, are based in ${info.city} and remain active in this window.`);
-    pool.push(`For ${club}, it is the kind of business that shapes how their ${info.league} season plays out.`);
-  } else if (club) {
-    pool.push(`${club} are one of the sides busy in the market as the window runs down.`);
+  // 3) Club context — grounded in real club facts where we have them.
+  if (info) parts.push(pick([
+    `${club}, ${info.nick} from ${info.city}, have been among the busier names in ${info.league} as they reshape the squad.`,
+    `Based in ${info.city}, ${club} know how closely rivals across ${info.league} watch every move they make in the window.`,
+    `For ${club} — ${info.nick} — this is the kind of business that sets the tone for their season in ${info.league}.`,
+    `${club} sit in ${info.league}, and ${info.nick} have made getting their recruitment right a clear priority.`,
+  ], id + '3'));
+  else if (club) parts.push(pick([
+    `${club} are one of the sides shaping the market as clubs firm up their squads.`,
+    `${club} have been active as the window develops, keen not to be left behind by their rivals.`,
+    `${club} are among the clubs whose moves tend to set off activity elsewhere in the market.`,
+  ], id + '3'));
+
+  // 4) Analysis — what it means, by type.
+  if (t.type === 'confirmed') parts.push(pick([
+    `The arrival deepens the group and hands the manager another option in an area the club had flagged.`,
+    `On paper it strengthens the squad and settles a need the coaching staff had been keen to address.`,
+    `It is a signing that reshapes the pecking order and gives the side more to work with across a long season.`,
+    `The deal ties down a target the club rated highly and closes a gap in the squad.`,
+  ], id + '4'));
+  else parts.push(pick([
+    `Whether it moves forward will come down to valuation, wages and how willing the other side is to do business.`,
+    `Any deal would hinge on the fee, personal terms and whether the selling club can line up a replacement.`,
+    `The sticking points, as ever, are price and timing — plenty can change before anything is agreed.`,
+    `Interest is one thing; turning it into a signed deal is another, and there is distance to cover yet.`,
+  ], id + '4'));
+
+  // 5) Outlook / caution — no deadline-day or "opening weeks" clichés.
+  if (t.type === 'confirmed') parts.push(pick([
+    `Attention now turns to how quickly the new signing settles and where they fit into the side.`,
+    `The focus shifts to integration — how soon the player is up to speed and in the starting mix.`,
+    `From here it is about minutes and form, and whether the fee ends up looking like good value.`,
+  ], id + '5'));
+  else parts.push(pick([
+    `Until the clubs or the player say something on the record, it is best filed as speculation rather than fact.`,
+    `We would treat it with caution for now: rumours like this can firm up quickly or fade just as fast.`,
+    `Take it with the usual pinch of salt until there is something official to back it up.`,
+  ], id + '5'));
+
+  // Top up towards ~100 words when still short — draw seeded, non-repeating
+  // sentences from a wider pool (works with or without a named player).
+  const topUp: string[] = [];
+  if (p) {
+    topUp.push(`${p} is the name at the centre of it all, and supporters will be watching how the situation develops.`);
+    topUp.push(`Much of the attention lands on ${p}, whose next step could shape more than one club's plans.`);
   }
-  if (t.type === 'confirmed') pool.push(`The signing gives the squad a fresh option and ends a piece of business the club had been working on.`);
-  else if (t.type === 'rumour') pool.push(`As with any rumour, it is worth treating with caution until the clubs or the player say something official.`);
-  else pool.push(`It is one of the stories shaping the opening weeks of the new season across the top leagues.`);
-  if (from && to) pool.push(`A move from ${from} to ${to} would have knock-on effects for both squads and their plans for the year.`);
-  pool.push(`The story comes via ${t.source}, which TransferHub rates ${t.confidence} out of 10 for reliability based on its transfer record.`);
-  pool.push(`With deadline day closing in, expect the picture to become clearer over the next few days.`);
-  if (p) pool.push(`${p} is the name at the centre of the talk, and any decision will be watched closely by supporters.`);
-
-  const wc = (str: string) => str.trim().split(/\s+/).filter(Boolean).length;
-  // id-seeded rotation so different cards pick different context, no repeats
-  let h = 0; for (const c of t.id) h = (h * 31 + c.charCodeAt(0)) | 0;
-  const order = pool.map((s, i) => ({ s, k: (Math.abs(h) + i * 7) % pool.length })).sort((a, b) => a.k - b.k).map((x) => x.s);
-  const used = new Set(parts);
-  for (const sent of order) {
-    if (wc(parts.join(' ')) >= 50) break;
-    if (!used.has(sent)) { parts.push(sent); used.add(sent); }
+  topUp.push(`${club ? `${club}'s` : 'The club\'s'} plans for the rest of the window may hinge on how this one plays out.`);
+  topUp.push(`It is the sort of story that can shift quickly, so it is worth keeping an eye on how it develops.`);
+  topUp.push(`Squad balance and budget will both feed into what happens from here.`);
+  topUp.push(`Fans will be keen to see whether the talk turns into concrete movement in the days ahead.`);
+  topUp.push(`As ever in the market, timing matters as much as intent, and plenty can change before anything is settled.`);
+  const usedTop = new Set(parts);
+  let salt = 6;
+  while (wc(parts.join(' ')) < 100) {
+    const before = parts.length;
+    for (const cand of [pick(topUp, id + salt)]) {
+      if (!usedTop.has(cand)) { parts.push(cand); usedTop.add(cand); }
+    }
+    salt++;
+    if (parts.length === before) break; // pool exhausted
   }
 
   let s = parts.join(' ');
   const words = s.split(/\s+/);
-  if (words.length > 60) s = words.slice(0, 60).join(' ').replace(/[,;:.]+$/, '') + '.';
+  if (words.length > 150) s = words.slice(0, 150).join(' ').replace(/[,;:.]+$/, '') + '.';
   return s;
 }
 

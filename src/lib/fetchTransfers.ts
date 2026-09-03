@@ -211,8 +211,10 @@ async function gather(accept: (title: string, desc: string) => boolean): Promise
   return raw;
 }
 
-// Enrich raw items with OG image + summary (parallel), return sorted Transfers
-async function enrich(raw: RawItem[]): Promise<Transfer[]> {
+// Enrich raw items with OG image + summary (parallel), return sorted Transfers.
+// transferContext=true => items are from the transfer feed, so even headlines
+// without explicit "signed/linked" wording get the full transfer write-up.
+async function enrich(raw: RawItem[], transferContext = false): Promise<Transfer[]> {
   const settled = await Promise.allSettled(
     raw.map(async ({ item, source }) => {
       const title = (item.title as string) || '';
@@ -235,7 +237,7 @@ async function enrich(raw: RawItem[]): Promise<Transfer[]> {
         image
       );
       // ORIGINAL TransferHub summary (not copied from the source article).
-      transfer.summary = buildOriginalSummary(transfer);
+      transfer.summary = buildOriginalSummary(transfer, transferContext);
       return transfer;
     })
   );
@@ -253,7 +255,7 @@ let storiesCache: { at: number; data: Transfer[] } | null = null;
 
 export async function fetchAllTransfers(): Promise<Transfer[]> {
   if (transfersCache && Date.now() - transfersCache.at < CACHE_TTL) return transfersCache.data;
-  const data = await enrich(await gather(isTransferRelated));
+  const data = await enrich(await gather(isTransferRelated), true);
   transfersCache = { at: Date.now(), data };
   return data;
 }
