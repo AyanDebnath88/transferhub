@@ -189,9 +189,17 @@ async function gather(accept: (title: string, desc: string) => boolean): Promise
           if (!isNaN(ts) && now - ts > MAX_AGE_MS) continue;
           if (!accept(title, description)) continue;
 
-          const dedupeKey = title.toLowerCase().slice(0, 60);
-          if (seen.has(dedupeKey)) continue;
-          seen.add(dedupeKey);
+          // Dedupe on BOTH a normalised headline and the canonical URL, so the
+          // same story surfacing in two feeds (or with a slightly reworded
+          // headline) is only shown once.
+          const titleKey = title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().slice(0, 60);
+          const link = ((item.link as string) || '').toLowerCase();
+          const urlKey = link
+            ? link.replace(/^https?:\/\/(www\.)?/, '').split(/[?#]/)[0].replace(/\/+$/, '')
+            : '';
+          if (seen.has(titleKey) || (urlKey && seen.has(urlKey))) continue;
+          seen.add(titleKey);
+          if (urlKey) seen.add(urlKey);
 
           raw.push({ item: item as Record<string, unknown>, source });
         }

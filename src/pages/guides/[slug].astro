@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { GUIDES } from '../../data/guides';
+import { GUIDES, GUIDE_AUTHOR } from '../../data/guides';
 
 export function getStaticPaths() {
   return GUIDES.map((g) => ({ params: { slug: g.slug }, props: { guide: g } }));
@@ -10,15 +10,23 @@ const { guide } = Astro.props;
 const SITE = 'https://transferhub.club';
 const others = GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 4);
 
+const fmtDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
 const articleSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: guide.title,
   description: guide.description,
-  datePublished: guide.updated,
+  datePublished: guide.published,
   dateModified: guide.updated,
-  author: { '@type': 'Organization', name: 'TransferHub' },
-  publisher: { '@type': 'Organization', name: 'TransferHub', url: SITE },
+  author: { '@type': 'Organization', name: GUIDE_AUTHOR, url: `${SITE}/about` },
+  publisher: {
+    '@type': 'Organization',
+    name: 'TransferHub',
+    url: SITE,
+    logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-192.png` },
+  },
   mainEntityOfPage: `${SITE}/guides/${guide.slug}`,
 });
 ---
@@ -33,10 +41,20 @@ const articleSchema = JSON.stringify({
     </nav>
 
     <h1 class="font-display text-3xl sm:text-4xl font-bold text-cream leading-tight mb-3">{guide.title}</h1>
-    <p class="text-sm text-cream-muted leading-relaxed mb-2">{guide.description}</p>
-    <p class="text-[11px] text-cream-dim mb-8">
-      {guide.readMins} min read · Updated {new Date(guide.updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-    </p>
+    <p class="text-sm text-cream-muted leading-relaxed mb-3">{guide.description}</p>
+    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-cream-dim mb-8">
+      <span>By <span class="text-cream-muted font-semibold">{GUIDE_AUTHOR}</span></span>
+      <span aria-hidden="true">·</span>
+      <span>{guide.readMins} min read</span>
+      <span aria-hidden="true">·</span>
+      <span>Published <time datetime={guide.published}>{fmtDate(guide.published)}</time></span>
+      {guide.updated !== guide.published && (
+        <>
+          <span aria-hidden="true">·</span>
+          <span>Updated <time datetime={guide.updated}>{fmtDate(guide.updated)}</time></span>
+        </>
+      )}
+    </div>
 
     <div class="guide-body text-sm text-cream-muted leading-relaxed space-y-4" set:html={guide.body} />
 

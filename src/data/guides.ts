@@ -4,10 +4,14 @@ export interface Guide {
   slug: string;
   title: string;
   description: string;
-  updated: string;   // ISO date
+  published: string; // ISO date first published
+  updated: string;   // ISO date last reviewed/updated
   readMins: number;
   body: string;      // HTML
 }
+
+// All guides are written and maintained by the site's editorial team.
+export const GUIDE_AUTHOR = 'TransferHub Editorial';
 
 const P = (s: string) => s; // identity, keeps the strings readable below
 
@@ -16,6 +20,7 @@ export const GUIDES: Guide[] = [
     slug: 'how-the-transfer-window-works',
     title: 'How the Football Transfer Window Works',
     description: 'A plain-English guide to the summer and winter transfer windows: dates, deadline day, registration rules and why deals collapse at the last minute.',
+    published: '2026-07-18',
     updated: '2026-08-01',
     readMins: 6,
     body: P(`
@@ -41,6 +46,7 @@ export const GUIDES: Guide[] = [
     slug: 'transfer-fees-explained',
     title: 'Transfer Fees Explained: Add-ons, Sell-on Clauses and Amortisation',
     description: 'What a headline transfer fee really means, guaranteed fees vs add-ons, sell-on percentages, instalments and how accountants spread the cost.',
+    published: '2026-07-20',
     updated: '2026-08-01',
     readMins: 7,
     body: P(`
@@ -62,6 +68,7 @@ export const GUIDES: Guide[] = [
     slug: 'loan-deals-explained',
     title: 'Loan Deals Explained: Straight Loans, Loan-to-Buy and Wage Splits',
     description: 'Why clubs loan players, the difference between a straight loan and an obligation to buy, and how wages and loan fees are shared.',
+    published: '2026-07-22',
     updated: '2026-08-02',
     readMins: 5,
     body: P(`
@@ -85,6 +92,7 @@ export const GUIDES: Guide[] = [
     slug: 'free-transfers-and-the-bosman-ruling',
     title: 'Free Transfers and the Bosman Ruling',
     description: 'How players move for nothing, what a pre-contract is, and how one 1995 court case reshaped football economics forever.',
+    published: '2026-07-24',
     updated: '2026-08-02',
     readMins: 5,
     body: P(`
@@ -106,6 +114,7 @@ export const GUIDES: Guide[] = [
     slug: 'financial-rules-ffp-and-psr',
     title: 'Financial Rules Explained: FFP, PSR and Squad-Cost Ratios',
     description: 'What Financial Fair Play, the Premier League PSR and UEFA squad-cost limits actually restrict, and how they shape transfer strategy.',
+    published: '2026-07-26',
     updated: '2026-08-03',
     readMins: 7,
     body: P(`
@@ -130,6 +139,7 @@ export const GUIDES: Guide[] = [
     slug: 'how-transfer-reliability-is-rated',
     title: 'How to Read Transfer Rumours: Tiers, Sources and Reliability',
     description: 'Not all transfer news is equal. A guide to source tiers, the language reporters use, and how TransferHub rates reliability.',
+    published: '2026-07-28',
     updated: '2026-08-03',
     readMins: 6,
     body: P(`

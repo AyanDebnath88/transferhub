@@ -34,7 +34,9 @@ const orgSchema = JSON.stringify({
   '@type': 'Organization',
   name: 'TransferHub',
   url: SITE,
-  logo: `${SITE}/icons/icon-192.png`,
+  logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-192.png` },
+  description: 'Independent football transfer news aggregator. TransferHub indexes confirmed signings, developing deals and rumours from trusted newsrooms and rates each for reliability.',
+  knowsAbout: ['Football transfers', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1', 'Transfer rumours', 'Confirmed signings'],
 });
 
 const siteSchema = JSON.stringify({
