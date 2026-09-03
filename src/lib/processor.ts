@@ -154,7 +154,9 @@ export function extractHeadlineClubs(title: string): string[] {
 const NAME_STOP = new Set(['With', 'The', 'After', 'Before', 'As', 'On', 'In', 'For', 'And', 'But',
   'His', 'Her', 'New', 'Why', 'How', 'What', 'When', 'Deal', 'Source', 'Exclusive', 'Breaking',
   'Confirmed', 'Official', 'Done', 'Latest', 'Update', 'Report', 'Reports', 'Loan', 'Transfer',
-  'Man', 'Real', 'West', 'East', 'North', 'South', 'United', 'City', 'Is', 'To', 'Of', 'A', 'An']);
+  'Man', 'Real', 'West', 'East', 'North', 'South', 'United', 'City', 'Is', 'To', 'Of', 'A', 'An',
+  'Premier', 'League', 'Champions', 'Europa', 'Cup', 'Scottish', 'Premiership', 'Championship',
+  'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
 export function extractPlayers(title: string): string[] {
   const matches = title.match(/([A-Z][a-zÀ-ÿ]+(?:\s[A-Z][a-zÀ-ÿ]+)+)/g) || [];
   return matches
@@ -217,25 +219,89 @@ export function buildOriginalSummary(t: {
   // On those, still write the full piece; only genuine football news stays short.
   const isTransferStory = t.type === 'confirmed' || t.type === 'rumour' || (transferContext && !!club);
 
-  // ---- Genuine NEWS (not a transfer): short + factual, no invented detail ----
+  // ---- Genuine NEWS (not a transfer): full ~100w write-up, honest framing.
+  // We only have the headline + our extracted names, so we DON'T invent scores,
+  // quotes or specifics — the piece frames the story and points to the source. ----
   if (!isTransferStory) {
-    if (p && club) return pick([
-      `${p} is in the spotlight here, with ${club} at the heart of the story. Follow the link for the full report.`,
-      `The latest on ${p} and ${club} — read on at the source for the detail and context behind the headline.`,
-      `${club} and ${p} are the names driving this one. Tap through to the original report for everything that was said.`,
-    ], id);
-    if (p) return pick([
-      `${p} is the name making news today. Open the full story at the source for the detail behind the headline.`,
-      `A fresh update centred on ${p}. Follow the link for the complete report and what it means next.`,
-    ], id);
-    if (club) return pick([
-      `${club} are in the news today. Follow the link to the full report for the detail behind the headline.`,
-      `The latest concerning ${club} — read on at the source for everything behind this one.`,
-    ], id);
-    return pick([
-      `A story worth a look from today's football. Follow the link for the full report at the source.`,
-      `One from around the grounds today. Tap through for the complete report and the detail behind it.`,
-    ], id);
+    const lc = t.title.toLowerCase();
+    const subtype =
+      /\b(round-?up|as it happened|talking points|player ratings|ratings|review)\b/.test(lc) ? 'roundup' :
+      /\b(win|wins|won|beat|beaten|rout|thrash|thrashed|held?|draw|drew|defeat|loss|lose|victory|comeback|equaliser|hat-?trick|scored?|goals?|inspires?|seals?|stunner|late)\b/.test(lc) ? 'result' :
+      /\b(boss|manager|head coach|sacked|appointed|returns as|takes? over|in charge|caretaker|dugout)\b/.test(lc) ? 'manager' :
+      /\b(injury|injured|ruled out|out for|fitness|sidelined|scan|knock)\b/.test(lc) ? 'injury' :
+      'general';
+    const subj = club || p;
+    const np: string[] = [];
+
+    // 1) Lead — shaped by story type, honest about what we do/don't know.
+    if (subtype === 'result') np.push(pick([
+      `${subj ? `${subj} are the talking point here` : 'A result is the story today'} after a match that will not have gone unnoticed${p && p !== subj ? `, with ${p} among the names catching the eye` : ''}.`,
+      `${p ? `${p} is in the spotlight` : `${club} take the headlines`} following a result the football pages are chewing over.`,
+      `This one turns on a result${club ? ` involving ${club}` : ''}, the kind of afternoon that shifts the mood around a club.`,
+    ], id + '1'));
+    else if (subtype === 'roundup') np.push(pick([
+      `This is a wider round-up of the day's football${club ? `, ${club} included` : ''}, pulling several stories and results into one place.`,
+      `A sweep across the latest action and talking points${club ? ` featuring ${club}` : ''}, with plenty to work through.`,
+    ], id + '1'));
+    else if (subtype === 'manager') np.push(pick([
+      `${subj ?? 'A club'} are in focus over the dugout, and a managerial story like this tends to set the tone for everything below it.`,
+      `There is movement on the touchline${club ? ` at ${club}` : ''}, the kind of call that shapes a season more than most headlines.`,
+    ], id + '1'));
+    else if (subtype === 'injury') np.push(pick([
+      `${p ? `${p} is the concern here` : 'A fitness worry is the story'}${club ? ` for ${club}` : ''}, and how serious it proves will matter for the weeks ahead.`,
+      `An injury update${club ? ` at ${club}` : ''}${p ? ` centred on ${p}` : ''} — never the headline anyone wants, and one worth keeping an eye on.`,
+    ], id + '1'));
+    else np.push(pick([
+      `${club ? `${club} are in the news` : 'This is one from around the grounds today'}${p && p !== club ? `, with ${p} involved` : ''}, and it is worth a couple of minutes.`,
+      `A story catching the eye across football today${club ? ` around ${club}` : ''}${p && p !== club ? ` and ${p}` : ''}.`,
+    ], id + '1'));
+
+    // 2) Context — grounded in real club facts where we have them.
+    if (info) np.push(pick([
+      `${club}, ${info.nick} from ${info.city}, are followed closely across ${info.league}, so even a smaller item draws attention.`,
+      `Based in ${info.city}, ${club} rarely slip under the radar in ${info.league}.`,
+    ], id + '2'));
+    else if (club) np.push(pick([
+      `${club} are one of the names that keep supporters refreshing the football pages.`,
+      `Anything involving ${club} tends to travel quickly among fans.`,
+    ], id + '2'));
+    else np.push(`It is the sort of item that rounds out a busy day across the leagues.`);
+
+    // 3) What the source covers — honest, no reproduction.
+    np.push(pick([
+      `The original report carries the detail, the quotes and the context in full, and the link takes you straight there.`,
+      `For the specifics — what was said, how it played out and why it matters — the source article is a click away.`,
+      `We point you to the original for the complete picture rather than rehashing every line of it here.`,
+    ], id + '3'));
+
+    // 4) Outlook — honest, no invented facts.
+    np.push(pick([
+      `On its own it may not move the table, but these are the threads that add up over a long season.`,
+      `It is a small piece of a much bigger picture, and the season will keep writing the rest.`,
+      `Worth filing away as the campaign takes shape week by week.`,
+      `Supporters will have their own read on it, and the debate rarely stays quiet for long.`,
+    ], id + '4'));
+
+    // Top up towards ~90 words with non-repeating, honest lines.
+    const nTop = [
+      `Football moves fast, so it is worth a look now while it is still the talk of the day.`,
+      `${subj ? `${subj}'s` : 'The club\'s'} supporters will be watching where this goes next.`,
+      `Days like this are what make following the game week to week worthwhile.`,
+      `We will keep surfacing the stories that matter and linking you to the people who broke them.`,
+    ];
+    const nUsed = new Set(np); let nsalt = 5;
+    while (wc(np.join(' ')) < 90) {
+      const before = np.length;
+      const cand = pick(nTop, id + nsalt);
+      if (!nUsed.has(cand)) { np.push(cand); nUsed.add(cand); }
+      nsalt++;
+      if (np.length === before) break;
+    }
+
+    let ns = np.join(' ');
+    const nw = ns.split(/\s+/);
+    if (nw.length > 130) ns = nw.slice(0, 130).join(' ').replace(/[,;:.]+$/, '') + '.';
+    return ns;
   }
 
   // ---- TRANSFERS (confirmed / rumour): full 100-140 word original write-up ----
